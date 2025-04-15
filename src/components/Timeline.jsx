@@ -1,56 +1,60 @@
-import { motion } from 'framer-motion';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { 
-  faHeart, 
-  faGlassCheers, 
-  faRing, 
+import { motion } from "framer-motion";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHeart,
+  faGlassCheers,
+  faRing,
   faCalendarDay,
-  faUserFriends
-} from '@fortawesome/free-solid-svg-icons';
+  faUserFriends,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Timeline = () => {
   const timelineEvents = [
     {
-      year: '2018',
-      title: 'Nos conocimos',
-      description: 'Un encuentro casual que cambió nuestras vidas para siempre.',
+      year: "2018",
+      title: "Nos conocimos",
+      description:
+        "Un encuentro casual que cambió nuestras vidas para siempre.",
       icon: faUserFriends,
-      photo: '/images/timeline-meet.jpg',
+      photo: "/images/timeline-meet.jpg",
     },
     {
-      year: '2019',
-      title: 'Nuestra primera cita',
-      description: 'Compartimos risas, historias y supimos que era el comienzo de algo especial.',
+      year: "2019",
+      title: "Nuestra primera cita",
+      description:
+        "Compartimos risas, historias y supimos que era el comienzo de algo especial.",
       icon: faGlassCheers,
-      photo: '/images/timeline-date.jpg',
+      photo: "/images/timeline-date.jpg",
     },
     {
-      year: '2020',
-      title: 'Nos hicimos novios',
-      description: 'Oficialmente comenzamos nuestro camino juntos.',
+      year: "2020",
+      title: "Nos hicimos novios",
+      description: "Oficialmente comenzamos nuestro camino juntos.",
       icon: faHeart,
-      photo: '/images/timeline-couple.jpg',
+      photo: "/images/timeline-couple.jpg",
     },
     {
-      year: '2023',
-      title: 'La propuesta',
-      description: 'Con un anillo y muchas lágrimas de felicidad, dijimos sí a compartir el resto de nuestras vidas.',
+      year: "2023",
+      title: "La propuesta",
+      description:
+        "Con un anillo y muchas lágrimas de felicidad, dijimos sí a compartir el resto de nuestras vidas.",
       icon: faRing,
-      photo: '/images/timeline-proposal.jpg',
+      photo: "/images/timeline-proposal.jpg",
     },
     {
-      year: '2025',
-      title: 'Nuestra boda',
-      description: '¡El día más esperado ha llegado! Celebramos nuestro amor rodeados de las personas más importantes en nuestras vidas.',
+      year: "2025",
+      title: "Nuestra boda",
+      description:
+        "¡El día más esperado ha llegado! Celebramos nuestro amor rodeados de las personas más importantes en nuestras vidas.",
       icon: faCalendarDay,
-      photo: '/images/timeline-wedding.jpg',
-    }
+      photo: "/images/timeline-wedding.jpg",
+    },
   ];
 
   return (
     <section className="timeline-section" id="timeline">
       <div className="container">
-        <motion.h2 
+        <motion.h2
           className="text-center"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -59,10 +63,10 @@ const Timeline = () => {
         >
           Nuestra Historia
         </motion.h2>
-        
+
         <div className="timeline">
           {timelineEvents.map((event, index) => (
-            <motion.div 
+            <motion.div
               className="timeline-item"
               key={index}
               initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
@@ -72,15 +76,23 @@ const Timeline = () => {
             >
               <div className="timeline-dot"></div>
               <div className="timeline-content">
-                <FontAwesomeIcon 
-                  icon={event.icon} 
-                  className="timeline-icon" 
-                  size="3x" 
+                <FontAwesomeIcon
+                  icon={event.icon}
+                  className="timeline-icon"
+                  size="3x"
                 />
-                <img 
-                  src={event.photo} 
-                  alt={event.title} 
-                  className="timeline-photo" 
+                <img
+                  src={event.photo}
+                  alt={event.title}
+                  className="timeline-photo"
+                  style={{
+                    borderRadius: "50%",
+                    width: "200px",
+                    height: "200px",
+                    objectFit: "cover",
+                    border: "4px solid rgb(212, 175, 55)",
+                    boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2)",
+                  }}
                 />
                 <div className="timeline-year">{event.year}</div>
                 <h3>{event.title}</h3>
@@ -94,4 +106,4 @@ const Timeline = () => {
   );
 };
 
-export default Timeline; 
+export default Timeline;
