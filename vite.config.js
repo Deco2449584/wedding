@@ -1,10 +1,9 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 
-// https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "/",
+  base: "/wedding/", // Actualizado para coincidir con el nombre del repositorio
   server: {
     port: 3000, // Puerto en el que se ejecuta el servidor
     open: true, // Abre el navegador automáticamente al iniciar el servidor
