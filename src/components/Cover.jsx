@@ -56,8 +56,10 @@ const Cover = ({ onOpen }) => {
             backgroundPosition: "center",
             border: "2px solid rgb(212, 175, 55)",
             boxShadow: "0 0 25px rgba(0, 0, 0, 0.3)",
-            padding: "3.5rem 2.5rem",
+            padding: "2.5rem 2rem",
             backdropFilter: "blur(1px)",
+            maxWidth: "85%",
+            margin: "0 auto",
           }}
         >
           <motion.div
@@ -68,18 +70,18 @@ const Cover = ({ onOpen }) => {
             style={{
               backgroundColor: "rgba(212, 175, 55, 0.9)",
               borderRadius: "50%",
-              width: "60px",
-              height: "60px",
+              width: "50px",
+              height: "50px",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              marginBottom: "1.5rem",
+              marginBottom: "1.2rem",
               border: "1px solid rgba(255, 255, 255, 0.7)",
             }}
           >
             <FontAwesomeIcon
               icon={faEnvelope}
-              style={{ color: "white", fontSize: "24px" }}
+              style={{ color: "white", fontSize: "20px" }}
             />
           </motion.div>
 
@@ -89,14 +91,14 @@ const Cover = ({ onOpen }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
             style={{
-              fontFamily:
-                '"Playfair Display", "Cormorant Garamond", "Great Vibes", cursive',
-              color: "#565f42",
-              fontSize: "2.2rem",
-              fontWeight: "400",
-              marginBottom: "1.2rem",
-              letterSpacing: "3px",
-              textShadow: "2px 2px 4px rgba(165, 102, 7, 0.4)",
+              fontFamily: '"Pinyon Script", "Great Vibes", cursive',
+              color: "#3a3a3a",
+              fontSize: "2.5rem",
+              fontWeight: "500",
+              marginBottom: "1rem",
+              marginTop: "1rem",
+              letterSpacing: "2px",
+              textShadow: "2px 2px 4px rgba(165, 102, 7, 0.3)",
             }}
           >
             ¡Te invitamos a nuestra boda!
@@ -108,14 +110,17 @@ const Cover = ({ onOpen }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}
             style={{
-              fontFamily: '"Playfair Display SC", "Cormorant Garamond", serif',
+              fontFamily: '"Petit Formal Script", "Tangerine", cursive',
               color: "rgb(212, 175, 55)",
-              fontSize: "4rem",
-              fontWeight: "bold",
-              marginBottom: "1.8rem",
-              marginTop: "0.8rem",
-              letterSpacing: "4px",
-              textShadow: "3px 3px 6px rgba(0, 0, 0, 0.4)",
+              fontSize: "3.8rem",
+              fontWeight: "500",
+              marginBottom: "0.5rem",
+              marginTop: "0.5rem",
+              marginLeft: "1rem",
+              marginRight: "1rem",
+              letterSpacing: "3px",
+              textShadow: "3px 3px 6px rgba(0, 0, 0, 0.3)",
+              lineHeight: "1.1",
             }}
           >
             Daniel & Laura
@@ -138,8 +143,8 @@ const Cover = ({ onOpen }) => {
               style={{
                 border: "4px solid rgb(212, 175, 55)",
                 boxShadow: "0 0 20px rgba(0, 0, 0, 0.3)",
-                width: "220px",
-                height: "220px",
+                width: "180px",
+                height: "180px",
               }}
             />
           </motion.div>
@@ -160,19 +165,20 @@ const Cover = ({ onOpen }) => {
               icon={faCalendarDay}
               style={{
                 color: "rgb(212, 175, 55)",
-                fontSize: "1.8rem",
-                marginRight: "15px",
+                fontSize: "1.5rem",
+                marginRight: "12px",
                 filter: "drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5))",
               }}
             />
             <div
               style={{
-                fontFamily: '"Cormorant Garamond", "Playfair Display", serif',
+                fontFamily: '"Pinyon Script", "Great Vibes", cursive',
                 color: "#565f42",
-                fontSize: "1.8rem",
+                fontSize: "2rem",
                 letterSpacing: "3px",
                 fontWeight: "500",
-                textShadow: "2px 2px 4px rgba(165, 102, 7, 0.4)",
+                textShadow: "1px 1px 3px rgba(165, 102, 7, 0.3)",
+                marginLeft: "10px",
               }}
             >
               15 de Junio, 2025
@@ -235,18 +241,21 @@ const Cover = ({ onOpen }) => {
             transition={{ delay: 1.6, duration: 0.8 }}
             disabled={isButtonClicked}
             style={{
-              fontFamily: '"Cormorant Garamond", "Playfair Display", serif',
+              fontFamily: '"Pinyon Script", "Great Vibes", cursive',
               backgroundColor: "rgb(212, 175, 55)",
-              color: "white",
-              border: "none",
-              padding: "12px 30px",
+              color: "#565f42",
+              border: "2px solid #565f42",
+              padding: "15px 35px",
               borderRadius: "30px",
-              fontSize: "1.5rem",
-              fontWeight: "600",
+              fontSize: "2.5rem",
+              fontWeight: "500",
               boxShadow: "0 4px 15px rgba(0, 0, 0, 0.3)",
-              marginTop: "1rem",
+              marginTop: "1.5rem",
               cursor: "pointer",
-              letterSpacing: "2px",
+              letterSpacing: "3px",
+              textTransform: "none",
+              lineHeight: "1",
+              textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
             }}
           >
             {isButtonClicked ? "Invitación Abierta" : "Abrir Invitación"}

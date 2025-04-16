@@ -84,7 +84,7 @@
   text-align: center;
   z-index: 1000;
   /* FONDO DE PORTADA: Reemplaza esta imagen para cambiar el fondo de la portada */
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/cover-bg.jpg');
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/cover-bg.png');
   background-size: cover;
   background-position: center;
   color: white;
