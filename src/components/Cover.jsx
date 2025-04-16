@@ -51,7 +51,7 @@ const Cover = ({ onOpen }) => {
           transition={{ delay: 0.2, duration: 0.8 }}
           style={{
             backgroundImage:
-              'linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25)), url("./images/invitacion2.jpg")',
+              'linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25)), url("./assets/images/invitacion2.jpg")',
             backgroundSize: "cover",
             backgroundPosition: "center",
             border: "2px solid rgb(212, 175, 55)",
@@ -133,7 +133,7 @@ const Cover = ({ onOpen }) => {
             transition={{ delay: 1, duration: 1 }}
           >
             <video
-              src="./videos/video.mp4"
+              src="./assets/videos/video.mp4"
               alt="Daniel & Laura"
               className="couple-photo"
               autoPlay

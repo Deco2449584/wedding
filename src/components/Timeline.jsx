@@ -16,7 +16,7 @@ const Timeline = () => {
       description:
         "Un encuentro casual que cambió nuestras vidas para siempre.",
       icon: faUserFriends,
-      photo: "./images/timeline-meet.jpg",
+      photo: "./assets/images/timeline-meet.jpg",
     },
     {
       year: "2019",
@@ -31,7 +31,7 @@ const Timeline = () => {
       title: "Nos hicimos novios",
       description: "Oficialmente comenzamos nuestro camino juntos.",
       icon: faHeart,
-      photo: "./images/timeline-couple.jpg",
+      photo: "./assets/images/timeline-couple.jpg",
     },
     {
       year: "2023",
@@ -39,7 +39,7 @@ const Timeline = () => {
       description:
         "Con un anillo y muchas lágrimas de felicidad, dijimos sí a compartir el resto de nuestras vidas.",
       icon: faRing,
-      photo: "./images/timeline-proposal.jpg",
+      photo: "./assets/images/timeline-proposal.jpg",
     },
     {
       year: "2025",
@@ -47,7 +47,7 @@ const Timeline = () => {
       description:
         "¡El día más esperado ha llegado! Celebramos nuestro amor rodeados de las personas más importantes en nuestras vidas.",
       icon: faCalendarDay,
-      photo: "./images/timeline-wedding.jpg",
+      photo: "./assets/images/timeline-wedding.jpg",
     },
   ];
 

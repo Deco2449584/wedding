@@ -8,7 +8,7 @@ const AudioPlayer = ({ autoPlay }) => {
 
   useEffect(() => {
     // Create audio element
-    audioRef.current = new Audio("./sounds/wedding-song.mp3");
+    audioRef.current = new Audio("./assets/sounds/wedding-song.mp3");
     audioRef.current.loop = true;
 
     // Clean up when component unmounts
