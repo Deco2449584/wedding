@@ -51,7 +51,7 @@ const Cover = ({ onOpen }) => {
           transition={{ delay: 0.2, duration: 0.8 }}
           style={{
             backgroundImage:
-              'linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25)), url("/images/invitacion2.jpg")',
+              'linear-gradient(rgba(255, 255, 255, 0.66), rgba(255, 255, 255, 0.52)), url("/images/invitacion2.jpg")',
             backgroundSize: "cover",
             backgroundPosition: "center",
             border: "2px solid rgb(212, 175, 55)",
@@ -93,11 +93,11 @@ const Cover = ({ onOpen }) => {
             style={{
               fontFamily: '"Pinyon Script", "Great Vibes", cursive',
               color: "#3a3a3a",
-              fontSize: "2.5rem",
+              fontSize: "2.8rem",
               fontWeight: "500",
               marginBottom: "1rem",
               marginTop: "1rem",
-              letterSpacing: "2px",
+              letterSpacing: "1px",
               textShadow: "2px 2px 4px rgba(165, 102, 7, 0.3)",
             }}
           >
@@ -236,30 +236,72 @@ const Cover = ({ onOpen }) => {
             className="open-invitation"
             onClick={handleOpenClick}
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            whileHover={{ scale: 1.05 }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              scale: [1, 1.05, 1],
+              transition: {
+                scale: {
+                  repeat: Infinity,
+                  duration: 2,
+                  ease: "easeInOut",
+                },
+              },
+            }}
+            whileHover={{
+              scale: 1.1,
+              boxShadow: "0 8px 25px rgba(212, 175, 55, 0.4)",
+              transition: { duration: 0.3 },
+            }}
             transition={{ delay: 1.6, duration: 0.8 }}
             disabled={isButtonClicked}
             style={{
               fontFamily: '"Pinyon Script", "Great Vibes", cursive',
-              backgroundColor: "rgb(212, 175, 55)",
-              color: "#565f42",
-              border: "2px solid #565f42",
-              padding: "15px 35px",
+              backgroundColor: "rgba(232, 220, 205, 0.85)",
+              color: "#3a3a3a",
+              border: "none",
+              padding: "15px 45px",
               borderRadius: "30px",
-              fontSize: "2.5rem",
+              fontSize: "2.8rem",
               fontWeight: "500",
-              boxShadow: "0 4px 15px rgba(0, 0, 0, 0.3)",
+              boxShadow: "0 4px 15px rgba(212, 175, 55, 0.3)",
               marginTop: "1.5rem",
               cursor: "pointer",
               letterSpacing: "3px",
-              textTransform: "none",
-              lineHeight: "1",
-              textShadow: "2px 2px 4px rgba(0, 0, 0, 0.3)",
+              position: "relative",
+              overflow: "hidden",
+              "&::after": {
+                content: '""',
+                position: "absolute",
+                top: "-50%",
+                left: "-50%",
+                width: "200%",
+                height: "200%",
+                background:
+                  "radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%)",
+                transform: "rotate(45deg)",
+                animation: "moveLight 3s infinite",
+              },
             }}
           >
             {isButtonClicked ? "Invitación Abierta" : "Abrir Invitación"}
           </motion.button>
+
+          <style>
+            {`
+              @keyframes moveLight {
+                0% {
+                  transform: translateX(-100%) translateY(-100%);
+                }
+                50% {
+                  transform: translateX(100%) translateY(100%);
+                }
+                100% {
+                  transform: translateX(-100%) translateY(-100%);
+                }
+              }
+            `}
+          </style>
         </motion.div>
       </motion.div>
     </div>
