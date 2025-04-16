@@ -3,7 +3,6 @@
  * 
  * 1. /images/background-texture.jpg - Fondo principal de toda la invitación
  * 2. /images/cover-bg.jpg - Fondo de la portada inicial
- * 3. /images/couple-photo.jpg - Foto de la pareja
  * 4. /images/flower-decor-top.png y flower-decor-bottom.png - Decoraciones florales
  * 5. /images/paper-texture.jpg - Textura de papel para el mensaje de bienvenida
  * 6. /images/light-pattern.jpg - Fondo de la sección de timeline
@@ -152,7 +151,7 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   position: relative;
   overflow: hidden;
-  background-image: url('/assets/images/invitacion2.jpg');
+  background-image: url('./images/invitacion2.jpg');
   background-size: cover;
   background-position: center;
 }

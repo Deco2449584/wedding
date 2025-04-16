@@ -48,7 +48,7 @@ const FallingPetals = () => {
         height: `${size}px`,
         animationDuration: `${animationDuration}s`,
         animationDelay: `${animationDelay}s`,
-        backgroundImage: `url('/images/petal-${petalType}.png')`
+       // backgroundImage: `url('/images/petal-${petalType}.png')`
       }
     };
   };
