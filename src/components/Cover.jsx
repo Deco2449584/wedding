@@ -133,7 +133,7 @@ const Cover = ({ onOpen }) => {
             transition={{ delay: 1, duration: 1 }}
           >
             <video
-              src="/assets/videos/video.mp4"
+              src="/videos/video.mp4"
               alt="Daniel & Laura"
               className="couple-photo"
               autoPlay
