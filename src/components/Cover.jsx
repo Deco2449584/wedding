@@ -56,10 +56,17 @@ const Cover = ({ onOpen }) => {
             backgroundPosition: "center",
             border: "2px solid rgb(212, 175, 55)",
             boxShadow: "0 0 25px rgba(0, 0, 0, 0.3)",
-            padding: "2.5rem 2rem",
-            backdropFilter: "blur(1px)",
-            maxWidth: "85%",
+            padding: "1rem 0.8rem", // Reducido aún más para móviles
+            maxWidth: "92%",
             margin: "0 auto",
+            maxHeight: "90vh", // Limitar altura máxima en móviles
+            overflowY: "auto", // Permitir scroll si el contenido es muy alto
+            "@media (min-width: 768px)": {
+              padding: "2.5rem 2rem",
+              maxWidth: "75%", // Aumentado para desktop
+              maxHeight: "95vh", // Aumentado para desktop
+              overflowY: "visible",
+            },
           }}
         >
           <motion.div
@@ -93,12 +100,17 @@ const Cover = ({ onOpen }) => {
             style={{
               fontFamily: '"Pinyon Script", "Great Vibes", cursive',
               color: "#3a3a3a",
-              fontSize: "2.8rem",
+              fontSize: "1.8rem", // Reducido aún más para móviles
               fontWeight: "500",
-              marginBottom: "1rem",
-              marginTop: "1rem",
+              marginBottom: "0.3rem",
+              marginTop: "0.3rem",
               letterSpacing: "1px",
               textShadow: "2px 2px 4px rgba(165, 102, 7, 0.3)",
+              "@media (min-width: 768px)": {
+                fontSize: "2.8rem",
+                marginBottom: "1rem",
+                marginTop: "1rem",
+              },
             }}
           >
             ¡Te invitamos a nuestra boda!
@@ -112,15 +124,23 @@ const Cover = ({ onOpen }) => {
             style={{
               fontFamily: '"Petit Formal Script", "Tangerine", cursive',
               color: "rgb(212, 175, 55)",
-              fontSize: "3.8rem",
+              fontSize: "2.4rem", // Reducido aún más para móviles
               fontWeight: "500",
-              marginBottom: "0.5rem",
-              marginTop: "0.5rem",
-              marginLeft: "1rem",
-              marginRight: "1rem",
-              letterSpacing: "3px",
+              marginBottom: "0.2rem",
+              marginTop: "0.2rem",
+              marginLeft: "0.5rem",
+              marginRight: "0.5rem",
+              letterSpacing: "2px",
               textShadow: "3px 3px 6px rgba(0, 0, 0, 0.3)",
               lineHeight: "1.1",
+              "@media (min-width: 768px)": {
+                fontSize: "3.8rem",
+                marginBottom: "0.5rem",
+                marginTop: "0.5rem",
+                marginLeft: "1rem",
+                marginRight: "1rem",
+                letterSpacing: "3px",
+              },
             }}
           >
             Daniel & Laura
@@ -143,8 +163,12 @@ const Cover = ({ onOpen }) => {
               style={{
                 border: "4px solid rgb(212, 175, 55)",
                 boxShadow: "0 0 20px rgba(0, 0, 0, 0.3)",
-                width: "180px",
-                height: "180px",
+                width: "120px", // Reducido aún más para móviles
+                height: "120px",
+                "@media (min-width: 768px)": {
+                  width: "180px",
+                  height: "180px",
+                },
               }}
             />
           </motion.div>
@@ -191,9 +215,13 @@ const Cover = ({ onOpen }) => {
             animate={{ opacity: 1 }}
             transition={{ delay: 1.4, duration: 0.8 }}
             style={{
-              margin: "2rem 0",
+              margin: "1rem 0", // Reducido para móviles
               position: "relative",
-              height: "35px",
+              height: "25px", // Reducido para móviles
+              "@media (min-width: 768px)": {
+                margin: "2rem 0",
+                height: "35px",
+              },
             }}
           >
             <FontAwesomeIcon
@@ -260,27 +288,21 @@ const Cover = ({ onOpen }) => {
               backgroundColor: "rgba(232, 220, 205, 0.85)",
               color: "#3a3a3a",
               border: "none",
-              padding: "15px 45px",
+              padding: "12px 30px", // Reducido para móviles
               borderRadius: "30px",
-              fontSize: "2.8rem",
+              fontSize: "2.2rem", // Reducido para móviles
               fontWeight: "500",
               boxShadow: "0 4px 15px rgba(212, 175, 55, 0.3)",
-              marginTop: "1.5rem",
+              marginTop: "1rem",
               cursor: "pointer",
-              letterSpacing: "3px",
+              letterSpacing: "2px",
               position: "relative",
               overflow: "hidden",
-              "&::after": {
-                content: '""',
-                position: "absolute",
-                top: "-50%",
-                left: "-50%",
-                width: "200%",
-                height: "200%",
-                background:
-                  "radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 70%)",
-                transform: "rotate(45deg)",
-                animation: "moveLight 3s infinite",
+              "@media (min-width: 768px)": {
+                padding: "15px 45px",
+                fontSize: "2.8rem",
+                letterSpacing: "3px",
+                marginTop: "1.5rem",
               },
             }}
           >
@@ -298,6 +320,33 @@ const Cover = ({ onOpen }) => {
                 }
                 100% {
                   transform: translateX(-100%) translateY(-100%);
+                }
+              }
+              @media (min-width: 768px) {
+                .cover-content {
+                  padding: 1rem;
+                  min-height: 95vh;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                }
+              }
+              @media (max-width: 767px) {
+                .cover-content {
+                  padding: 0.5rem;
+                  height: 100vh;
+                  display: flex;
+                  align-items: center;
+                }
+                .cover-circles {
+                  transform: scale(0.7);
+                }
+                .wedding-date-container {
+                  font-size: 1.4rem;
+                  margin-top: 1rem !important;
+                }
+                .photo-container {
+                  margin: 0.5rem 0;
                 }
               }
             `}

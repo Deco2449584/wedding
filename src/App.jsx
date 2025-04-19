@@ -49,38 +49,28 @@ function App() {
 
   return (
     <div className="app">
-      {/* Cover screen (initially locked) */}
       <Cover onOpen={handleOpenInvitation} />
 
-      {/* Show content only when invitation is opened */}
       {isInvitationOpen && (
-        <>
-          {/* Sticky header with countdown */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="container"
+        >
           <StickyHeader rsvpCount={rsvpCount} />
-
-          {/* Welcome message with scroll down prompt */}
           <Welcome />
-
-          {/* Timeline of our journey */}
           <Timeline />
-
-          {/* Location and venue details */}
           <Location />
-
-          {/* RSVP Form */}
           <RsvpForm onRsvpSubmit={handleRsvpSubmit} />
-
-          {/* Background effects - only shown after opening animation */}
           {showEffects && (
             <>
               <FallingPetals />
               <Confetti />
             </>
           )}
-
-          {/* Audio player - autoplay when effects are shown */}
           <AudioPlayer autoPlay={showEffects} />
-        </>
+        </motion.div>
       )}
 
       {/* Add keyframes for the bounce animation */}

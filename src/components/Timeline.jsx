@@ -24,7 +24,7 @@ const Timeline = () => {
       description:
         "Compartimos risas, historias y supimos que era el comienzo de algo especial.",
       icon: faGlassCheers,
-      photo: "/images/timeline-date.jpg",
+      photo: "./assets//images/timeline-date.jpg",
     },
     {
       year: "2020",

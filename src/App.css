@@ -58,15 +58,62 @@
   color: #888;
 }
 
+/* Base styles con enfoque mobile-first */
 .app {
   min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
   position: relative;
   /* FONDO PRINCIPAL: Reemplaza esta imagen para cambiar el fondo de toda la invitación */
-  background: url('/images/cover-bg.png');
+  background: url('./assets/images/cover-bg.png');
   background-size: cover;
   background-attachment: fixed;
+}
+
+/* Ajustes generales para componentes */
+.container {
+  width: 100%;
+  padding: 0 1rem;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* Ajustes responsive para secciones principales */
+.welcome-message,
+.timeline-section,
+.location,
+.rsvp {
+  padding: 2rem 1rem;
+}
+
+/* Timeline ajustes */
+.timeline {
+  padding: 1rem;
+  max-width: 100%;
+}
+
+.timeline-content {
+  padding: 1rem;
+}
+
+.timeline-photo {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Location ajustes */
+.map-container {
+  height: 300px;
+  margin: 1rem 0;
+}
+
+/* Form ajustes */
+.form-container {
+  padding: 1rem;
+  width: 100%;
+  max-width: 100%;
 }
 
 /* Cover Screen */
@@ -83,11 +130,13 @@
   text-align: center;
   z-index: 1000;
   /* FONDO DE PORTADA: Reemplaza esta imagen para cambiar el fondo de la portada */
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/cover-bg.png');
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./assets/images/cover-bg.png');
   background-size: cover;
   background-position: center;
   color: white;
   transition: opacity 1s ease-in-out;
+  overflow-y: auto;
+  padding: 1rem;
 }
 
 .cover.clicked {
@@ -96,9 +145,15 @@
 }
 
 .cover-content {
+  width: 100%;
   max-width: 800px;
   position: relative;
   z-index: 1;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100%;
 }
 
 /* Nuevo diseño de portada con círculos */
@@ -309,7 +364,7 @@
 /* Welcome Message */
 .welcome-message {
   /* MENSAJE DE BIENVENIDA: Reemplaza esta imagen para cambiar el fondo del mensaje */
-  background: url('/images/paper-texture.jpg') !important;
+  background: url('./assets/images/paper-texture.jpg') !important;
   background-size: cover !important;
   position: relative;
   padding: 4rem 1rem !important;
@@ -331,7 +386,7 @@
 /* Timeline Section */
 .timeline-section {
   /* TIMELINE: Reemplaza esta imagen para cambiar el fondo del timeline */
-  background: url('/images/light-pattern.jpg');
+  background: url('./assets/images/light-pattern.jpg');
   background-size: cover;
   padding: 4rem 0;
   position: relative;
@@ -442,7 +497,7 @@
 /* Location Section */
 .location {
   /* UBICACIÓN: Reemplaza esta imagen para cambiar el fondo de la ubicación */
-  background: url('/images/venue-bg.jpg');
+  background: url('./assets/images/venue-bg.jpg');
   background-size: cover;
   background-position: center;
   position: relative;
@@ -493,7 +548,7 @@
 /* RSVP Form */
 .rsvp {
   /* RSVP: Reemplaza esta imagen para cambiar el fondo del formulario */
-  background: url('/images/floral-pattern.jpg');
+  background: url('./assets/images/floral-pattern.jpg');
   background-size: cover;
   background-position: center;
   position: relative;
@@ -648,5 +703,184 @@
   .timeline-dot {
     left: 17.5px !important;
     right: auto !important;
+  }
+}
+
+/* Ajustes responsive para diferentes dispositivos */
+@media (max-width: 480px) {
+  .cover {
+    padding: 0.5rem;
+  }
+
+  .cover-content {
+    max-width: 100%;
+    padding: 1rem 0;
+  }
+
+  .invitation-border {
+    padding: 1rem !important;
+  }
+
+  .couple-photo {
+    width: 150px !important;
+    height: 150px !important;
+  }
+
+  .names {
+    font-size: 2rem !important;
+    margin: 0.3rem 0 !important;
+  }
+
+  .hearts-decoration {
+    margin: 0.8rem 0 !important;
+  }
+
+  .sticky-header {
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
+
+  .welcome-message,
+  .timeline-section,
+  .location,
+  .rsvp {
+    padding: 1.5rem 0.5rem;
+  }
+
+  .timeline-item {
+    margin: 2rem 0;
+  }
+
+  .map-container {
+    height: 250px;
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .cover-content {
+    max-width: 90%;
+    padding: 1.5rem 0;
+  }
+
+  .invitation-border {
+    padding: 1.5rem !important;
+  }
+
+  .couple-photo {
+    width: 180px !important;
+    height: 180px !important;
+  }
+
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .timeline-content {
+    padding: 1.5rem;
+  }
+
+  .map-container {
+    height: 350px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .cover-content {
+    max-width: 85%;
+  }
+
+  .invitation-border {
+    padding: 2rem !important;
+  }
+
+  .container {
+    padding: 0 2rem;
+  }
+
+  .welcome-message,
+  .timeline-section,
+  .location,
+  .rsvp {
+    padding: 4rem 2rem;
+  }
+
+  .timeline-content {
+    padding: 2rem;
+  }
+
+  .form-container {
+    padding: 2rem;
+    max-width: 600px;
+  }
+}
+
+@media (min-width: 1025px) {
+  .cover-content {
+    max-width: 75%;
+  }
+
+  .invitation-border {
+    padding: 2.5rem !important;
+  }
+}
+
+/* Ajustes para pantallas altas */
+@media (min-height: 800px) {
+  .cover-content {
+    padding: 2rem 0;
+  }
+}
+
+/* Ajustes para pantallas muy pequeñas */
+@media (max-height: 600px) {
+  .cover {
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .cover-content {
+    padding: 1rem 0;
+  }
+
+  .couple-photo {
+    width: 120px !important;
+    height: 120px !important;
+  }
+}
+
+/* Ajustes para orientación landscape en móviles */
+@media (max-height: 500px) and (orientation: landscape) {
+  .cover {
+    position: relative;
+    height: auto;
+    min-height: 100vh;
+  }
+
+  .welcome-message,
+  .timeline-section,
+  .location,
+  .rsvp {
+    padding: 1rem 0.5rem;
+  }
+
+  .map-container {
+    height: 200px;
+  }
+}
+
+/* Audio control ajustes */
+.audio-control {
+  width: 40px;
+  height: 40px;
+  bottom: 10px;
+  right: 10px;
+}
+
+@media (min-width: 768px) {
+  .audio-control {
+    width: 50px;
+    height: 50px;
+    bottom: 20px;
+    right: 20px;
   }
 }
