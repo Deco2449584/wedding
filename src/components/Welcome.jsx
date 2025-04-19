@@ -113,7 +113,7 @@ const Welcome = () => {
             margin: 0,
           }}
         >
-          Descubre nuestra historia
+          Desplácese hacia abajo{" "}
         </motion.p>
 
         <motion.div

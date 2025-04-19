@@ -11,7 +11,7 @@ import {
 const Timeline = () => {
   const timelineEvents = [
     {
-      year: "2018",
+      year: "2019",
       title: "Nos conocimos",
       description:
         "Un encuentro casual que cambió nuestras vidas para siempre.",
@@ -19,7 +19,7 @@ const Timeline = () => {
       photo: "./assets/images/timeline-meet.jpg",
     },
     {
-      year: "2019",
+      year: "2020",
       title: "Nuestra primera cita",
       description:
         "Compartimos risas, historias y supimos que era el comienzo de algo especial.",
@@ -34,7 +34,7 @@ const Timeline = () => {
       photo: "./assets/images/timeline-couple.jpg",
     },
     {
-      year: "2023",
+      year: "2025",
       title: "La propuesta",
       description:
         "Con un anillo y muchas lágrimas de felicidad, dijimos sí a compartir el resto de nuestras vidas.",

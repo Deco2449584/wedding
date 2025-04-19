@@ -550,7 +550,7 @@
   width: 60px;
   height: 60px;
   margin-bottom: 1rem;
-  color: #d4af37;
+  color: var(--primary-color);
 }
 
 .timeline-photo {
@@ -560,7 +560,7 @@
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 1rem;
-  border: 3px solid #d4af37;
+  border: 3px solid var(--tertiary-color);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -568,7 +568,7 @@
   position: absolute;
   width: 25px;
   height: 25px;
-  background-color: #d4af37;
+  background-color: var(--tertiary-color);
   border-radius: 50%;
   top: 50%;
   transform: translateY(-50%);
@@ -584,15 +584,16 @@
 }
 
 .timeline-year {
-  color: #d4af37;
-  font-weight: 700;
+  color: var(--tertiary-color);
+  font-size: 1.4rem;
+  font-weight: 900;
   margin-bottom: 0.5rem;
 }
 
 .timeline-title {
   font-family: 'Pinyon Script', cursive;
-  font-size: 1.8rem;
-  color: #8b4513;
+  font-size: 2.8rem;
+  color: var(--secondary-color);
   margin-bottom: 0.5rem;
 }
 
