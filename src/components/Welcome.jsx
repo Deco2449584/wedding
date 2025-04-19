@@ -1,9 +1,18 @@
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChevronDown,
+  faMousePointer,
+  faMouse,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Welcome = () => {
   const isMobile = window.innerWidth <= 768;
+
+  const scrollToTimeline = () => {
+    const timelineSection = document.getElementById("timeline-section");
+    timelineSection?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <motion.div
@@ -76,41 +85,64 @@ const Welcome = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.5, duration: 1 }}
+        onClick={scrollToTimeline}
         style={{
           position: "absolute",
-          bottom: isMobile ? "1.5rem" : "3rem",
+          bottom: isMobile ? "2rem" : "3rem",
           left: "50%",
           transform: "translateX(-50%)",
-          textAlign: "center",
-          color: "white",
+          cursor: "pointer",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "15px",
         }}
       >
-        <div
-          style={{
-            fontFamily: '"Petit Formal Script", cursive',
-            fontSize: isMobile ? "1.2rem" : "1.5rem",
-            fontWeight: "bold",
-            color: "rgb(229, 178, 137)",
-            marginBottom: "0.5rem",
-          }}
-        >
-          Descubre nuestra historia
-        </div>
-        <motion.div
-          animate={{
-            y: [0, 10, 0],
-          }}
+        <motion.p
+          animate={{ opacity: [0.5, 1, 0.5] }}
           transition={{
             duration: 2,
             repeat: Infinity,
             ease: "easeInOut",
           }}
+          style={{
+            color: "rgb(229, 178, 137)",
+            fontSize: isMobile ? "0.8rem" : "1rem",
+            fontFamily: '"Petit Formal Script", cursive',
+            margin: 0,
+          }}
         >
-          <FontAwesomeIcon
-            icon={faChevronDown}
+          Descubre nuestra historia
+        </motion.p>
+
+        <motion.div
+          style={{
+            width: isMobile ? "24px" : "30px",
+            height: isMobile ? "40px" : "50px",
+            border: "2px solid rgb(229, 178, 137)",
+            borderRadius: "20px",
+            position: "relative",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <motion.span
+            animate={{
+              y: [0, 15, 0],
+              opacity: [0, 1, 0],
+            }}
+            transition={{
+              duration: 1.5,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
             style={{
-              fontSize: isMobile ? "1.8rem" : "2.5rem",
-              color: "rgb(229, 178, 137)",
+              width: "4px",
+              height: "4px",
+              backgroundColor: "rgb(229, 178, 137)",
+              borderRadius: "50%",
+              position: "absolute",
+              top: "6px",
             }}
           />
         </motion.div>
