@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 const Welcome = () => {
+  const isMobile = window.innerWidth <= 768;
+
   return (
     <motion.div
       className="welcome-section"
@@ -10,7 +12,7 @@ const Welcome = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
       style={{
-        minHeight: "90vh",
+        minHeight: isMobile ? "80vh" : "90vh",
         position: "relative",
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -19,17 +21,19 @@ const Welcome = () => {
         alignItems: "center",
         justifyContent: "center",
         overflow: "hidden",
+        padding: isMobile ? "1rem" : 0,
       }}
     >
       <div
         style={{
           background: "#faf4e7",
-          padding: "3rem 4rem",
+          padding: isMobile ? "2rem 1.5rem" : "3rem 4rem",
           borderRadius: "8px",
           boxShadow: "0 0 30px rgba(0, 0, 0, 0.2)",
           maxWidth: "800px",
-          margin: "0 2rem",
+          margin: isMobile ? "0 1rem" : "0 2rem",
           position: "relative",
+          width: isMobile ? "100%" : "auto",
         }}
       >
         <motion.h2
@@ -38,11 +42,12 @@ const Welcome = () => {
           transition={{ delay: 0.5, duration: 1 }}
           style={{
             fontFamily: '"Pinyon Script", "Great Vibes", cursive',
-            fontSize: "4rem",
+            fontSize: isMobile ? "2.5rem" : "4rem",
             color: "#565f42",
-            marginBottom: "2rem",
+            marginBottom: isMobile ? "1.5rem" : "2rem",
             textShadow: "2px 2px 4px rgba(0, 0, 0, 0.1)",
             textAlign: "center",
+            lineHeight: isMobile ? "1.2" : "normal",
           }}
         >
           ¡Bienvenidos a nuestra invitación digital!
@@ -54,7 +59,7 @@ const Welcome = () => {
           transition={{ delay: 0.8, duration: 1 }}
           style={{
             fontFamily: '"Petit Formal Script", cursive',
-            fontSize: "1.6rem",
+            fontSize: isMobile ? "1.2rem" : "1.6rem",
             lineHeight: "1.8",
             color: "#565f42",
             textAlign: "center",
@@ -73,7 +78,7 @@ const Welcome = () => {
         transition={{ delay: 1.5, duration: 1 }}
         style={{
           position: "absolute",
-          bottom: "3rem",
+          bottom: isMobile ? "1.5rem" : "3rem",
           left: "50%",
           transform: "translateX(-50%)",
           textAlign: "center",
@@ -83,10 +88,10 @@ const Welcome = () => {
         <div
           style={{
             fontFamily: '"Petit Formal Script", cursive',
-            fontSize: "1.5rem",
+            fontSize: isMobile ? "1.2rem" : "1.5rem",
             fontWeight: "bold",
             color: "rgb(229, 178, 137)",
-            marginBottom: "1rem",
+            marginBottom: "0.5rem",
           }}
         >
           Descubre nuestra historia
@@ -104,7 +109,7 @@ const Welcome = () => {
           <FontAwesomeIcon
             icon={faChevronDown}
             style={{
-              fontSize: "2.5rem",
+              fontSize: isMobile ? "1.8rem" : "2.5rem",
               color: "rgb(229, 178, 137)",
             }}
           />
