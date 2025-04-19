@@ -199,7 +199,7 @@ const Cover = ({ onOpen }) => {
                 fontFamily: '"Pinyon Script", "Great Vibes", cursive',
                 color: "#565f42",
                 fontSize: "2rem",
-                letterSpacing: "3px",
+                letterSpacing: "1px",
                 fontWeight: "500",
                 textShadow: "1px 1px 3px rgba(165, 102, 7, 0.3)",
                 marginLeft: "10px",
