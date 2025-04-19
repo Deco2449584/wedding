@@ -24,7 +24,7 @@ const Timeline = () => {
       description:
         "Compartimos risas, historias y supimos que era el comienzo de algo especial.",
       icon: faGlassCheers,
-      photo: "./assets//images/timeline-date.jpg",
+      photo: "./assets/images/timeline-date.jpg",
     },
     {
       year: "2020",
@@ -55,19 +55,19 @@ const Timeline = () => {
     <section className="timeline-section" id="timeline">
       <div className="container">
         <motion.h2
-          className="text-center"
+          className="text-center timeline-title"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          Nuestra Historia
+          Nuestra Historia de Amor
         </motion.h2>
 
         <div className="timeline">
           {timelineEvents.map((event, index) => (
             <motion.div
-              className="timeline-item"
+              className={`timeline-item ${index % 2 === 0 ? "left" : "right"}`}
               key={index}
               initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -85,18 +85,10 @@ const Timeline = () => {
                   src={event.photo}
                   alt={event.title}
                   className="timeline-photo"
-                  style={{
-                    borderRadius: "50%",
-                    width: "200px",
-                    height: "200px",
-                    objectFit: "cover",
-                    border: "4px solid rgb(212, 175, 55)",
-                    boxShadow: "0 4px 15px rgba(0, 0, 0, 0.2)",
-                  }}
                 />
                 <div className="timeline-year">{event.year}</div>
-                <h3>{event.title}</h3>
-                <p>{event.description}</p>
+                <h3 className="timeline-title">{event.title}</h3>
+                <p className="timeline-description">{event.description}</p>
               </div>
             </motion.div>
           ))}
