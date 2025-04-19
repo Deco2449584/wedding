@@ -154,7 +154,6 @@
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('./assets/images/cover-bg.png');
   background-size: cover;
   background-position: center;
-  color: white;
   transition: opacity 1s ease-in-out;
   overflow-y: auto;
   padding: 1rem;
@@ -233,6 +232,7 @@
 }
 
 .invitation-icon {
+  background-color: var(--primary-color);
   font-size: 2.5rem;
   color: var(--primary-color);
   margin-bottom: 1rem;
@@ -241,7 +241,7 @@
 .invitation-subtitle {
   font-family: var(--font-secondary);
   font-size: 1.5rem;
-  color: white;
+  color: var(--secondary-color);
   margin-bottom: 1rem;
   font-weight: 400;
   letter-spacing: 1px;

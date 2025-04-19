@@ -51,7 +51,7 @@ const Cover = ({ onOpen }) => {
           transition={{ delay: 0.2, duration: 0.8 }}
           style={{
             backgroundImage:
-              'linear-gradient(rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.25)), url("./assets/images/invitacion2.jpg")',
+              'linear-gradient(rgba(255, 255, 255, 0.46), rgba(255, 255, 255, 0.54)), url("./assets/images/invitacion2.jpg")',
             backgroundSize: "cover",
             backgroundPosition: "center",
             border: "2px solid rgb(212, 175, 55)",
@@ -75,7 +75,6 @@ const Cover = ({ onOpen }) => {
             animate={{ scale: 1 }}
             transition={{ delay: 0.5, duration: 0.8, type: "spring" }}
             style={{
-              backgroundColor: "rgba(212, 175, 55, 0.9)",
               borderRadius: "50%",
               width: "50px",
               height: "50px",
@@ -99,8 +98,7 @@ const Cover = ({ onOpen }) => {
             transition={{ delay: 0.6, duration: 0.8 }}
             style={{
               fontFamily: '"Pinyon Script", "Great Vibes", cursive',
-              color: "#3a3a3a",
-              fontSize: "1.8rem", // Reducido aún más para móviles
+              fontSize: "2rem", // Reducido aún más para móviles
               fontWeight: "500",
               marginBottom: "0.3rem",
               marginTop: "0.3rem",
@@ -113,7 +111,7 @@ const Cover = ({ onOpen }) => {
               },
             }}
           >
-            ¡Te invitamos a nuestra boda!
+            ¡Te Invitamos a Nuestra Boda!
           </motion.h2>
 
           <motion.div
@@ -123,9 +121,8 @@ const Cover = ({ onOpen }) => {
             transition={{ delay: 0.8, duration: 0.8 }}
             style={{
               fontFamily: '"Petit Formal Script", "Tangerine", cursive',
-              color: "rgb(212, 175, 55)",
               fontSize: "2.4rem", // Reducido aún más para móviles
-              fontWeight: "500",
+              fontWeight: "bold",
               marginBottom: "0.2rem",
               marginTop: "0.2rem",
               marginLeft: "0.5rem",
@@ -161,7 +158,7 @@ const Cover = ({ onOpen }) => {
               loop
               playsInline
               style={{
-                border: "4px solid rgb(212, 175, 55)",
+                border: "4px solid rgb(229, 178, 137)",
                 boxShadow: "0 0 20px rgba(0, 0, 0, 0.3)",
                 width: "120px", // Reducido aún más para móviles
                 height: "120px",
@@ -188,7 +185,7 @@ const Cover = ({ onOpen }) => {
             <FontAwesomeIcon
               icon={faCalendarDay}
               style={{
-                color: "rgb(212, 175, 55)",
+                color: "rgb(229, 178, 137)",
                 fontSize: "1.5rem",
                 marginRight: "12px",
                 filter: "drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.5))",
@@ -197,7 +194,6 @@ const Cover = ({ onOpen }) => {
             <div
               style={{
                 fontFamily: '"Pinyon Script", "Great Vibes", cursive',
-                color: "#565f42",
                 fontSize: "2rem",
                 letterSpacing: "1px",
                 fontWeight: "500",
@@ -228,7 +224,7 @@ const Cover = ({ onOpen }) => {
               icon={faHeart}
               style={{
                 position: "absolute",
-                color: "rgb(212, 175, 55)",
+                color: "rgb(229, 178, 137)",
                 fontSize: "1.8rem",
                 left: "33%",
                 opacity: "0.85",
@@ -239,7 +235,7 @@ const Cover = ({ onOpen }) => {
               icon={faHeart}
               style={{
                 position: "absolute",
-                color: "rgb(212, 175, 55)",
+                color: "rgb(229, 178, 137)",
                 fontSize: "2.4rem",
                 left: "50%",
                 transform: "translateX(-50%)",
@@ -251,7 +247,7 @@ const Cover = ({ onOpen }) => {
               icon={faHeart}
               style={{
                 position: "absolute",
-                color: "rgb(212, 175, 55)",
+                color: "rgb(229, 178, 137)",
                 fontSize: "1.8rem",
                 right: "33%",
                 opacity: "0.85",
