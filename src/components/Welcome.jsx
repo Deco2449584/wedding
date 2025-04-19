@@ -21,7 +21,7 @@ const Welcome = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 1.5 }}
       style={{
-        minHeight: isMobile ? "80vh" : "90vh",
+        minHeight: isMobile ? "90vh" : "100vh",
         position: "relative",
         backgroundSize: "cover",
         backgroundPosition: "center",
@@ -108,6 +108,7 @@ const Welcome = () => {
           style={{
             color: "rgb(229, 178, 137)",
             fontSize: isMobile ? "0.8rem" : "1rem",
+            fontWeight: "bold",
             fontFamily: '"Petit Formal Script", cursive',
             margin: 0,
           }}
@@ -117,8 +118,8 @@ const Welcome = () => {
 
         <motion.div
           style={{
-            width: isMobile ? "24px" : "30px",
-            height: isMobile ? "40px" : "50px",
+            width: isMobile ? "34px" : "40px",
+            height: isMobile ? "50px" : "60px",
             border: "2px solid rgb(229, 178, 137)",
             borderRadius: "20px",
             position: "relative",
@@ -137,8 +138,8 @@ const Welcome = () => {
               ease: "easeInOut",
             }}
             style={{
-              width: "4px",
-              height: "4px",
+              width: "6px",
+              height: "6px",
               backgroundColor: "rgb(229, 178, 137)",
               borderRadius: "50%",
               position: "absolute",

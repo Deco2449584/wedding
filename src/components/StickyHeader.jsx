@@ -128,7 +128,7 @@ const timeBlockStyle = {
 const numberStyle = {
   fontSize: "1.8rem",
   fontWeight: "500",
-  color: "rgb(212, 175, 55)",
+  color: "rgb(229, 178, 137)",
   textShadow: "2px 2px 4px rgba(0, 0, 0, 0.1)",
   fontFamily: '"Petit Formal Script", "Great Vibes", cursive',
 };
