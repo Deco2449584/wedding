@@ -43,24 +43,21 @@ const StickyHeader = ({ rsvpCount }) => {
           fontFamily: '"Pinyon Script", "Great Vibes", cursive',
           display: "flex",
           alignItems: "center",
-          gap: "20px",
-          padding: "10px 20px",
-          background: "rgba(255, 255, 255, 0.95)",
-          borderRadius: "8px",
-          boxShadow: "0 2px 10px rgba(0, 0, 0, 0.1)",
+          gap: "10px",
+          maxWidth: "fit-content",
         }}
       >
         <div
           style={{
-            fontSize: "1.5rem",
+            fontSize: "1rem",
             color: "#565f42",
-            letterSpacing: "2px",
+            letterSpacing: "1px",
             fontWeight: "400",
           }}
         >
-          Nuestra boda en:
+          Faltan:
         </div>
-        <div style={{ display: "flex", gap: "15px" }}>
+        <div style={{ display: "flex", gap: "10px" }}>
           <div style={timeBlockStyle}>
             <span style={numberStyle}>{days}</span>
             <span style={labelStyle}>Días</span>
@@ -83,23 +80,19 @@ const StickyHeader = ({ rsvpCount }) => {
         className="rsvp-count"
         style={{
           fontFamily: '"Pinyon Script", "Great Vibes", cursive',
-          fontSize: "1.4rem",
-          background: "rgba(212, 175, 55, 0.1)",
-          padding: "8px 20px",
-          borderRadius: "30px",
-          border: "1px solid rgba(212, 175, 55, 0.3)",
+          fontSize: "1.3rem", // Aumentado para desktop
           display: "flex",
           alignItems: "center",
-          gap: "10px",
-          boxShadow: "0 2px 8px rgba(0, 0, 0, 0.05)",
+          gap: "8px",
+          maxWidth: "fit-content",
         }}
       >
         <span
           style={{
             fontWeight: "400",
-            color: "#565f42",
-            letterSpacing: "2px",
-            fontSize: "1.4rem",
+            color: "white",
+            letterSpacing: "1px",
+            fontSize: "1.3rem", // Aumentado para desktop
             textTransform: "none",
           }}
         >
@@ -108,14 +101,13 @@ const StickyHeader = ({ rsvpCount }) => {
         <span
           style={{
             fontFamily: '"Petit Formal Script", "Great Vibes", cursive',
-            backgroundColor: "rgb(212, 175, 55)",
+            backgroundColor: "rgba(255, 255, 255, 0.2)",
             color: "white",
-            padding: "4px 15px",
-            borderRadius: "15px",
+            padding: "2px 10px",
+            borderRadius: "8px",
             fontWeight: "400",
-            fontSize: "1.5rem",
-            boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-            minWidth: "30px",
+            fontSize: "1.2rem",
+            minWidth: "25px",
             textAlign: "center",
           }}
         >
@@ -126,16 +118,15 @@ const StickyHeader = ({ rsvpCount }) => {
   );
 };
 
-// Agregar estos estilos antes del export
 const timeBlockStyle = {
   display: "flex",
   flexDirection: "column",
   alignItems: "center",
-  minWidth: "45px",
+  minWidth: "40px",
 };
 
 const numberStyle = {
-  fontSize: "2rem",
+  fontSize: "1.8rem",
   fontWeight: "500",
   color: "rgb(212, 175, 55)",
   textShadow: "2px 2px 4px rgba(0, 0, 0, 0.1)",
@@ -143,11 +134,11 @@ const numberStyle = {
 };
 
 const labelStyle = {
-  fontSize: "0.9rem",
+  fontSize: "0.8rem",
   color: "#565f42",
   textTransform: "uppercase",
-  letterSpacing: "2px",
-  marginTop: "4px",
+  letterSpacing: "1px",
+  marginTop: "2px",
   fontFamily: '"Cormorant Garamond", serif',
 };
 
