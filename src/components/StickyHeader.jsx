@@ -90,9 +90,9 @@ const StickyHeader = ({ rsvpCount }) => {
         <span
           style={{
             fontWeight: "400",
-            color: "white",
-            letterSpacing: "1px",
-            fontSize: "1.3rem", // Aumentado para desktop
+            color: "#595f48",
+            letterSpacing: "2px",
+            fontSize: "1.5rem", // Aumentado para desktop
             textTransform: "none",
           }}
         >
@@ -101,7 +101,7 @@ const StickyHeader = ({ rsvpCount }) => {
         <span
           style={{
             fontFamily: '"Petit Formal Script", "Great Vibes", cursive',
-            backgroundColor: "rgba(255, 255, 255, 0.2)",
+            backgroundColor: "rgb(221, 180, 143)",
             color: "white",
             padding: "2px 10px",
             borderRadius: "8px",

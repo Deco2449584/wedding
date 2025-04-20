@@ -73,10 +73,10 @@ const Timeline = () => {
                   alt={event.title}
                   className="timeline-icon"
                   style={{
-                    width: "48px",
-                    height: "48px",
+                    width: "64px",
+                    height: "64px",
                     filter:
-                      "invert(24%) sepia(90%) saturate(1900%) hue-rotate(259deg) brightness(70%) contrast(90%)",
+                      "invert(86%) sepia(38%) saturate(463%) hue-rotate(355deg) brightness(89%) contrast(90%)",
                   }}
                 />
                 <img
