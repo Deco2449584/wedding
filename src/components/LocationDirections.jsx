@@ -2,21 +2,18 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faClock,
-  faTshirt,
   faCar,
   faCalendarCheck,
+  faUserSlash,
+  faGift,
 } from "@fortawesome/free-solid-svg-icons";
+import DressCode from "./DressCode";
 
 const LocationDirections = () => {
   const directions = [
     {
       icon: faClock,
       text: "La ceremonia comenzará puntualmente a las 12:00 pm.",
-      color: "#e5b289", // var(--primary-color)
-    },
-    {
-      icon: faTshirt,
-      text: "Código de vestimenta: Formal",
       color: "#e5b289",
     },
     {
@@ -27,6 +24,16 @@ const LocationDirections = () => {
     {
       icon: faCalendarCheck,
       text: "Por favor, confirma tu asistencia antes del 15 de Mayo",
+      color: "#e5b289",
+    },
+    {
+      icon: faUserSlash,
+      text: "Evento exclusivo para adultos",
+      color: "#e5b289",
+    },
+    {
+      icon: faGift,
+      text: "Lluvia de sobres",
       color: "#e5b289",
     },
   ];
@@ -48,7 +55,6 @@ const LocationDirections = () => {
         marginTop: "2rem",
         marginBottom: "2rem",
         overflow: "hidden",
-        opacity: 0.3,
       }}
     >
       <div
@@ -62,79 +68,93 @@ const LocationDirections = () => {
           zIndex: 0,
         }}
       ></div>
-      <div style={{ position: "relative", zIndex: 1 }}>
-        <h3
-          style={{
-            fontFamily: '"Pinyon Script", cursive',
-            fontSize: "2.5rem",
-            marginBottom: "2rem",
-            color: "var(--secondary-color)",
-            textAlign: "center",
-          }}
-        >
-          Indicaciones importantes
-        </h3>
-        <ul
-          style={{
-            listStyle: "none",
-            padding: 0,
-            fontSize: "1.2rem",
-            lineHeight: "1.8",
-            display: "grid",
-            gap: "1.5rem",
-          }}
-        >
-          {directions.map((item, index) => (
-            <motion.li
-              key={index}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 * index }}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "15px",
-                padding: "0.8rem",
-                borderRadius: "10px",
-                background: "rgba(229, 178, 137, 0.05)",
-                transition: "transform 0.3s ease",
-              }}
-              whileHover={{
-                transform: "translateX(10px)",
-                background: "rgba(229, 178, 137, 0.1)",
-              }}
-            >
-              <div
+      <div
+        style={{
+          position: "relative",
+          zIndex: 1,
+          display: "flex",
+          gap: "2rem",
+          flexWrap: "wrap",
+          justifyContent: "space-between",
+        }}
+      >
+        <div style={{ flex: "1", minWidth: "300px" }}>
+          <h3
+            style={{
+              fontFamily: '"Pinyon Script", cursive',
+              fontSize: "2.5rem",
+              marginBottom: "2rem",
+              color: "var(--secondary-color)",
+              textAlign: "center",
+              fontWeight: "700",
+            }}
+          >
+            Indicaciones importantes
+          </h3>
+          <ul
+            style={{
+              listStyle: "none",
+              padding: 0,
+              fontSize: "1.2rem",
+              lineHeight: "1.8",
+              display: "grid",
+              gap: "1.5rem",
+            }}
+          >
+            {directions.map((item, index) => (
+              <motion.li
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 * index }}
                 style={{
-                  width: "40px",
-                  height: "40px",
-                  borderRadius: "50%",
-                  backgroundColor: "var(--primary-color)",
                   display: "flex",
                   alignItems: "center",
-                  justifyContent: "center",
-                  flexShrink: 0,
+                  gap: "15px",
+                  padding: "0.8rem",
+                  borderRadius: "10px",
+                  background: "rgba(229, 178, 137, 0.1)",
+                  transition: "transform 0.3s ease",
+                }}
+                whileHover={{
+                  transform: "translateX(10px)",
+                  background: "rgba(229, 178, 137, 0.13)",
                 }}
               >
-                <FontAwesomeIcon
-                  icon={item.icon}
-                  style={{ color: "white", fontSize: "1.2rem" }}
-                />
-              </div>
-              <span
-                style={{
-                  fontFamily: '"Pinyon Script", cursive',
-                  color: "var(--secondary-color)",
-                  fontSize: "1.5rem",
-                  letterSpacing: "0.2px",
-                }}
-              >
-                {item.text}
-              </span>
-            </motion.li>
-          ))}
-        </ul>
+                <div
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    borderRadius: "50%",
+                    backgroundColor: "var(--primary-color)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexShrink: 0,
+                  }}
+                >
+                  <FontAwesomeIcon
+                    icon={item.icon}
+                    style={{ color: "white", fontSize: "1.2rem" }}
+                  />
+                </div>
+                <span
+                  style={{
+                    fontFamily: '"Pinyon Script", cursive',
+                    color: "var(--secondary-color)",
+                    fontSize: "1.5rem",
+                    letterSpacing: "0.2px",
+                    fontWeight: "600",
+                  }}
+                >
+                  {item.text}
+                </span>
+              </motion.li>
+            ))}
+          </ul>
+        </div>
+        <DressCode />
       </div>
     </motion.div>
   );

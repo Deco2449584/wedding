@@ -11,11 +11,45 @@ import AudioPlayer from "./components/AudioPlayer";
 import { motion } from "framer-motion";
 import Welcome from "./components/Welcome";
 import LocationDirections from "./components/LocationDirections";
+import { initializeApp } from "firebase/app";
+import { getFirestore, collection, getDocs } from "firebase/firestore";
+
+// Configuración de Firebase
+const firebaseConfig = {
+  apiKey: "AIzaSyCma1WH-SmDsFbdCH1Jq7E2O_W1mLPg8mM",
+  authDomain: "wedding-9e948.firebaseapp.com",
+  projectId: "wedding-9e948",
+  storageBucket: "wedding-9e948.firebasestorage.app",
+  messagingSenderId: "978494283095",
+  appId: "1:978494283095:web:ab0cdcac3a7caabf817212",
+};
+
+// Inicializar Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
 function App() {
   const [isInvitationOpen, setIsInvitationOpen] = useState(false);
   const [rsvpCount, setRsvpCount] = useState(0);
   const [showEffects, setShowEffects] = useState(false);
+
+  // Cargar el conteo total de invitados al iniciar
+  useEffect(() => {
+    const loadTotalGuests = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "confirmaciones"));
+        let total = 0;
+        querySnapshot.forEach((doc) => {
+          total += doc.data().numberOfGuests || 0;
+        });
+        setRsvpCount(total);
+      } catch (error) {
+        console.error("Error al cargar el total de invitados:", error);
+      }
+    };
+
+    loadTotalGuests();
+  }, []);
 
   // Handle opening the invitation
   const handleOpenInvitation = () => {
