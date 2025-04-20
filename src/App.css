@@ -638,12 +638,14 @@
 /* Location Section */
 .location {
   /* UBICACIÓN: Reemplaza esta imagen para cambiar el fondo de la ubicación */
-  background: url('./assets/images/venue-bg.jpg');
+  background: url('./assets/images/fondo_card.jpg');
   background-size: cover;
   background-position: center;
   position: relative;
   padding: 3rem 1rem;
   text-align: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
 .location::before {
@@ -653,7 +655,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.591);
   z-index: 0;
 }
 
@@ -689,7 +691,7 @@
 /* RSVP Form */
 .rsvp {
   /* RSVP: Reemplaza esta imagen para cambiar el fondo del formulario */
-  background: url('./assets/images/floral-pattern.jpg');
+  background: url('./assets/images/fondo_card.jpg');
   background-size: cover;
   background-position: center;
   position: relative;

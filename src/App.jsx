@@ -10,6 +10,7 @@ import Confetti from "./components/Confetti";
 import AudioPlayer from "./components/AudioPlayer";
 import { motion } from "framer-motion";
 import Welcome from "./components/Welcome";
+import LocationDirections from "./components/LocationDirections";
 
 function App() {
   const [isInvitationOpen, setIsInvitationOpen] = useState(false);
@@ -62,6 +63,7 @@ function App() {
           <Welcome />
           <Timeline />
           <Location />
+          <LocationDirections />
           <RsvpForm onRsvpSubmit={handleRsvpSubmit} />
           {showEffects && (
             <>
