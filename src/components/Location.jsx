@@ -122,18 +122,17 @@ const Location = () => {
           >
             <FontAwesomeIcon icon={faMapMarkerAlt} /> {venueLocation.place}
           </h3>
-          <p style={{ marginBottom: "1.5rem" }}>{venueLocation.address}</p>
-
-          <div
-            className="map-container"
+          <p
             style={{
-              border: "8px solid #fff",
-              boxShadow: "0 0 15px rgba(0, 0, 0, 0.2)",
-              position: "relative",
-              overflow: "hidden",
-              borderRadius: "8px",
+              fontFamily: '"Pinyon Script", "Great Vibes", cursive',
+              marginBottom: "1.5rem",
+              fontSize: "2rem",
             }}
           >
+            {venueLocation.address}
+          </p>
+
+          <div className="map-container" style={{}}>
             <iframe
               src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.4892857142855!2d${
                 venueLocation.coordinates.lng
@@ -178,10 +177,12 @@ const Location = () => {
               border: "none",
               padding: "12px 24px",
               borderRadius: "25px",
-              fontSize: "1.1rem",
+              fontSize: "1.5rem",
               cursor: "pointer",
               boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
               transition: "all 0.3s ease",
+              fontFamily: '"Great Vibes", cursive',
+              fontWeight: "bold",
             }}
           >
             <FontAwesomeIcon icon={faDirections} /> ¿Cómo llegar?

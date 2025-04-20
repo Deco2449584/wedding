@@ -11,7 +11,7 @@ const LocationDirections = () => {
   const directions = [
     {
       icon: faClock,
-      text: "La ceremonia comenzará puntualmente a las 16:00 hrs.",
+      text: "La ceremonia comenzará puntualmente a las 12:00 pm.",
       color: "#e5b289", // var(--primary-color)
     },
     {
@@ -44,10 +44,11 @@ const LocationDirections = () => {
         position: "relative",
         padding: "3rem 2rem",
         borderRadius: "15px",
-        boxShadow: "0 5px 15px rgba(0, 0, 0, 0.1)",
+        boxShadow: "0 5px 15px rgba(208, 136, 12, 0.587)",
         marginTop: "2rem",
         marginBottom: "2rem",
         overflow: "hidden",
+        opacity: 0.3,
       }}
     >
       <div
@@ -57,7 +58,7 @@ const LocationDirections = () => {
           left: 0,
           width: "100%",
           height: "100%",
-          backgroundColor: "rgba(255, 255, 255, 0.591)",
+          backgroundColor: "rgba(255, 255, 255, 0.69)",
           zIndex: 0,
         }}
       ></div>
@@ -121,7 +122,14 @@ const LocationDirections = () => {
                   style={{ color: "white", fontSize: "1.2rem" }}
                 />
               </div>
-              <span style={{ color: "var(--secondary-color)" }}>
+              <span
+                style={{
+                  fontFamily: '"Pinyon Script", cursive',
+                  color: "var(--secondary-color)",
+                  fontSize: "1.5rem",
+                  letterSpacing: "0.2px",
+                }}
+              >
                 {item.text}
               </span>
             </motion.li>
