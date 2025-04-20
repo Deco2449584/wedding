@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 const FallingPetals = () => {
   const [petals, setPetals] = useState([]);
@@ -36,9 +36,11 @@ const FallingPetals = () => {
 
     // Selección aleatoria de imágenes de pétalos (puedes agregar más)
     const petalType = Math.floor(Math.random() * 4) + 1;
-    
+
     // Generamos un ID único muy específico que combine el timestamp y múltiples números aleatorios
-    const uniqueId = `petal_${Date.now()}_${Math.random().toString(36).substring(2, 15)}_${Math.random().toString(36).substring(2, 15)}`;
+    const uniqueId = `petal_${Date.now()}_${Math.random()
+      .toString(36)
+      .substring(2, 15)}_${Math.random().toString(36).substring(2, 15)}`;
 
     return {
       id: uniqueId,
@@ -48,20 +50,20 @@ const FallingPetals = () => {
         height: `${size}px`,
         animationDuration: `${animationDuration}s`,
         animationDelay: `${animationDelay}s`,
-       // backgroundImage: `url('/images/petal-${petalType}.png')`
-      }
+        backgroundImage: `url('./assets/icons/petal-${petalType}.png')`,
+      },
     };
   };
 
   const addNewPetal = () => {
-    setPetals(prevPetals => {
+    setPetals((prevPetals) => {
       // Eliminar un pétalo antiguo si hay demasiados para mantener el rendimiento
       if (prevPetals.length > 30) {
         const randomIndex = Math.floor(Math.random() * prevPetals.length);
         return [
           ...prevPetals.slice(0, randomIndex),
           ...prevPetals.slice(randomIndex + 1),
-          createPetal()
+          createPetal(),
         ];
       }
       return [...prevPetals, createPetal()];
@@ -98,11 +100,11 @@ const FallingPetals = () => {
           }
         `}
       </style>
-      {petals.map(petal => (
+      {petals.map((petal) => (
         <div key={petal.id} className="petal" style={petal.style} />
       ))}
     </div>
   );
 };
 
-export default FallingPetals; 
+export default FallingPetals;
