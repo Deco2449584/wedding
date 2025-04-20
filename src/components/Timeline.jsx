@@ -29,7 +29,7 @@ const Timeline = () => {
       year: "2025",
       title: "La propuesta",
       description:
-        "Con un anillo y muchas lágrimas de felicidad, dijimos sí a compartir el resto de nuestras vidas.",
+        "Con un anillo y mucha felicidad, dijimos sí a compartir el resto de nuestras vidas.",
       icon: "./assets/icons/icon4.png",
       photo: "./assets/images/timeline-proposal.jpg",
     },

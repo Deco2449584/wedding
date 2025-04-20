@@ -592,14 +592,14 @@
 
 .timeline-title {
   font-family: 'Pinyon Script', cursive;
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   color: var(--secondary-color);
   margin-bottom: 0.5rem;
 }
 
 .timeline-description {
-  font-family: 'Lora', serif;
-  font-size: 1rem;
+  font-family: 'Pinyon Script', cursive;
+  font-size: 1.8rem;
   color: #555;
   text-align: center;
 }
@@ -607,6 +607,20 @@
 @media (max-width: 768px) {
   .timeline::before {
     left: 30px;
+  }
+
+  .timeline-title {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-description {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 1.2rem;
+    color: #555;
+    text-align: center;
   }
 
   .timeline-item {
