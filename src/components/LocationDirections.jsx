@@ -6,6 +6,7 @@ import {
   faCalendarCheck,
   faUserSlash,
   faGift,
+  faHeart,
 } from "@fortawesome/free-solid-svg-icons";
 import DressCode from "./DressCode";
 
@@ -35,6 +36,9 @@ const LocationDirections = () => {
       icon: faGift,
       text: "Lluvia de sobres",
       color: "#e5b289",
+      isSpecial: true,
+      description:
+        "Tu presencia es nuestro mejor regalo. Si deseas hacernos un obsequio, una contribución monetaria será muy apreciada.",
     },
   ];
 
@@ -110,46 +114,82 @@ const LocationDirections = () => {
                 transition={{ duration: 0.5, delay: 0.1 * index }}
                 style={{
                   display: "flex",
-                  alignItems: "center",
-                  gap: "15px",
+                  flexDirection: "column",
+                  gap: item.isSpecial ? "10px" : "0",
                   padding: "0.8rem",
                   borderRadius: "10px",
-                  background: "rgba(229, 178, 137, 0.1)",
+                  background: item.isSpecial
+                    ? "rgba(229, 178, 137, 0.2)"
+                    : "rgba(229, 178, 137, 0.1)",
                   transition: "transform 0.3s ease",
+                  border: item.isSpecial
+                    ? "2px dashed rgb(229, 178, 137)"
+                    : "none",
                 }}
                 whileHover={{
                   transform: "translateX(10px)",
-                  background: "rgba(229, 178, 137, 0.13)",
+                  background: item.isSpecial
+                    ? "rgba(229, 178, 137, 0.25)"
+                    : "rgba(229, 178, 137, 0.13)",
                 }}
               >
                 <div
-                  style={{
-                    width: "40px",
-                    height: "40px",
-                    borderRadius: "50%",
-                    backgroundColor: "var(--primary-color)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexShrink: 0,
-                  }}
+                  style={{ display: "flex", alignItems: "center", gap: "15px" }}
                 >
-                  <FontAwesomeIcon
-                    icon={item.icon}
-                    style={{ color: "white", fontSize: "1.2rem" }}
-                  />
+                  <div
+                    style={{
+                      width: "40px",
+                      height: "40px",
+                      borderRadius: "50%",
+                      backgroundColor: "var(--primary-color)",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexShrink: 0,
+                    }}
+                  >
+                    <FontAwesomeIcon
+                      icon={item.icon}
+                      style={{ color: "white", fontSize: "1.2rem" }}
+                    />
+                  </div>
+                  <span
+                    style={{
+                      fontFamily: '"Pinyon Script", cursive',
+                      color: "var(--secondary-color)",
+                      fontSize: "1.5rem",
+                      letterSpacing: "0.2px",
+                      fontWeight: "600",
+                    }}
+                  >
+                    {item.text}
+                    {item.isSpecial && (
+                      <FontAwesomeIcon
+                        icon={faHeart}
+                        style={{
+                          color: "var(--primary-color)",
+                          marginLeft: "10px",
+                          fontSize: "1rem",
+                        }}
+                      />
+                    )}
+                  </span>
                 </div>
-                <span
-                  style={{
-                    fontFamily: '"Pinyon Script", cursive',
-                    color: "var(--secondary-color)",
-                    fontSize: "1.5rem",
-                    letterSpacing: "0.2px",
-                    fontWeight: "600",
-                  }}
-                >
-                  {item.text}
-                </span>
+                {item.isSpecial && item.description && (
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    style={{
+                      margin: "0",
+                      paddingLeft: "55px",
+                      fontSize: "1.1rem",
+                      color: "#666",
+                      fontFamily: '"Pinyon Script", cursive',
+                    }}
+                  >
+                    {item.description}
+                  </motion.p>
+                )}
               </motion.li>
             ))}
           </ul>

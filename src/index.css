@@ -79,6 +79,31 @@ section {
   padding: 0 1rem;
 }
 
+/* Estilos globales para texto cursivo */
+.cursive-text {
+  font-family: 'Pinyon Script', cursive !important;
+  font-size: 1.8rem !important;
+  text-transform: none !important;
+}
+
+.cursive-title {
+  font-family: 'Pinyon Script', cursive;
+  font-size: 3rem;
+  color: var(--secondary-color);
+  margin-bottom: 2rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.cursive-subtitle {
+  font-family: 'Pinyon Script', cursive;
+  font-size: 2.2rem;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
 @media (max-width: 768px) {
   h1 {
     font-size: 2.5rem;
@@ -94,5 +119,17 @@ section {
 
   section {
     padding: 3rem 1rem;
+  }
+
+  .cursive-text {
+    font-size: 1.5rem !important;
+  }
+
+  .cursive-title {
+    font-size: 2.5rem;
+  }
+
+  .cursive-subtitle {
+    font-size: 1.8rem;
   }
 }
