@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
-  base: "/wedding/", // Actualizado para coincidir con el nombre del repositorio
+  base: "/", // Actualizado para coincidir con el nombre del repositorio
   server: {
     port: 3000, // Puerto en el que se ejecuta el servidor
     open: true, // Abre el navegador automáticamente al iniciar el servidor
