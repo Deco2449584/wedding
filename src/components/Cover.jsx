@@ -50,16 +50,29 @@ const Cover = ({ onOpen }) => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.8 }}
           style={{
-            padding: "1rem 0.8rem", // Reducido aún más para móviles
-            maxWidth: "92%",
+            // Estilos base (móviles pequeños < 360px)
+            padding: "0.8rem 0.6rem",
+            maxWidth: "95%",
             margin: "0 auto",
-            maxHeight: "90vh", // Limitar altura máxima en móviles
-            overflowY: "auto", // Permitir scroll si el contenido es muy alto
+            maxHeight: "90vh",
+            overflowY: "auto",
+            "@media (min-width: 360px)": {
+              padding: "1rem 0.8rem",
+              maxWidth: "92%",
+            },
+            "@media (min-width: 480px)": {
+              padding: "1.5rem 1.2rem",
+              maxWidth: "85%",
+            },
             "@media (min-width: 768px)": {
-              padding: "2.5rem 2rem",
-              maxWidth: "75%", // Aumentado para desktop
-              maxHeight: "95vh", // Aumentado para desktop
+              padding: "2rem 1.5rem",
+              maxWidth: "80%",
+              maxHeight: "95vh",
               overflowY: "visible",
+            },
+            "@media (min-width: 1024px)": {
+              padding: "2.5rem 2rem",
+              maxWidth: "75%",
             },
           }}
         >
@@ -314,21 +327,28 @@ const Cover = ({ onOpen }) => {
                   transform: translateX(-100%) translateY(-100%);
                 }
               }
-              @media (min-width: 768px) {
-                .cover-content {
-                  padding: 1rem;
-                  min-height: 95vh;
-                  display: flex;
-                  align-items: center;
-                  justify-content: center;
-                }
+              /* Móviles pequeños */
+              .cover-content {
+                padding: 0.3rem;
+                height: 100vh;
+                display: flex;
+                align-items: center;
               }
-              @media (max-width: 767px) {
+              .cover-circles {
+                transform: scale(0.6);
+              }
+              .wedding-date-container {
+                font-size: 1.2rem;
+                margin-top: 0.8rem !important;
+              }
+              .photo-container {
+                margin: 0.3rem 0;
+              }
+
+              /* Móviles medianos */
+              @media (min-width: 360px) {
                 .cover-content {
                   padding: 0.5rem;
-                  height: 100vh;
-                  display: flex;
-                  align-items: center;
                 }
                 .cover-circles {
                   transform: scale(0.7);
@@ -337,8 +357,38 @@ const Cover = ({ onOpen }) => {
                   font-size: 1.4rem;
                   margin-top: 1rem !important;
                 }
+              }
+
+              /* Tablets */
+              @media (min-width: 768px) {
+                .cover-content {
+                  padding: 1rem;
+                  min-height: 95vh;
+                  justify-content: center;
+                }
+                .cover-circles {
+                  transform: scale(0.85);
+                }
+                .wedding-date-container {
+                  font-size: 1.6rem;
+                  margin-top: 1.5rem !important;
+                }
                 .photo-container {
-                  margin: 0.5rem 0;
+                  margin: 1rem 0;
+                }
+              }
+
+              /* Desktop */
+              @media (min-width: 1024px) {
+                .cover-content {
+                  padding: 1.5rem;
+                }
+                .cover-circles {
+                  transform: scale(1);
+                }
+                .wedding-date-container {
+                  font-size: 2rem;
+                  margin-top: 2rem !important;
                 }
               }
             `}
