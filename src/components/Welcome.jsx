@@ -109,8 +109,8 @@ const Welcome = () => {
           }}
           style={{
             color: "rgb(229, 178, 137)",
-            fontSize: isMobile ? "0.8rem" : "1rem",
-            fontWeight: "bold",
+            fontSize: isMobile ? "1.3rem" : "1.8rem",
+            fontWeight: "600",
             fontFamily: '"Petit Formal Script", cursive',
             margin: 0,
           }}
