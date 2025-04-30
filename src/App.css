@@ -320,7 +320,9 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   position: relative;
   overflow: hidden;
-  background-image: url('./assets/images/invitacion2.jpg');
+  background-image: linear-gradient(to bottom,
+      rgba(255, 255, 255, 0.504),
+      rgba(255, 255, 255, 0.498)), url('./assets/images/invitacion2.jpg');
   background-size: cover;
   background-position: center;
 }
