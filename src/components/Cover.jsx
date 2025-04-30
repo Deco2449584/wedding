@@ -5,6 +5,7 @@ import {
   faHeart,
   faEnvelope,
   faCalendarDay,
+  faAnglesDown, // Añadir este import
 } from "@fortawesome/free-solid-svg-icons";
 
 const Cover = ({ onOpen }) => {
@@ -105,8 +106,8 @@ const Cover = ({ onOpen }) => {
             transition={{ delay: 0.6, duration: 0.8 }}
             style={{
               fontFamily: '"Pinyon Script", "Great Vibes", cursive',
-              fontSize: "2rem", // Reducido aún más para móviles
-              fontWeight: "600",
+              fontSize: "2.2rem",
+              fontWeight: "500",
               marginBottom: "0.3rem",
               marginTop: "0.3rem",
               letterSpacing: "1px",
@@ -127,9 +128,9 @@ const Cover = ({ onOpen }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}
             style={{
-              fontFamily: '"Petit Formal Script", "Tangerine", cursive',
-              fontSize: "2.4rem", // Reducido aún más para móviles
-              fontWeight: "bold",
+              fontFamily: '"Pinyon Script", "Great Vibes", cursive',
+              fontSize: "2.8rem",
+              fontWeight: "400",
               marginBottom: "0.2rem",
               marginTop: "0.2rem",
               marginLeft: "0.5rem",
@@ -263,6 +264,61 @@ const Cover = ({ onOpen }) => {
             />
           </motion.div>
 
+          <motion.div
+            className="arrows-container"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.5, duration: 0.8 }}
+            style={{
+              position: "relative",
+              height: "80px",
+              margin: "0.5rem 0",
+              display: "flex",
+              justifyContent: "center",
+              gap: "140px",
+            }}
+          >
+            {[1, 2].map((i) => (
+              <motion.div
+                key={i}
+                animate={{
+                  y: [0, -15, 0],
+                  opacity: [0.5, 1, 0.5],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: i * 0.3,
+                }}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "8px",
+                  transform: i === 1 ? "rotate(-20deg)" : "rotate(20deg)",
+                }}
+              >
+                <FontAwesomeIcon
+                  icon={faAnglesDown}
+                  style={{
+                    fontSize: "2.5rem",
+                    color: "rgb(89, 95, 72)",
+                    filter: "drop-shadow(2px 2px 4px rgba(0,0,0,0.3))",
+                  }}
+                />
+                <FontAwesomeIcon
+                  icon={faAnglesDown}
+                  style={{
+                    fontSize: "2rem",
+                    color: "rgb(89, 95, 72)",
+                    opacity: 0.7,
+                    filter: "drop-shadow(2px 2px 4px rgba(0,0,0,0.3))",
+                  }}
+                />
+              </motion.div>
+            ))}
+          </motion.div>
+
           <motion.button
             className="open-invitation"
             onClick={handleOpenClick}
@@ -288,13 +344,13 @@ const Cover = ({ onOpen }) => {
             disabled={isButtonClicked}
             style={{
               fontFamily: '"Pinyon Script", "Great Vibes", cursive',
+              fontWeight: "400",
               backgroundColor: "rgba(232, 220, 205, 0.85)",
               color: "#3a3a3a",
               border: "none",
               padding: "12px 30px", // Reducido para móviles
               borderRadius: "30px",
               fontSize: "2.2rem", // Reducido para móviles
-              fontWeight: "500",
               boxShadow: "0 4px 15px rgba(212, 175, 55, 0.3)",
               marginTop: "1rem",
               cursor: "pointer",
