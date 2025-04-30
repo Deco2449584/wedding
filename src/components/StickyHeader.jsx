@@ -139,7 +139,7 @@ const labelStyle = {
   textTransform: "uppercase",
   letterSpacing: "1px",
   marginTop: "2px",
-  fontFamily: '"Cormorant Garamond", serif',
+  fontFamily: '"Petit Formal Script", "Great Vibes", cursive',
 };
 
 export default StickyHeader;
