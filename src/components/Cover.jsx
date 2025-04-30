@@ -106,7 +106,7 @@ const Cover = ({ onOpen }) => {
             style={{
               fontFamily: '"Pinyon Script", "Great Vibes", cursive',
               fontSize: "2rem", // Reducido aún más para móviles
-              fontWeight: "500",
+              fontWeight: "600",
               marginBottom: "0.3rem",
               marginTop: "0.3rem",
               letterSpacing: "1px",
