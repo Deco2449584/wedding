@@ -20,45 +20,28 @@ const db = getFirestore(app);
 const RsvpForm = ({ onRsvpSubmit }) => {
   const [formData, setFormData] = useState({
     fullName: "",
-    numberOfGuests: "",
     comments: "",
     allergies: "",
     hasTransportation: "",
+    willDrinkAlcohol: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [hasSubmittedBefore, setHasSubmittedBefore] = useState(false);
-
-  useEffect(() => {
-    const previousSubmission = localStorage.getItem("rsvpSubmitted");
-    if (previousSubmission) {
-      setHasSubmittedBefore(true);
-      setIsSubmitted(true);
-    }
-  }, []);
+  const [showContinueButtons, setShowContinueButtons] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({
       ...prevState,
-      [name]: name === "numberOfGuests" ? parseInt(value) || "" : value,
+      [name]: value,
     }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (hasSubmittedBefore) {
-      alert("Ya has enviado una confirmación anteriormente.");
-      return;
-    }
 
     // Validación básica
     if (!formData.fullName.trim()) {
       alert("Por favor, ingresa tu nombre completo.");
-      return;
-    }
-
-    if (!formData.numberOfGuests || formData.numberOfGuests <= 0) {
-      alert("El número de invitados debe ser al menos 1.");
       return;
     }
 
@@ -75,18 +58,9 @@ const RsvpForm = ({ onRsvpSubmit }) => {
         onRsvpSubmit(formData);
       }
 
-      localStorage.setItem("rsvpSubmitted", "true");
-      setIsSubmitted(true);
-      setHasSubmittedBefore(true);
+      setShowContinueButtons(true); // Mostrar botones antes del mensaje de éxito
 
-      // Resetear formulario
-      setFormData({
-        fullName: "",
-        numberOfGuests: "",
-        comments: "",
-        allergies: "",
-        hasTransportation: "",
-      });
+      // No establecer isSubmitted aquí, esperar la decisión del usuario
     } catch (error) {
       console.error("Error al guardar la confirmación: ", error);
       alert(
@@ -95,18 +69,48 @@ const RsvpForm = ({ onRsvpSubmit }) => {
     }
   };
 
+  const handleContinue = (shouldContinue) => {
+    if (shouldContinue) {
+      setFormData({
+        fullName: "",
+        comments: "",
+        allergies: "",
+        hasTransportation: "",
+        willDrinkAlcohol: "",
+      });
+      setShowContinueButtons(false);
+    } else {
+      setIsSubmitted(true);
+    }
+  };
+
   return (
     <section className="rsvp" id="rsvp">
       <div className="container">
-        <motion.h2
-          className="text-center cursive-title"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          Confirma tu Asistencia
-        </motion.h2>
+        {!isSubmitted && !showContinueButtons && (
+          <>
+            <motion.h2
+              className="text-center cursive-title"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              Confirma la asistencia de los invitados en este formulario
+            </motion.h2>
+
+            <motion.p
+              className="text-center"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              Para tener mayor precisión en la organización del evento, cada
+              invitado debe responder individualmente este formulario.
+            </motion.p>
+          </>
+        )}
 
         <motion.div
           className="form-container"
@@ -117,19 +121,46 @@ const RsvpForm = ({ onRsvpSubmit }) => {
         >
           {isSubmitted ? (
             <div className="success-message">
+              <video
+                className="confirmation-video"
+                autoPlay
+                loop
+                muted
+                playsInline
+                style={{
+                  width: "200px",
+                  height: "200px",
+                  borderRadius: "50%",
+                  objectFit: "cover",
+                  marginBottom: "20px",
+                }}
+              >
+                <source src="./assets/videos/video.mp4" type="video/mp4" />
+              </video>
               <h3 className="cursive-subtitle">¡Gracias por confirmar!</h3>
               <p className="cursive-text">
                 Estamos muy emocionados de compartir este día especial contigo.
               </p>
-              {!hasSubmittedBefore && (
+            </div>
+          ) : showContinueButtons ? (
+            <div className="continue-message">
+              <h3 className="cursive-subtitle">
+                ¿Desea continuar con la iteración?
+              </h3>
+              <div className="confirmation-buttons">
                 <button
                   className="form-submit"
-                  onClick={() => setIsSubmitted(false)}
-                  style={{ marginTop: "1rem" }}
+                  onClick={() => handleContinue(true)}
                 >
-                  Enviar otra confirmación
+                  Confirmar otro invitado
                 </button>
-              )}
+                <button
+                  className="form-submit secondary"
+                  onClick={() => handleContinue(false)}
+                >
+                  Finalizar
+                </button>
+              </div>
             </div>
           ) : (
             <form onSubmit={handleSubmit}>
@@ -145,24 +176,6 @@ const RsvpForm = ({ onRsvpSubmit }) => {
                   value={formData.fullName}
                   onChange={handleChange}
                   placeholder="Escribe tu nombre completo..."
-                  required
-                />
-              </div>
-
-              <label htmlFor="numberOfGuests" className="form-label">
-                Número de Invitados:
-              </label>
-              <div className="form-group">
-                <input
-                  type="number"
-                  id="numberOfGuests"
-                  name="numberOfGuests"
-                  className="form-input cursive-placeholder"
-                  min="1"
-                  max="10"
-                  value={formData.numberOfGuests}
-                  onChange={handleChange}
-                  placeholder="¿Cuántos invitados asistirán?"
                   required
                 />
               </div>
@@ -211,6 +224,40 @@ const RsvpForm = ({ onRsvpSubmit }) => {
                     className="form-radio"
                   />
                   <label htmlFor="transportationNo" className="radio-label">
+                    No
+                  </label>
+                </div>
+              </div>
+
+              <label htmlFor="willDrinkAlcohol" className="form-label">
+                ¿Vas a tomar bebida alcohólica?
+              </label>
+              <div className="form-group radio-group">
+                <div className="radio-option">
+                  <input
+                    type="radio"
+                    id="alcoholYes"
+                    name="willDrinkAlcohol"
+                    value="yes"
+                    checked={formData.willDrinkAlcohol === "yes"}
+                    onChange={handleChange}
+                    className="form-radio"
+                  />
+                  <label htmlFor="alcoholYes" className="radio-label">
+                    Sí
+                  </label>
+                </div>
+                <div className="radio-option">
+                  <input
+                    type="radio"
+                    id="alcoholNo"
+                    name="willDrinkAlcohol"
+                    value="no"
+                    checked={formData.willDrinkAlcohol === "no"}
+                    onChange={handleChange}
+                    className="form-radio"
+                  />
+                  <label htmlFor="alcoholNo" className="radio-label">
                     No
                   </label>
                 </div>

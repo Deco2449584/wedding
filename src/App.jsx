@@ -38,11 +38,8 @@ function App() {
     const loadTotalGuests = async () => {
       try {
         const querySnapshot = await getDocs(collection(db, "confirmaciones"));
-        let total = 0;
-        querySnapshot.forEach((doc) => {
-          total += doc.data().numberOfGuests || 0;
-        });
-        setRsvpCount(total);
+        // Simplemente contar el número de documentos
+        setRsvpCount(querySnapshot.size);
       } catch (error) {
         console.error("Error al cargar el total de invitados:", error);
       }
@@ -63,12 +60,8 @@ function App() {
 
   // Handle RSVP submissions
   const handleRsvpSubmit = (formData) => {
-    // In a real app, you might want to send this to a backend
-    console.log("RSVP Submitted:", formData);
-    setRsvpCount((prevCount) => prevCount + formData.numberOfGuests);
-
-    // Here you would typically store this data in a database
-    // But for this demo, we'll just add to our local count
+    // Siempre incrementamos en 1 el contador, independientemente de los datos del formulario
+    setRsvpCount((prevCount) => prevCount + 1);
   };
 
   // Prevent scrolling when cover is visible
