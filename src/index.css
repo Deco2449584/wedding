@@ -86,21 +86,13 @@ section {
   text-transform: none !important;
 }
 
-.cursive-title {
-  font-family: 'Pinyon Script', cursive;
-  font-size: 3rem;
-  color: var(--secondary-color);
-  margin-bottom: 2rem;
-  font-weight: 500;
-  letter-spacing: 1px;
-}
 
 .cursive-subtitle {
   font-family: 'Pinyon Script', cursive;
   font-size: 2.2rem;
   color: var(--secondary-color);
   margin-bottom: 1rem;
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: 0.5px;
 }
 

@@ -57,21 +57,21 @@ const Cover = ({ onOpen }) => {
             margin: "0 auto",
             maxHeight: "90vh",
             overflowY: "auto",
-            "@media (min-width: 360px)": {
+            "@media (minWidth: 360px)": {
               padding: "1rem 0.8rem",
               maxWidth: "92%",
             },
-            "@media (min-width: 480px)": {
+            "@media (minWidth: 480px)": {
               padding: "1.5rem 1.2rem",
               maxWidth: "85%",
             },
-            "@media (min-width: 768px)": {
+            "@media (minWidth: 768px)": {
               padding: "2rem 1.5rem",
               maxWidth: "80%",
               maxHeight: "95vh",
               overflowY: "visible",
             },
-            "@media (min-width: 1024px)": {
+            "@media (minWidth: 1024px)": {
               padding: "2.5rem 2rem",
               maxWidth: "75%",
             },
@@ -112,7 +112,7 @@ const Cover = ({ onOpen }) => {
               marginTop: "0.3rem",
               letterSpacing: "1px",
               textShadow: "2px 2px 4px rgba(165, 102, 7, 0.3)",
-              "@media (min-width: 768px)": {
+              "@media (minWidth: 768px)": {
                 fontSize: "2.8rem",
                 marginBottom: "1rem",
                 marginTop: "1rem",
@@ -138,7 +138,7 @@ const Cover = ({ onOpen }) => {
               letterSpacing: "2px",
               textShadow: "3px 3px 6px rgba(0, 0, 0, 0.3)",
               lineHeight: "1.1",
-              "@media (min-width: 768px)": {
+              "@media (minWidth: 768px)": {
                 fontSize: "3.8rem",
                 marginBottom: "0.5rem",
                 marginTop: "0.5rem",
@@ -170,7 +170,7 @@ const Cover = ({ onOpen }) => {
                 boxShadow: "0 0 20px rgba(0, 0, 0, 0.3)",
                 width: "120px", // Reducido aún más para móviles
                 height: "120px",
-                "@media (min-width: 768px)": {
+                "@media (minWidth: 768px)": {
                   width: "180px",
                   height: "180px",
                 },
@@ -222,7 +222,7 @@ const Cover = ({ onOpen }) => {
               margin: "1rem 0", // Reducido para móviles
               position: "relative",
               height: "25px", // Reducido para móviles
-              "@media (min-width: 768px)": {
+              "@media (minWidth: 768px)": {
                 margin: "2rem 0",
                 height: "35px",
               },
@@ -358,8 +358,8 @@ const Cover = ({ onOpen }) => {
               position: "relative",
               overflow: "hidden",
               WebkitTapHighlightColor: "transparent", // Eliminar el highlight azul en móviles
-              "-webkit-tap-highlight-color": "transparent", // Para mayor compatibilidad
-              "@media (min-width: 768px)": {
+              WebkitTapHighlightColor: "transparent", // Para mayor compatibilidad
+              "@media (minWidth: 768px)": {
                 padding: "15px 45px",
                 fontSize: "2.8rem",
                 letterSpacing: "3px",
@@ -402,7 +402,7 @@ const Cover = ({ onOpen }) => {
               }
 
               /* Móviles medianos */
-              @media (min-width: 360px) {
+              @media (minWidth: 360px) {
                 .cover-content {
                   padding: 0.5rem;
                 }
@@ -416,7 +416,7 @@ const Cover = ({ onOpen }) => {
               }
 
               /* Tablets */
-              @media (min-width: 768px) {
+              @media (minWidth: 768px) {
                 .cover-content {
                   padding: 1rem;
                   min-height: 95vh;
@@ -435,7 +435,7 @@ const Cover = ({ onOpen }) => {
               }
 
               /* Desktop */
-              @media (min-width: 1024px) {
+              @media (minWidth: 1024px) {
                 .cover-content {
                   padding: 1.5rem;
                 }

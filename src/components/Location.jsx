@@ -177,11 +177,11 @@ const Location = () => {
               border: "none",
               padding: "12px 24px",
               borderRadius: "25px",
-              fontSize: "1.5rem",
+              fontSize: "1.8rem",
               cursor: "pointer",
               boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
               transition: "all 0.3s ease",
-              fontFamily: '"Great Vibes", cursive',
+              fontFamily: '"Pinyon Script", cursive',
               fontWeight: "bold",
             }}
           >

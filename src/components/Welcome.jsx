@@ -97,7 +97,7 @@ const Welcome = () => {
           alignItems: "center",
           gap: "15px",
           WebkitTapHighlightColor: "transparent",
-          "-webkit-tap-highlight-color": "transparent", // Para mayor compatibilidad
+          WebkitTapHighlightColor: "transparent", // Para mayor compatibilidad
         }}
       >
         <motion.p

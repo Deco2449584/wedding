@@ -10,7 +10,7 @@ import Confetti from "./components/Confetti";
 import AudioPlayer from "./components/AudioPlayer";
 import { motion } from "framer-motion";
 import Welcome from "./components/Welcome";
-import LocationDirections from "./components/LocationDirections";
+import Indications from "./components/Indications";
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 
@@ -97,7 +97,7 @@ function App() {
           <Welcome />
           <Timeline />
           <Location />
-          <LocationDirections />
+          <Indications />
           <RsvpForm onRsvpSubmit={handleRsvpSubmit} />
           {showEffects && (
             <>

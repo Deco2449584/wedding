@@ -117,8 +117,8 @@ const RsvpForm = ({ onRsvpSubmit }) => {
         >
           {isSubmitted ? (
             <div className="success-message">
-              <h3>¡Gracias por confirmar!</h3>
-              <p>
+              <h3 className="cursive-subtitle">¡Gracias por confirmar!</h3>
+              <p className="cursive-text">
                 Estamos muy emocionados de compartir este día especial contigo.
               </p>
               {!hasSubmittedBefore && (

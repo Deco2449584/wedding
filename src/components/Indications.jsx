@@ -6,31 +6,52 @@ import {
   faCalendarCheck,
   faUserSlash,
   faGift,
+  faBus,
+  faMapMarkerAlt,
+  faCamera,
   faHeart,
 } from "@fortawesome/free-solid-svg-icons";
 import DressCode from "./DressCode";
 
-const LocationDirections = () => {
+const Indications = () => {
   const directions = [
     {
       icon: faClock,
-      text: "La ceremonia comenzará puntualmente a las 12:00 pm.",
+      text: "La ceremonia comenzará a las 12:00 pm.",
+      color: "#e5b289",
+    },
+    {
+      icon: faMapMarkerAlt,
+      text: "Hacienda Villa Claudia, km 5 vía Chía",
       color: "#e5b289",
     },
     {
       icon: faCar,
-      text: "Hay estacionamiento disponible en el lugar",
+      text: "Estacionamiento disponible",
       color: "#e5b289",
     },
     {
       icon: faCalendarCheck,
-      text: "Por favor, confirma tu asistencia antes del 15 de Mayo",
+      text: "Confirma tu asistencia antes del 15 de Mayo",
       color: "#e5b289",
     },
     {
       icon: faUserSlash,
       text: "Evento exclusivo para adultos",
       color: "#e5b289",
+    },
+    {
+      icon: faCamera,
+      text: "Comparte tus fotos con #BodasClaudiayJuan",
+      color: "#e5b289",
+    },
+    {
+      icon: faBus,
+      text: "Transporte de regreso a Bogotá",
+      color: "#e5b289",
+      isSpecial: true,
+      description:
+        "Habrá transporte disponible desde la hacienda hasta Bogotá a las 8:00 pm y 11:00 pm. Por favor reserva tu cupo al confirmar asistencia.",
     },
     {
       icon: faGift,
@@ -182,7 +203,7 @@ const LocationDirections = () => {
                     style={{
                       margin: "0",
                       paddingLeft: "55px",
-                      fontSize: "1.1rem",
+                      fontSize: "1.Zrem",
                       color: "#666",
                       fontFamily: '"Pinyon Script", cursive',
                     }}
@@ -200,4 +221,4 @@ const LocationDirections = () => {
   );
 };
 
-export default LocationDirections;
+export default Indications;
