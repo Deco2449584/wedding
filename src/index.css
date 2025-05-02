@@ -10,12 +10,26 @@
   --overlay-color: rgba(0, 0, 0, 0.7);
   --font-primary: 'Playfair Display', serif;
   --font-secondary: 'Montserrat', sans-serif;
+
+  /* Prevenir modo oscuro */
+  color-scheme: light only;
+  -webkit-color-scheme: light only;
+  forced-color-adjust: none;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* Ajustes específicos para Safari iOS y modo oscuro */
+html,
+body {
+  background-color: var(--background-color);
+  color-scheme: light only;
+  -webkit-color-scheme: light only;
+  forced-color-adjust: none;
 }
 
 html {

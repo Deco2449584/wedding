@@ -72,6 +72,21 @@
   background-attachment: fixed;
 }
 
+/* Ajustes específicos para Safari iOS */
+@supports (-webkit-touch-callout: none) {
+  .app {
+    background-attachment: scroll;
+    background-size: cover;
+    -webkit-background-size: cover;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    perspective: 1000;
+    -webkit-perspective: 1000;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+}
+
 /* Ajustes generales para componentes */
 .container {
   width: 100%;
@@ -238,6 +253,17 @@
   transition: opacity 1s ease-in-out;
   overflow-y: auto;
   padding: 1rem;
+  /* Ajustes específicos para Safari iOS */
+  background-size: cover;
+  -webkit-background-size: cover;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  perspective: 1000;
+  -webkit-perspective: 1000;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  color-scheme: light only;
+  -webkit-color-scheme: light only;
 }
 
 .cover.clicked {
@@ -1335,4 +1361,20 @@
 
 .form-submit.secondary:hover {
   background-color: #ecc3c3;
+}
+
+/* Ajuste global para prevenir modo oscuro */
+:root {
+  color-scheme: light only;
+  -webkit-color-scheme: light only;
+}
+
+/* Forzar modo claro en todo el contenido */
+html,
+body,
+#root {
+  background-color: #ffffff;
+  color-scheme: light only;
+  -webkit-color-scheme: light only;
+  forced-color-adjust: none;
 }
