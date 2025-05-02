@@ -158,7 +158,7 @@ const Cover = ({ onOpen }) => {
             transition={{ delay: 1, duration: 1 }}
           >
             <img
-              src="./assets/images/isla.jpg"
+              src="./assets/images/timeline-wedding.jpg"
               alt="Daniel & Laura"
               className="couple-photo"
               style={{
