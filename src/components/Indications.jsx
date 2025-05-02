@@ -22,7 +22,7 @@ const Indications = () => {
     },
     {
       icon: faMapMarkerAlt,
-      text: "Hacienda Villa Claudia, km 5 vía Chía",
+      text: "Finca el Manantial, Vereda el Meusa, Sopó, Cundinamarca, Colombia",
       color: "#e5b289",
     },
     {
