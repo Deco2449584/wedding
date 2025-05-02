@@ -96,7 +96,6 @@ const Welcome = () => {
           flexDirection: "column",
           alignItems: "center",
           gap: "15px",
-          WebkitTapHighlightColor: "transparent",
           WebkitTapHighlightColor: "transparent", // Para mayor compatibilidad
         }}
       >

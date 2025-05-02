@@ -33,6 +33,16 @@ const Cover = ({ onOpen }) => {
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1 }}
+        style={{
+          height: "100%",
+          minHeight: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          padding: "0.5rem",
+          boxSizing: "border-box",
+          position: "relative",
+        }}
       >
         <motion.div
           className="cover-circles"
@@ -51,29 +61,40 @@ const Cover = ({ onOpen }) => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.8 }}
           style={{
-            // Estilos base (móviles pequeños < 360px)
-            padding: "0.8rem 0.6rem",
-            maxWidth: "95%",
+            padding: "1rem",
+            width: "95%",
+            maxWidth: "500px",
             margin: "0 auto",
             maxHeight: "90vh",
             overflowY: "auto",
-            "@media (minWidth: 360px)": {
-              padding: "1rem 0.8rem",
-              maxWidth: "92%",
-            },
-            "@media (minWidth: 480px)": {
-              padding: "1.5rem 1.2rem",
-              maxWidth: "85%",
-            },
-            "@media (minWidth: 768px)": {
-              padding: "2rem 1.5rem",
-              maxWidth: "80%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: "0.5rem",
+            boxSizing: "border-box",
+            // Estilos específicos para diferentes tamaños
+            "@media screen and (max-height: 667px)": {
+              // iPhone SE, 6, 7, 8
+              padding: "0.8rem",
+              gap: "0.3rem",
               maxHeight: "95vh",
-              overflowY: "visible",
             },
-            "@media (minWidth: 1024px)": {
-              padding: "2.5rem 2rem",
-              maxWidth: "75%",
+            "@media screen and (min-height: 668px) and (max-height: 896px)": {
+              // iPhone X, 11, 12, 13
+              padding: "1rem",
+              gap: "0.4rem",
+              maxHeight: "92vh",
+            },
+            "@media screen and (min-height: 897px)": {
+              // iPhone Pro Max y más grandes
+              padding: "1.2rem",
+              gap: "0.5rem",
+              maxHeight: "90vh",
+            },
+            "@media screen and (min-width: 768px)": {
+              padding: "2rem",
+              maxWidth: "600px",
+              gap: "1rem",
             },
           }}
         >
@@ -156,6 +177,12 @@ const Cover = ({ onOpen }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 1 }}
+            style={{
+              margin: "0.5rem 0",
+              "@media screen and (max-height: 667px)": {
+                margin: "0.3rem 0",
+              },
+            }}
           >
             <img
               src="./assets/images/timeline-wedding.jpg"
@@ -164,11 +191,24 @@ const Cover = ({ onOpen }) => {
               style={{
                 border: "4px solid rgb(229, 178, 137)",
                 boxShadow: "0 0 20px rgba(0, 0, 0, 0.3)",
-                width: "120px", // Reducido aún más para móviles
-                height: "120px",
-                objectFit: "cover", // Asegura que la imagen cubra el espacio sin distorsionarse
-                borderRadius: "50%", // Opcional: si quieres la imagen circular
-                "@media (minWidth: 768px)": {
+                width: "100px",
+                height: "100px",
+                objectFit: "cover",
+                borderRadius: "50%",
+                "@media screen and (max-height: 667px)": {
+                  width: "90px",
+                  height: "90px",
+                },
+                "@media screen and (min-height: 668px) and (max-height: 896px)":
+                  {
+                    width: "120px",
+                    height: "120px",
+                  },
+                "@media screen and (min-height: 897px)": {
+                  width: "140px",
+                  height: "140px",
+                },
+                "@media screen and (min-width: 768px)": {
                   width: "180px",
                   height: "180px",
                 },
@@ -376,22 +416,37 @@ const Cover = ({ onOpen }) => {
               backgroundColor: "rgba(232, 220, 205, 0.85)",
               color: "#3a3a3a",
               border: "none",
-              padding: "12px 30px", // Reducido para móviles
+              width: "auto",
+              padding: "0.8rem 1.5rem",
               borderRadius: "30px",
-              fontSize: "2.2rem", // Reducido para móviles
+              fontSize: "1.8rem",
               boxShadow: "0 4px 15px rgba(212, 175, 55, 0.3)",
-              marginTop: "1rem",
+              marginTop: "0.5rem",
               cursor: "pointer",
-              letterSpacing: "2px",
+              letterSpacing: "1px",
               position: "relative",
               overflow: "hidden",
-              WebkitTapHighlightColor: "transparent", // Eliminar el highlight azul en móviles
-              WebkitTapHighlightColor: "transparent", // Para mayor compatibilidad
-              "@media (minWidth: 768px)": {
-                padding: "15px 45px",
-                fontSize: "2.8rem",
-                letterSpacing: "3px",
-                marginTop: "1.5rem",
+              WebkitTapHighlightColor: "transparent",
+              "@media screen and (max-height: 667px)": {
+                padding: "0.6rem 1.2rem",
+                fontSize: "1.6rem",
+                marginTop: "0.3rem",
+              },
+              "@media screen and (min-height: 668px) and (max-height: 896px)": {
+                padding: "0.8rem 1.5rem",
+                fontSize: "1.8rem",
+                marginTop: "0.5rem",
+              },
+              "@media screen and (min-height: 897px)": {
+                padding: "1rem 2rem",
+                fontSize: "2rem",
+                marginTop: "0.8rem",
+              },
+              "@media screen and (min-width: 768px)": {
+                padding: "1.2rem 2.5rem",
+                fontSize: "2.2rem",
+                marginTop: "1rem",
+                letterSpacing: "2px",
               },
             }}
           >
@@ -473,6 +528,111 @@ const Cover = ({ onOpen }) => {
                 .wedding-date-container {
                   font-size: 2rem;
                   margin-top: 2rem !important;
+                }
+              }
+
+              /* Ajustes base para móviles pequeños */
+              .cover-content {
+                padding: 0.3rem;
+                min-height: 100vh;
+                display: flex;
+                align-items: center;
+              }
+
+              .wedding-date-container {
+                font-size: 1.2rem !important;
+                margin-top: 0.5rem !important;
+              }
+
+              /* iPhone SE, 5, 5S (4-inch) */
+              @media screen and (max-height: 568px) {
+                .cover-content { padding: 0.2rem; }
+                .wedding-date-container {
+                  font-size: 1rem !important;
+                  margin-top: 0.3rem !important;
+                }
+                .invitation-subtitle {
+                  font-size: 1.6rem !important;
+                }
+                .names {
+                  font-size: 2rem !important;
+                }
+              }
+
+              /* iPhone 6, 6S, 7, 8 (4.7-inch) */
+              @media screen and (min-height: 569px) and (max-height: 667px) {
+                .cover-content { padding: 0.3rem; }
+                .wedding-date-container {
+                  font-size: 1.3rem !important;
+                  margin-top: 0.4rem !important;
+                }
+                .invitation-subtitle {
+                  font-size: 1.8rem !important;
+                }
+                .names {
+                  font-size: 2.2rem !important;
+                }
+              }
+
+              /* iPhone X, XS, 11 Pro, 12 Mini (5.8-inch) */
+              @media screen and (min-height: 668px) and (max-height: 812px) {
+                .cover-content { padding: 0.4rem; }
+                .wedding-date-container {
+                  font-size: 1.4rem !important;
+                  margin-top: 0.6rem !important;
+                }
+                .invitation-subtitle {
+                  font-size: 2rem !important;
+                }
+                .names {
+                  font-size: 2.4rem !important;
+                }
+              }
+
+              /* iPhone XR, 11, 12, 13 (6.1-inch) */
+              @media screen and (min-height: 813px) and (max-height: 896px) {
+                .cover-content { padding: 0.5rem; }
+                .wedding-date-container {
+                  font-size: 1.5rem !important;
+                  margin-top: 0.8rem !important;
+                }
+                .invitation-subtitle {
+                  font-size: 2.2rem !important;
+                }
+                .names {
+                  font-size: 2.6rem !important;
+                }
+              }
+
+              /* iPhone Pro Max y tablets */
+              @media screen and (min-height: 897px) {
+                .cover-content { padding: 0.6rem; }
+                .wedding-date-container {
+                  font-size: 1.6rem !important;
+                  margin-top: 1rem !important;
+                }
+                .invitation-subtitle {
+                  font-size: 2.4rem !important;
+                }
+                .names {
+                  font-size: 2.8rem !important;
+                }
+              }
+
+              /* Tablets y escritorio */
+              @media screen and (min-width: 768px) {
+                .cover-content {
+                  padding: 1rem;
+                }
+                .wedding-date-container {
+                  font-size: 2rem !important;
+                  margin-top: 1.5rem !important;
+                }
+                .invitation-subtitle {
+                  font-size: 2.8rem !important;
+                }
+                .names {
+                  font-size: 3.2rem !important;
                 }
               }
             `}
