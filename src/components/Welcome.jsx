@@ -67,7 +67,7 @@ const Welcome = () => {
           transition={{ delay: 0.5, duration: 1 }}
           style={{
             fontFamily: "Charm",
-            fontSize: isMobile ? "2.5rem" : "4rem",
+            fontSize: isMobile ? "2.5rem" : "3rem",
             color: "#565f42",
             marginBottom: isMobile ? "1.5rem" : "2rem",
             textShadow: "2px 2px 4px rgba(0, 0, 0, 0.1)",
