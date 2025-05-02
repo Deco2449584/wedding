@@ -16,6 +16,7 @@ import Welcome from "./components/Welcome";
 import Indications from "./components/Indications";
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
+import VideoMessage from "./components/VideoMessage";
 
 // Configuración de Firebase
 const firebaseConfig = {
@@ -55,6 +56,7 @@ function MainContent({
           <Location />
           <Indications />
           <RsvpForm onRsvpSubmit={handleRsvpSubmit} />
+          <VideoMessage />
           <GuestStats />
           {showEffects && (
             <>
