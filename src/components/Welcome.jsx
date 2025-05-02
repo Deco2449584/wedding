@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useState } from "react";
 import {
   faChevronDown,
   faMousePointer,
@@ -8,6 +9,28 @@ import {
 
 const Welcome = () => {
   const isMobile = window.innerWidth <= 768;
+  const [guestNames, setGuestNames] = useState("");
+
+  useEffect(() => {
+    // Intentar obtener los nombres del localStorage primero
+    const savedNames = localStorage.getItem("guestNames");
+    if (savedNames) {
+      setGuestNames(savedNames);
+      return;
+    }
+
+    // Si no hay nombres guardados, buscar en la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const namesFromUrl = urlParams.get("invitados");
+
+    if (namesFromUrl) {
+      // Decodificar y formatear los nombres
+      const decodedNames = decodeURIComponent(namesFromUrl);
+      setGuestNames(decodedNames);
+      // Guardar en localStorage para futuras visitas
+      localStorage.setItem("guestNames", decodedNames);
+    }
+  }, []);
 
   const scrollToTimeline = () => {
     const timelineSection = document.getElementById("timeline-section");
@@ -59,7 +82,17 @@ const Welcome = () => {
             lineHeight: isMobile ? "1.2" : "normal",
           }}
         >
-          ¡Bienvenidos a nuestra invitación digital!
+          {guestNames ? (
+            <>
+              ¡Bienvenidos {guestNames}!
+              <br />
+              <span style={{ fontSize: "0.8em" }}>
+                Esta es su invitación digital
+              </span>
+            </>
+          ) : (
+            "¡Bienvenidos a nuestra invitación digital!"
+          )}
         </motion.h2>
 
         <motion.p
