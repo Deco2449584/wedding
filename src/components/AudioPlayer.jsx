@@ -7,9 +7,16 @@ const AudioPlayer = ({ autoPlay }) => {
   const audioRef = useRef(null);
 
   useEffect(() => {
-    // Create audio element
+    // Create audio element with playsInline attribute for iOS
     audioRef.current = new Audio("./assets/sounds/wedding-song.mp3");
     audioRef.current.loop = true;
+    audioRef.current.playsInline = true; // Importante para iOS
+
+    // Agregar atributos para mejorar compatibilidad con iOS
+    if (audioRef.current) {
+      audioRef.current.setAttribute("playsinline", "true");
+      audioRef.current.setAttribute("webkit-playsinline", "true");
+    }
 
     // Clean up when component unmounts
     return () => {
@@ -22,38 +29,47 @@ const AudioPlayer = ({ autoPlay }) => {
 
   // Effect to handle auto-play when invitation is opened
   useEffect(() => {
-    if (autoPlay && audioRef.current) {
-      audioRef.current.play().catch((error) => {
-        // Browser may block autoplay without user interaction
+    const playAudio = async () => {
+      try {
+        if (autoPlay && audioRef.current) {
+          // En iOS, necesitamos esperar a que el usuario interactúe
+          await audioRef.current.play();
+          setIsPlaying(true);
+        }
+      } catch (error) {
         console.error("Autoplay blocked:", error);
-      });
-      setIsPlaying(true);
-    }
+        setIsPlaying(false);
+      }
+    };
+
+    playAudio();
   }, [autoPlay]);
 
   // Function to toggle audio playing state
-  const toggleAudio = () => {
+  const toggleAudio = async () => {
     if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause();
-      } else {
-        audioRef.current.play().catch((error) => {
-          // Handle any errors (e.g., browser requiring user interaction before playing)
-          console.error("Failed to play audio:", error);
-        });
+      try {
+        if (isPlaying) {
+          await audioRef.current.pause();
+        } else {
+          await audioRef.current.play();
+        }
+        setIsPlaying(!isPlaying);
+      } catch (error) {
+        console.error("Failed to toggle audio:", error);
       }
-      setIsPlaying(!isPlaying);
     }
   };
 
   return (
-    <div
+    <button
       className="audio-control"
       onClick={toggleAudio}
       title={isPlaying ? "Silenciar música" : "Reproducir música"}
+      aria-label={isPlaying ? "Silenciar música" : "Reproducir música"}
     >
       <FontAwesomeIcon icon={isPlaying ? faVolumeUp : faVolumeMute} size="lg" />
-    </div>
+    </button>
   );
 };
 
