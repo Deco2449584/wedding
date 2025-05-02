@@ -22,7 +22,7 @@ const Indications = () => {
     },
     {
       icon: faMapMarkerAlt,
-      text: "Finca el Manantial, Vereda el Meusa, Sopó, Cundinamarca, Colombia",
+      text: "Finca el Manantial, Vereda el Meusa, Sopó",
       color: "#e5b289",
     },
     {

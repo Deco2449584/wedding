@@ -126,7 +126,7 @@ const Location = () => {
             style={{
               fontFamily: "Charm",
               marginBottom: "1.5rem",
-              fontSize: "2rem",
+              fontSize: "1.5rem",
             }}
           >
             {venueLocation.address}
