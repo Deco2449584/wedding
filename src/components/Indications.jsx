@@ -47,7 +47,7 @@ const Indications = () => {
       color: "#e5b289",
       isSpecial: true,
       description:
-        "Habrá transporte gratis disponible en frente de la terminal del salitre a las 10:00 am y regreso a las 8:00 pm. (Recuerda confirmar tu asistencia para el transporte).",
+        "Habrá transporte (Bus Privado) gratis disponible en frente de la terminal del salitre a las 10:00 am y regreso a las 8:00 pm. (Recuerda confirmar tu asistencia para el transporte privado).",
     },
     {
       icon: faGift,

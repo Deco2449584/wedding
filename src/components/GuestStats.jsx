@@ -64,6 +64,8 @@ const GuestStats = () => {
     fetchStats();
   }, []);
 
+  const availableSpots = 40;
+
   const StatCard = ({ icon, title, value, color, onClick, isSelected }) => (
     <motion.div
       whileHover={{ scale: 1.05 }}
@@ -244,15 +246,15 @@ const GuestStats = () => {
       >
         <StatCard
           icon={faUsers}
-          title="Total Confirmados"
-          value={stats.totalGuests}
+          title="Cupos Disponibles"
+          value={availableSpots - stats.totalGuests}
           color="229, 178, 137"
           onClick={() => setSelectedStat(null)}
           isSelected={false}
         />
         <StatCard
           icon={faCar}
-          title="Con Transporte"
+          title="Con Transporte Propio"
           value={stats.withTransport}
           color="88, 95, 69"
           onClick={() => setSelectedStat(null)}
