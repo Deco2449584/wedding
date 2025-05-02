@@ -75,25 +75,25 @@ const Cover = ({ onOpen }) => {
             gap: "0.5rem",
             boxSizing: "border-box",
             // Estilos específicos para diferentes tamaños
-            "@media screen and (max-height: 667px)": {
+            "@media screen and (maxHeight: 667px)": {
               // iPhone SE, 6, 7, 8
               padding: "0.8rem",
               gap: "0.3rem",
               maxHeight: "95vh",
             },
-            "@media screen and (min-height: 668px) and (max-height: 896px)": {
+            "@media screen and (minHeight: 668px) and (maxHeight: 896px)": {
               // iPhone X, 11, 12, 13
               padding: "1rem",
               gap: "0.4rem",
               maxHeight: "92vh",
             },
-            "@media screen and (min-height: 897px)": {
+            "@media screen and (minHeight: 897px)": {
               // iPhone Pro Max y más grandes
               padding: "1.2rem",
               gap: "0.5rem",
               maxHeight: "90vh",
             },
-            "@media screen and (min-width: 768px)": {
+            "@media screen and (minWidth: 768px)": {
               padding: "2rem",
               maxWidth: "600px",
               gap: "1rem",
@@ -181,7 +181,7 @@ const Cover = ({ onOpen }) => {
             transition={{ delay: 1, duration: 1 }}
             style={{
               margin: "0.5rem 0",
-              "@media screen and (max-height: 667px)": {
+              "@media screen and (maxHeight: 667px)": {
                 margin: "0.3rem 0",
               },
             }}
@@ -197,20 +197,19 @@ const Cover = ({ onOpen }) => {
                 height: "100px",
                 objectFit: "cover",
                 borderRadius: "50%",
-                "@media screen and (max-height: 667px)": {
+                "@media screen and (maxHeight: 667px)": {
                   width: "90px",
                   height: "90px",
                 },
-                "@media screen and (min-height: 668px) and (max-height: 896px)":
-                  {
-                    width: "120px",
-                    height: "120px",
-                  },
-                "@media screen and (min-height: 897px)": {
+                "@media screen and (minHeight: 668px) and (maxHeight: 896px)": {
+                  width: "120px",
+                  height: "120px",
+                },
+                "@media screen and (minHeight: 897px)": {
                   width: "140px",
                   height: "140px",
                 },
-                "@media screen and (min-width: 768px)": {
+                "@media screen and (minWidth: 768px)": {
                   width: "180px",
                   height: "180px",
                 },
@@ -430,25 +429,25 @@ const Cover = ({ onOpen }) => {
               position: "relative",
               overflow: "hidden",
               WebkitTapHighlightColor: "transparent",
-              "@media screen and (max-height: 667px)": {
+              "@media screen and (maxHeight: 667px)": {
                 padding: "0.6rem 1.2rem",
                 fontSize: "1.6rem",
                 marginTop: "0.3rem",
                 marginBottom: "0.3rem", // Añadir margen inferior
               },
-              "@media screen and (min-height: 668px) and (max-height: 896px)": {
+              "@media screen and (minHeight: 668px) and (maxHeight: 896px)": {
                 padding: "0.8rem 1.5rem",
                 fontSize: "1.8rem",
                 marginTop: "0.5rem",
                 marginBottom: "0.5rem", // Añadir margen inferior
               },
-              "@media screen and (min-height: 897px)": {
+              "@media screen and (minHeight: 897px)": {
                 padding: "1rem 2rem",
                 fontSize: "2rem",
                 marginTop: "0.8rem",
                 marginBottom: "0.8rem", // Añadir margen inferior
               },
-              "@media screen and (min-width: 768px)": {
+              "@media screen and (minWidth: 768px)": {
                 padding: "1.2rem 2.5rem",
                 fontSize: "2.2rem",
                 marginTop: "1rem",
