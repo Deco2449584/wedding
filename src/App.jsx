@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Cover from "./components/Cover";
 import StickyHeader from "./components/StickyHeader";
@@ -6,6 +7,7 @@ import Timeline from "./components/Timeline";
 import Location from "./components/Location";
 import RsvpForm from "./components/RsvpForm";
 import GuestStats from "./components/GuestStats";
+import DetailedGuestTable from "./components/DetailedGuestTable";
 import FallingPetals from "./components/FallingPetals";
 import Confetti from "./components/Confetti";
 import AudioPlayer from "./components/AudioPlayer";
@@ -28,6 +30,61 @@ const firebaseConfig = {
 // Inicializar Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+
+function MainContent({
+  isInvitationOpen,
+  handleOpenInvitation,
+  rsvpCount,
+  handleRsvpSubmit,
+  showEffects,
+}) {
+  return (
+    <div className="app">
+      <Cover onOpen={handleOpenInvitation} />
+
+      {isInvitationOpen && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="container"
+        >
+          <StickyHeader rsvpCount={rsvpCount} />
+          <Welcome />
+          <Timeline />
+          <Location />
+          <Indications />
+          <RsvpForm onRsvpSubmit={handleRsvpSubmit} />
+          <GuestStats />
+          {showEffects && (
+            <>
+              <FallingPetals />
+              <Confetti />
+            </>
+          )}
+          <AudioPlayer autoPlay={showEffects} />
+        </motion.div>
+      )}
+
+      {/* Add keyframes for the bounce animation */}
+      <style>
+        {`
+          @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+              transform: translateY(0);
+            }
+            40% {
+              transform: translateY(-20px);
+            }
+            60% {
+              transform: translateY(-10px);
+            }
+          }
+        `}
+      </style>
+    </div>
+  );
+}
 
 function App() {
   const [isInvitationOpen, setIsInvitationOpen] = useState(false);
@@ -77,50 +134,26 @@ function App() {
   }, [isInvitationOpen]);
 
   return (
-    <div className="app">
-      <Cover onOpen={handleOpenInvitation} />
-
-      {isInvitationOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5 }}
-          className="container"
-        >
-          <StickyHeader rsvpCount={rsvpCount} />
-          <Welcome />
-          <Timeline />
-          <Location />
-          <Indications />
-          <RsvpForm onRsvpSubmit={handleRsvpSubmit} />
-          <GuestStats />
-          {showEffects && (
-            <>
-              <FallingPetals />
-              <Confetti />
-            </>
-          )}
-          <AudioPlayer autoPlay={showEffects} />
-        </motion.div>
-      )}
-
-      {/* Add keyframes for the bounce animation */}
-      <style>
-        {`
-          @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-              transform: translateY(0);
-            }
-            40% {
-              transform: translateY(-20px);
-            }
-            60% {
-              transform: translateY(-10px);
-            }
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <MainContent
+              isInvitationOpen={isInvitationOpen}
+              handleOpenInvitation={handleOpenInvitation}
+              rsvpCount={rsvpCount}
+              handleRsvpSubmit={handleRsvpSubmit}
+              showEffects={showEffects}
+            />
           }
-        `}
-      </style>
-    </div>
+        />
+        <Route
+          path="/daniel-laura-wedding-guests-H8x7P2mK9nQ4"
+          element={<DetailedGuestTable />}
+        />
+      </Routes>
+    </Router>
   );
 }
 

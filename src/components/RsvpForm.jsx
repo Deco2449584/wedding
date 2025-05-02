@@ -159,7 +159,7 @@ const RsvpForm = ({ onRsvpSubmit }) => {
             </motion.h2>
 
             <motion.p
-              className="text-center"
+              className="text-center cursive-text"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
