@@ -98,7 +98,7 @@ const DressCode = () => {
             }}
           >
             <li>Pantalón y saco formal</li>
-            <li>Zapatos tipo mocasín</li>
+            <li>Zapatos elegantes o tipo mocasín </li>
           </ul>
         </div>
         <div>

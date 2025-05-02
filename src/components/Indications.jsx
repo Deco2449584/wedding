@@ -40,18 +40,14 @@ const Indications = () => {
       text: "Evento exclusivo para adultos",
       color: "#e5b289",
     },
-    {
-      icon: faCamera,
-      text: "No olvides tu cámara, sin embargo, no la uses durante la ceremonia.",
-      color: "#e5b289",
-    },
+
     {
       icon: faBus,
       text: "Transporte ída y regreso",
       color: "#e5b289",
       isSpecial: true,
       description:
-        "Habrá transporte disponible en la terminal de buses del norte a las 10:30 am y regreso a las 7:00 pm. (Recuerda confirmar tu asistencia para el transporte).",
+        "Habrá transporte disponible en la terminal de buses del norte a las 10:30 am y regreso a las 8:00 pm. (Recuerda confirmar tu asistencia para el transporte).",
     },
     {
       icon: faGift,
