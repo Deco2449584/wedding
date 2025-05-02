@@ -89,7 +89,7 @@ const RsvpForm = ({ onRsvpSubmit }) => {
 
     // Validación de campos requeridos
     if (!formData.fullName.trim()) {
-      showAlert("Por favor, ingresa tu nombre completo");
+      showAlert("Por favor, ingresa tu nombre y apellido");
       return;
     }
 
@@ -263,7 +263,7 @@ const RsvpForm = ({ onRsvpSubmit }) => {
           ) : (
             <form onSubmit={handleSubmit}>
               <label htmlFor="fullName" className="form-label">
-                Nombre Completo:
+                Nombre y Apellido:
               </label>
               <div className="form-group">
                 <input
@@ -273,7 +273,7 @@ const RsvpForm = ({ onRsvpSubmit }) => {
                   className="form-input cursive-placeholder"
                   value={formData.fullName}
                   onChange={handleChange}
-                  placeholder="Escribe tu nombre completo..."
+                  placeholder="Escribe tu nombre y apellido..."
                   required
                 />
               </div>
