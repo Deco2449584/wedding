@@ -105,7 +105,7 @@ const Cover = ({ onOpen }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
             style={{
-              fontFamily: '"Pinyon Script", "Great Vibes", cursive',
+              fontFamily: "Charm",
               fontSize: "2.2rem",
               fontWeight: "600",
               marginBottom: "0.3rem",
@@ -128,7 +128,7 @@ const Cover = ({ onOpen }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.8, duration: 0.8 }}
             style={{
-              fontFamily: '"Pinyon Script", "Great Vibes", cursive',
+              fontFamily: "Charm",
               fontSize: "2.8rem",
               fontWeight: "400",
               marginBottom: "0.2rem",
@@ -199,7 +199,7 @@ const Cover = ({ onOpen }) => {
             />
             <div
               style={{
-                fontFamily: '"Pinyon Script", "Great Vibes", cursive',
+                fontFamily: "Charm",
                 fontSize: "2rem",
                 letterSpacing: "1px",
                 fontWeight: "500",
@@ -312,7 +312,7 @@ const Cover = ({ onOpen }) => {
                 ease: "easeInOut",
               }}
               style={{
-                fontFamily: '"Pinyon Script", cursive',
+                fontFamily: "Charm",
                 fontSize: "2.2rem",
                 color: "rgb(229, 178, 137)",
                 textShadow: "2px 2px 4px rgba(0,0,0,0.3)",
@@ -371,7 +371,7 @@ const Cover = ({ onOpen }) => {
             transition={{ delay: 1.6, duration: 0.8 }}
             disabled={isButtonClicked}
             style={{
-              fontFamily: '"Pinyon Script", "Great Vibes", cursive',
+              fontFamily: "Charm",
               fontWeight: "500",
               backgroundColor: "rgba(232, 220, 205, 0.85)",
               color: "#3a3a3a",

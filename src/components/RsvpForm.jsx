@@ -57,7 +57,7 @@ const RsvpForm = ({ onRsvpSubmit }) => {
         >
           <p
             style={{
-              fontFamily: '"Pinyon Script", cursive',
+              fontFamily: "Charm",
               fontSize: "1.8rem",
               color: "var(--secondary-color)",
               margin: 0,
@@ -209,7 +209,7 @@ const RsvpForm = ({ onRsvpSubmit }) => {
                   fontSize: "2.5rem",
                   color: "var(--secondary-color)",
                   marginBottom: "2rem",
-                  fontFamily: '"Pinyon Script", cursive',
+                  fontFamily: "Charm",
                   textAlign: "center",
                 }}
               >
@@ -232,7 +232,7 @@ const RsvpForm = ({ onRsvpSubmit }) => {
                     fontSize: "1.8rem",
                     padding: "1rem 2rem",
                     minWidth: "250px",
-                    fontFamily: '"Pinyon Script", cursive',
+                    fontFamily: "Charm",
                     textTransform: "none",
                     border: "none",
                     transition: "all 0.3s ease",
@@ -249,7 +249,7 @@ const RsvpForm = ({ onRsvpSubmit }) => {
                     fontSize: "1.8rem",
                     padding: "1rem 2rem",
                     minWidth: "250px",
-                    fontFamily: '"Pinyon Script", cursive',
+                    fontFamily: "Charm",
                     textTransform: "none",
                     border: "none",
                     transition: "all 0.3s ease",

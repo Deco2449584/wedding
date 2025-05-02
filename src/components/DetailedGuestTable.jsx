@@ -47,7 +47,7 @@ const DetailedGuestTable = () => {
           justifyContent: "center",
           alignItems: "center",
           minHeight: "200px",
-          fontFamily: '"Pinyon Script", cursive',
+          fontFamily: "Charm",
           fontSize: "2rem",
           color: "var(--secondary-color)",
         }}
@@ -63,7 +63,7 @@ const DetailedGuestTable = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         style={{
-          fontFamily: '"Pinyon Script", cursive',
+          fontFamily: "Charm",
           fontSize: "3rem",
           color: "var(--secondary-color)",
           textAlign: "center",
@@ -85,7 +85,7 @@ const DetailedGuestTable = () => {
             fontSize: "2rem",
             border: "2px solid var(--primary-color)",
             borderRadius: "10px",
-            fontFamily: '"Pinyon Script", cursive',
+            fontFamily: "Charm",
           }}
         />
       </div>
@@ -157,7 +157,7 @@ const DetailedGuestTable = () => {
         style={{
           marginTop: "2rem",
           textAlign: "center",
-          fontFamily: '"Pinyon Script", cursive',
+          fontFamily: "Charm",
           fontSize: "2.5rem",
           color: "var(--secondary-color)",
         }}

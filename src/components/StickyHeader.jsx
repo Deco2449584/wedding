@@ -40,7 +40,7 @@ const StickyHeader = ({ rsvpCount }) => {
       <div
         className="countdown"
         style={{
-          fontFamily: '"Pinyon Script", "Great Vibes", cursive',
+          fontFamily: "Charm",
           display: "flex",
           alignItems: "center",
           gap: "10px",
@@ -79,7 +79,7 @@ const StickyHeader = ({ rsvpCount }) => {
       <div
         className="rsvp-count"
         style={{
-          fontFamily: '"Pinyon Script", "Great Vibes", cursive',
+          fontFamily: "Charm",
           fontSize: "1.3rem", // Aumentado para desktop
           display: "flex",
           alignItems: "center",
@@ -100,7 +100,7 @@ const StickyHeader = ({ rsvpCount }) => {
         </span>
         <span
           style={{
-            fontFamily: '"Petit Formal Script", "Great Vibes", cursive',
+            fontFamily: "charm",
             backgroundColor: "rgb(221, 180, 143)",
             color: "white",
             padding: "2px 10px",
@@ -130,7 +130,7 @@ const numberStyle = {
   fontWeight: "500",
   color: "rgb(229, 178, 137)",
   textShadow: "2px 2px 4px rgba(0, 0, 0, 0.1)",
-  fontFamily: '"Petit Formal Script", "Great Vibes", cursive',
+  fontFamily: "charm",
 };
 
 const labelStyle = {
@@ -139,7 +139,7 @@ const labelStyle = {
   textTransform: "uppercase",
   letterSpacing: "1px",
   marginTop: "2px",
-  fontFamily: '"Petit Formal Script", "Great Vibes", cursive',
+  fontFamily: "charm",
 };
 
 export default StickyHeader;

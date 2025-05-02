@@ -81,14 +81,14 @@ section {
 
 /* Estilos globales para texto cursivo */
 .cursive-text {
-  font-family: 'Pinyon Script', cursive !important;
+  font-family: "charm" !important;
   font-size: 1.8rem !important;
   text-transform: none !important;
 }
 
 
 .cursive-subtitle {
-  font-family: 'Pinyon Script', cursive;
+  font-family: 'Charm';
   font-size: 2.2rem;
   color: var(--secondary-color);
   margin-bottom: 1rem;

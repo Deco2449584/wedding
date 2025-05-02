@@ -50,7 +50,7 @@ const Welcome = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.5, duration: 1 }}
           style={{
-            fontFamily: '"Pinyon Script", "Great Vibes", cursive',
+            fontFamily: "Charm",
             fontSize: isMobile ? "2.5rem" : "4rem",
             color: "#565f42",
             marginBottom: isMobile ? "1.5rem" : "2rem",
@@ -67,7 +67,7 @@ const Welcome = () => {
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.8, duration: 1 }}
           style={{
-            fontFamily: '"Petit Formal Script", cursive',
+            fontFamily: "charm",
             fontSize: isMobile ? "1.2rem" : "1.6rem",
             lineHeight: "1.8",
             color: "#565f42",
@@ -111,7 +111,7 @@ const Welcome = () => {
             color: "rgb(229, 178, 137)",
             fontSize: isMobile ? "1.3rem" : "1.8rem",
             fontWeight: "600",
-            fontFamily: '"Petit Formal Script", cursive',
+            fontFamily: "charm",
             margin: 0,
           }}
         >

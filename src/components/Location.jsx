@@ -115,7 +115,7 @@ const Location = () => {
         >
           <h3
             style={{
-              fontFamily: '"Pinyon Script", "Great Vibes", cursive',
+              fontFamily: "Charm",
               fontSize: "3rem",
               marginBottom: "1rem",
             }}
@@ -124,7 +124,7 @@ const Location = () => {
           </h3>
           <p
             style={{
-              fontFamily: '"Pinyon Script", "Great Vibes", cursive',
+              fontFamily: "Charm",
               marginBottom: "1.5rem",
               fontSize: "2rem",
             }}
@@ -181,7 +181,7 @@ const Location = () => {
               cursor: "pointer",
               boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
               transition: "all 0.3s ease",
-              fontFamily: '"Pinyon Script", cursive',
+              fontFamily: "Charm",
               fontWeight: "bold",
             }}
           >

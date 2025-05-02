@@ -227,7 +227,7 @@ const VideoMessage = () => {
 
           <h2
             style={{
-              fontFamily: '"Pinyon Script", cursive',
+              fontFamily: "Charm",
               fontSize: "3rem",
               color: "var(--secondary-color)",
               marginBottom: "1.5rem",
@@ -242,7 +242,7 @@ const VideoMessage = () => {
               fontSize: "1.8rem",
               color: "var(--secondary-color)",
               marginBottom: "2rem",
-              fontFamily: '"Pinyon Script", cursive',
+              fontFamily: "Charm",
               lineHeight: 1.6,
             }}
           >
@@ -277,7 +277,7 @@ const VideoMessage = () => {
               />
               <h3
                 style={{
-                  fontFamily: '"Pinyon Script", cursive',
+                  fontFamily: "Charm",
                   fontSize: "1.8rem",
                   color: "var(--secondary-color)",
                   marginBottom: "0.5rem",
@@ -309,7 +309,7 @@ const VideoMessage = () => {
               />
               <h3
                 style={{
-                  fontFamily: '"Pinyon Script", cursive',
+                  fontFamily: "Charm",
                   fontSize: "1.8rem",
                   color: "var(--secondary-color)",
                   marginBottom: "0.5rem",
@@ -349,7 +349,7 @@ const VideoMessage = () => {
                 alignItems: "center",
                 gap: "10px",
                 marginBottom: "1rem",
-                fontFamily: '"Pinyon Script", cursive',
+                fontFamily: "Charm",
               }}
               disabled={uploadStatus === "uploading"}
             >
@@ -389,7 +389,7 @@ const VideoMessage = () => {
                   alignItems: "center",
                   gap: "10px",
                   marginTop: "1rem",
-                  fontFamily: '"Pinyon Script", cursive',
+                  fontFamily: "Charm",
                 }}
                 disabled={uploadStatus === "uploading"}
               >
@@ -423,7 +423,7 @@ const VideoMessage = () => {
                   justifyContent: "center",
                   gap: "10px",
                   fontSize: "1.2rem",
-                  fontFamily: '"Pinyon Script", cursive',
+                  fontFamily: "Charm",
                 }}
               >
                 <StatusIcon />
@@ -438,10 +438,10 @@ const VideoMessage = () => {
               marginTop: "2rem",
               fontSize: "1.8rem",
               color: "#888",
-              fontFamily: '"Pinyon Script", cursive',
+              fontFamily: "Charm",
             }}
           >
-            * Tu mensaje será parte de un video especial que se reproducirá
+            * Tu mensaje será parte de un video especial que será reproducido
             durante nuestra celebración
           </p>
         </motion.div>

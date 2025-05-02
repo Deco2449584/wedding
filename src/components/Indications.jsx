@@ -102,7 +102,7 @@ const Indications = () => {
         <div style={{ flex: "1", minWidth: "300px" }}>
           <h3
             style={{
-              fontFamily: '"Pinyon Script", cursive',
+              fontFamily: "Charm",
               fontSize: "2.5rem",
               marginBottom: "2rem",
               color: "var(--secondary-color)",
@@ -172,7 +172,7 @@ const Indications = () => {
                   </div>
                   <span
                     style={{
-                      fontFamily: '"Pinyon Script", cursive',
+                      fontFamily: "Charm",
                       color: "var(--secondary-color)",
                       fontSize: "1.5rem",
                       letterSpacing: "0.2px",
@@ -201,7 +201,7 @@ const Indications = () => {
                       paddingLeft: "55px",
                       fontSize: "1.3rem",
                       color: "#666",
-                      fontFamily: '"Pinyon Script", cursive',
+                      fontFamily: "Charm",
                     }}
                   >
                     {item.description}

@@ -92,7 +92,7 @@ const GuestStats = () => {
       />
       <h3
         style={{
-          fontFamily: '"Pinyon Script", cursive',
+          fontFamily: "Charm",
           fontSize: "1.8rem",
           color: "var(--secondary-color)",
           margin: "0.5rem 0",
@@ -106,7 +106,7 @@ const GuestStats = () => {
           fontWeight: "bold",
           color: `rgba(${color}, 1)`,
           margin: "0.5rem 0",
-          fontFamily: '"Pinyon Script", cursive',
+          fontFamily: "Charm",
         }}
       >
         {value}
@@ -124,7 +124,7 @@ const GuestStats = () => {
           <div style={{ textAlign: "left" }}>
             <h4
               style={{
-                fontFamily: '"Pinyon Script", cursive',
+                fontFamily: "Charm",
                 fontSize: "2rem",
                 color: "var(--secondary-color)",
                 marginBottom: "1rem",
@@ -146,7 +146,7 @@ const GuestStats = () => {
                 >
                   <p
                     style={{
-                      fontFamily: '"Pinyon Script", cursive',
+                      fontFamily: "Charm",
                       fontSize: "1.5rem",
                       color: "var(--secondary-color)",
                       marginBottom: "0.5rem",
@@ -156,7 +156,7 @@ const GuestStats = () => {
                   </p>
                   <p
                     style={{
-                      fontFamily: '"Pinyon Script", cursive',
+                      fontFamily: "Charm",
                       fontSize: "1.3rem",
                       color: "#666",
                     }}
@@ -168,7 +168,7 @@ const GuestStats = () => {
             ) : (
               <p
                 style={{
-                  fontFamily: '"Pinyon Script", cursive',
+                  fontFamily: "Charm",
                   fontSize: "1.5rem",
                   color: "#666",
                 }}
@@ -206,7 +206,7 @@ const GuestStats = () => {
         style={{
           textAlign: "center",
           padding: "2rem",
-          fontFamily: '"Pinyon Script", cursive',
+          fontFamily: "Charm",
           fontSize: "2rem",
           color: "var(--secondary-color)",
         }}
@@ -226,7 +226,7 @@ const GuestStats = () => {
           fontSize: "3rem",
           color: "var(--secondary-color)",
           marginBottom: "2rem",
-          fontFamily: '"Pinyon Script", cursive',
+          fontFamily: "Charm",
         }}
       >
         Estadísticas de Invitados
