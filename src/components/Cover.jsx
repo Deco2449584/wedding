@@ -107,7 +107,7 @@ const Cover = ({ onOpen }) => {
             style={{
               fontFamily: '"Pinyon Script", "Great Vibes", cursive',
               fontSize: "2.2rem",
-              fontWeight: "500",
+              fontWeight: "600",
               marginBottom: "0.3rem",
               marginTop: "0.3rem",
               letterSpacing: "1px",
@@ -157,19 +157,17 @@ const Cover = ({ onOpen }) => {
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 1 }}
           >
-            <video
-              src="./assets/videos/video.mp4"
+            <img
+              src="./assets/images/isla.jpg"
               alt="Daniel & Laura"
               className="couple-photo"
-              autoPlay
-              muted
-              loop
-              playsInline
               style={{
                 border: "4px solid rgb(229, 178, 137)",
                 boxShadow: "0 0 20px rgba(0, 0, 0, 0.3)",
                 width: "120px", // Reducido aún más para móviles
                 height: "120px",
+                objectFit: "cover", // Asegura que la imagen cubra el espacio sin distorsionarse
+                borderRadius: "50%", // Opcional: si quieres la imagen circular
                 "@media (minWidth: 768px)": {
                   width: "180px",
                   height: "180px",
@@ -275,48 +273,78 @@ const Cover = ({ onOpen }) => {
               margin: "0.5rem 0",
               display: "flex",
               justifyContent: "center",
-              gap: "140px",
+              alignItems: "center",
+              gap: "20px",
             }}
           >
-            {[1, 2].map((i) => (
-              <motion.div
-                key={i}
-                animate={{
-                  y: [0, -15, 0],
-                  opacity: [0.5, 1, 0.5],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: i * 0.3,
-                }}
+            <motion.div
+              animate={{
+                y: [0, -15, 0],
+                opacity: [0.5, 1, 0.5],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              style={{
+                transform: "rotate(-20deg)",
+              }}
+            >
+              <FontAwesomeIcon
+                icon={faAnglesDown}
                 style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "8px",
-                  transform: i === 1 ? "rotate(-20deg)" : "rotate(20deg)",
+                  fontSize: "2.5rem",
+                  color: "rgb(89, 95, 72)",
+                  filter: "drop-shadow(2px 2px 4px rgba(0,0,0,0.3))",
                 }}
-              >
-                <FontAwesomeIcon
-                  icon={faAnglesDown}
-                  style={{
-                    fontSize: "2.5rem",
-                    color: "rgb(89, 95, 72)",
-                    filter: "drop-shadow(2px 2px 4px rgba(0,0,0,0.3))",
-                  }}
-                />
-                <FontAwesomeIcon
-                  icon={faAnglesDown}
-                  style={{
-                    fontSize: "2rem",
-                    color: "rgb(89, 95, 72)",
-                    opacity: 0.7,
-                    filter: "drop-shadow(2px 2px 4px rgba(0,0,0,0.3))",
-                  }}
-                />
-              </motion.div>
-            ))}
+              />
+            </motion.div>
+
+            <motion.div
+              animate={{
+                scale: [1, 1.1, 1],
+                opacity: [0.7, 1, 0.7],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              style={{
+                fontFamily: '"Pinyon Script", cursive',
+                fontSize: "2.2rem",
+                color: "rgb(229, 178, 137)",
+                textShadow: "2px 2px 4px rgba(0,0,0,0.3)",
+                margin: "0 10px",
+              }}
+            >
+              Click
+            </motion.div>
+
+            <motion.div
+              animate={{
+                y: [0, -15, 0],
+                opacity: [0.5, 1, 0.5],
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+              style={{
+                transform: "rotate(20deg)",
+              }}
+            >
+              <FontAwesomeIcon
+                icon={faAnglesDown}
+                style={{
+                  fontSize: "2.5rem",
+                  color: "rgb(89, 95, 72)",
+                  filter: "drop-shadow(2px 2px 4px rgba(0,0,0,0.3))",
+                }}
+              />
+            </motion.div>
           </motion.div>
 
           <motion.button
@@ -344,7 +372,7 @@ const Cover = ({ onOpen }) => {
             disabled={isButtonClicked}
             style={{
               fontFamily: '"Pinyon Script", "Great Vibes", cursive',
-              fontWeight: "400",
+              fontWeight: "500",
               backgroundColor: "rgba(232, 220, 205, 0.85)",
               color: "#3a3a3a",
               border: "none",

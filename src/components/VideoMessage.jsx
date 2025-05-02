@@ -338,7 +338,7 @@ const VideoMessage = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               style={{
-                background: "var(--primary-color)",
+                background: "var(--secondary-color)",
                 color: "white",
                 padding: "1rem 2rem",
                 borderRadius: "50px",
