@@ -85,7 +85,7 @@ const DressCode = () => {
         }}
       >
         <div>
-          <h4 className="cursive-subtitle" style={{ marginBottom: "0.5rem" }}>
+          <h4 className="cursive-subtitle" style={{ marginBottom: "0.8rem" }}>
             Caballeros
           </h4>
           <ul
@@ -93,16 +93,16 @@ const DressCode = () => {
             style={{
               paddingLeft: "1rem",
               margin: 0,
-              fontSize: "0.5rem !important",
-              lineHeight: "1.3",
+              fontSize: "0.85rem",
+              lineHeight: "1.5",
             }}
           >
             <li>Pantalón y saco formal</li>
-            <li>Zapatos elegantes o tipo mocasín </li>
+            <li>Zapatos elegantes o tipo mocasín</li>
           </ul>
         </div>
         <div>
-          <h4 className="cursive-subtitle" style={{ marginBottom: "0.5rem" }}>
+          <h4 className="cursive-subtitle" style={{ marginBottom: "0.8rem" }}>
             Damas
           </h4>
           <ul
@@ -110,8 +110,8 @@ const DressCode = () => {
             style={{
               paddingLeft: "1rem",
               margin: 0,
-              fontSize: "0.5rem !important",
-              lineHeight: "1.3",
+              fontSize: "0.85rem",
+              lineHeight: "1.5",
             }}
           >
             <li>Vestimenta formal</li>
