@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
 
@@ -27,6 +27,54 @@ const RsvpForm = ({ onRsvpSubmit }) => {
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [showContinueButtons, setShowContinueButtons] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+
+  // Componente de Alerta
+  const Alert = ({ message }) => {
+    if (!message) return null;
+
+    return (
+      <AnimatePresence>
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          style={{
+            position: "fixed",
+            top: "20px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            zIndex: 1000,
+            backgroundColor: "rgba(255, 255, 255, 0.95)",
+            padding: "1.5rem 2rem",
+            borderRadius: "15px",
+            boxShadow: "0 4px 20px rgba(0, 0, 0, 0.15)",
+            border: "2px solid var(--primary-color)",
+            maxWidth: "90%",
+            width: "400px",
+            textAlign: "center",
+          }}
+        >
+          <p
+            style={{
+              fontFamily: '"Pinyon Script", cursive',
+              fontSize: "1.8rem",
+              color: "var(--secondary-color)",
+              margin: 0,
+              lineHeight: 1.4,
+            }}
+          >
+            {message}
+          </p>
+        </motion.div>
+      </AnimatePresence>
+    );
+  };
+
+  const showAlert = (message) => {
+    setAlertMessage(message);
+    setTimeout(() => setAlertMessage(""), 3000);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -39,9 +87,19 @@ const RsvpForm = ({ onRsvpSubmit }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validación básica
+    // Validación de campos requeridos
     if (!formData.fullName.trim()) {
-      alert("Por favor, ingresa tu nombre completo.");
+      showAlert("Por favor, ingresa tu nombre completo");
+      return;
+    }
+
+    if (!formData.hasTransportation) {
+      showAlert("Por favor, indica si cuentas con medio de transporte");
+      return;
+    }
+
+    if (!formData.willDrinkAlcohol) {
+      showAlert("Por favor, indica si vas a tomar bebida alcohólica");
       return;
     }
 
@@ -63,7 +121,7 @@ const RsvpForm = ({ onRsvpSubmit }) => {
       // No establecer isSubmitted aquí, esperar la decisión del usuario
     } catch (error) {
       console.error("Error al guardar la confirmación: ", error);
-      alert(
+      showAlert(
         "Hubo un error al enviar tu confirmación. Por favor, intenta nuevamente."
       );
     }
@@ -86,6 +144,7 @@ const RsvpForm = ({ onRsvpSubmit }) => {
 
   return (
     <section className="rsvp" id="rsvp">
+      <Alert message={alertMessage} />
       <div className="container">
         {!isSubmitted && !showContinueButtons && (
           <>
@@ -144,19 +203,58 @@ const RsvpForm = ({ onRsvpSubmit }) => {
             </div>
           ) : showContinueButtons ? (
             <div className="continue-message">
-              <h3 className="cursive-subtitle">
-                ¿Desea continuar con la iteración?
+              <h3
+                className="cursive-subtitle"
+                style={{
+                  fontSize: "2.5rem",
+                  color: "var(--secondary-color)",
+                  marginBottom: "2rem",
+                  fontFamily: '"Pinyon Script", cursive',
+                  textAlign: "center",
+                }}
+              >
+                ¿Desea Registrar otro invitado?
               </h3>
-              <div className="confirmation-buttons">
+              <div
+                className="confirmation-buttons"
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  gap: "20px",
+                  marginTop: "20px",
+                }}
+              >
                 <button
-                  className="form-submit"
+                  className="form-submit cursive-text"
                   onClick={() => handleContinue(true)}
+                  style={{
+                    backgroundColor: "var(--primary-color)",
+                    fontSize: "1.8rem",
+                    padding: "1rem 2rem",
+                    minWidth: "250px",
+                    fontFamily: '"Pinyon Script", cursive',
+                    textTransform: "none",
+                    border: "none",
+                    transition: "all 0.3s ease",
+                    boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
+                  }}
                 >
                   Confirmar otro invitado
                 </button>
                 <button
-                  className="form-submit secondary"
+                  className="form-submit cursive-text"
                   onClick={() => handleContinue(false)}
+                  style={{
+                    backgroundColor: "rgb(89, 95, 72)",
+                    fontSize: "1.8rem",
+                    padding: "1rem 2rem",
+                    minWidth: "250px",
+                    fontFamily: '"Pinyon Script", cursive',
+                    textTransform: "none",
+                    border: "none",
+                    transition: "all 0.3s ease",
+                    boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
+                  }}
                 >
                   Finalizar
                 </button>

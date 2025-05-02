@@ -5,6 +5,7 @@ import StickyHeader from "./components/StickyHeader";
 import Timeline from "./components/Timeline";
 import Location from "./components/Location";
 import RsvpForm from "./components/RsvpForm";
+import GuestStats from "./components/GuestStats";
 import FallingPetals from "./components/FallingPetals";
 import Confetti from "./components/Confetti";
 import AudioPlayer from "./components/AudioPlayer";
@@ -92,6 +93,7 @@ function App() {
           <Location />
           <Indications />
           <RsvpForm onRsvpSubmit={handleRsvpSubmit} />
+          <GuestStats />
           {showEffects && (
             <>
               <FallingPetals />
