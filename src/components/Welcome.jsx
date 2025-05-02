@@ -12,13 +12,6 @@ const Welcome = () => {
   const [guestNames, setGuestNames] = useState("");
 
   useEffect(() => {
-    // Intentar obtener los nombres del localStorage primero
-    const savedNames = localStorage.getItem("guestNames");
-    if (savedNames) {
-      setGuestNames(savedNames);
-      return;
-    }
-
     // Si no hay nombres guardados, buscar en la URL
     const urlParams = new URLSearchParams(window.location.search);
     const namesFromUrl = urlParams.get("invitados");
