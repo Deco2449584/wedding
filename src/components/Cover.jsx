@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -324,7 +326,7 @@ const Cover = ({ onOpen }) => {
               }}
               transition={{
                 duration: 2,
-                repeat: Infinity,
+                repeat: Number.POSITIVE_INFINITY,
                 ease: "easeInOut",
               }}
               style={{
@@ -348,7 +350,7 @@ const Cover = ({ onOpen }) => {
               }}
               transition={{
                 duration: 2,
-                repeat: Infinity,
+                repeat: Number.POSITIVE_INFINITY,
                 ease: "easeInOut",
               }}
               style={{
@@ -369,7 +371,7 @@ const Cover = ({ onOpen }) => {
               }}
               transition={{
                 duration: 2,
-                repeat: Infinity,
+                repeat: Number.POSITIVE_INFINITY,
                 ease: "easeInOut",
               }}
               style={{
@@ -397,7 +399,7 @@ const Cover = ({ onOpen }) => {
               scale: [1, 1.05, 1],
               transition: {
                 scale: {
-                  repeat: Infinity,
+                  repeat: Number.POSITIVE_INFINITY,
                   duration: 2,
                   ease: "easeInOut",
                 },
@@ -422,6 +424,7 @@ const Cover = ({ onOpen }) => {
               fontSize: "1.8rem",
               boxShadow: "0 4px 15px rgba(212, 175, 55, 0.3)",
               marginTop: "0.5rem",
+              marginBottom: "0.5rem", // Añadir margen inferior
               cursor: "pointer",
               letterSpacing: "1px",
               position: "relative",
@@ -431,21 +434,25 @@ const Cover = ({ onOpen }) => {
                 padding: "0.6rem 1.2rem",
                 fontSize: "1.6rem",
                 marginTop: "0.3rem",
+                marginBottom: "0.3rem", // Añadir margen inferior
               },
               "@media screen and (min-height: 668px) and (max-height: 896px)": {
                 padding: "0.8rem 1.5rem",
                 fontSize: "1.8rem",
                 marginTop: "0.5rem",
+                marginBottom: "0.5rem", // Añadir margen inferior
               },
               "@media screen and (min-height: 897px)": {
                 padding: "1rem 2rem",
                 fontSize: "2rem",
                 marginTop: "0.8rem",
+                marginBottom: "0.8rem", // Añadir margen inferior
               },
               "@media screen and (min-width: 768px)": {
                 padding: "1.2rem 2.5rem",
                 fontSize: "2.2rem",
                 marginTop: "1rem",
+                marginBottom: "1rem", // Añadir margen inferior
                 letterSpacing: "2px",
               },
             }}
@@ -634,6 +641,85 @@ const Cover = ({ onOpen }) => {
                 .names {
                   font-size: 3.2rem !important;
                 }
+              }
+
+              /* Ajustes específicos para iPhone para asegurar que el botón sea visible */
+              @media screen and (max-height: 667px) {
+                .invitation-border {
+                  padding: 0.5rem !important;
+                  gap: 0.2rem !important;
+                  maxHeight: 98vh !important;
+                }
+                .couple-photo {
+                  width: 80px !important;
+                  height: 80px !important;
+                }
+                .invitation-subtitle {
+                  font-size: 1.4rem !important;
+                  margin-bottom: 0.2rem !important;
+                }
+                .names {
+                  font-size: 1.8rem !important;
+                  margin: 0.2rem 0 !important;
+                }
+                .hearts-decoration {
+                  margin: 0.5rem 0 !important;
+                  height: 20px !important;
+                }
+                .wedding-date-container {
+                  margin-top: 0.3rem !important;
+                }
+                .wedding-date-container div {
+                  font-size: 1.5rem !important;
+                }
+                .arrows-container {
+                  height: 50px !important;
+                  margin: 0.3rem 0 !important;
+                }
+                .open-invitation {
+                  padding: 0.5rem 1rem !important;
+                  font-size: 1.4rem !important;
+                  margin-top: 0.2rem !important;
+                }
+              }
+
+              /* Ajustes para iPhone X, 11, 12, 13 */
+              @media screen and (min-height: 668px) and (max-height: 812px) {
+                .invitation-border {
+                  padding: 0.7rem !important;
+                  gap: 0.3rem !important;
+                  maxHeight: 98vh !important;
+                }
+                .couple-photo {
+                  width: 100px !important;
+                  height: 100px !important;
+                }
+                .invitation-subtitle {
+                  font-size: 1.8rem !important;
+                  margin-bottom: 0.3rem !important;
+                }
+                .names {
+                  font-size: 2.2rem !important;
+                  margin: 0.3rem 0 !important;
+                }
+                .hearts-decoration {
+                  margin: 0.6rem 0 !important;
+                }
+                .arrows-container {
+                  height: 60px !important;
+                  margin: 0.4rem 0 !important;
+                }
+                .open-invitation {
+                  padding: 0.6rem 1.2rem !important;
+                  font-size: 1.6rem !important;
+                  margin-top: 0.3rem !important;
+                }
+              }
+
+              /* Asegurar que el contenido sea scrollable en todos los dispositivos */
+              .invitation-border {
+                overflow-y: auto !important;
+                -webkit-overflow-scrolling: touch !important;
               }
             `}
           </style>
