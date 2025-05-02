@@ -441,8 +441,8 @@ const VideoMessage = () => {
               fontFamily: "Charm",
             }}
           >
-            * Tu mensaje será parte de un video especial que será reproducido
-            durante nuestra celebración
+            * Tu mensaje formará parte de un video especial que se mostrará en
+            nuestra celebración.
           </p>
         </motion.div>
       </motion.div>
