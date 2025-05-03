@@ -8,7 +8,9 @@ import {
   faGift,
   faBus,
   faMapMarkerAlt,
+  faHeart,
 } from "@fortawesome/free-solid-svg-icons";
+import DressCode from "./DressCode";
 
 const Indications = () => {
   const indications = [
@@ -48,11 +50,12 @@ const Indications = () => {
       title: "Lluvia de sobres",
       description:
         "Tu presencia es nuestro mejor regalo. Si deseas hacernos un obsequio, una contribución monetaria será muy apreciada.",
+      isSpecial: true,
     },
   ];
 
   return (
-    <section className="timeline-content card-base" id="indications">
+    <section className="indications-section" id="indications">
       <div className="container">
         <motion.h2
           className="section-title"
@@ -61,57 +64,57 @@ const Indications = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          Información Importante
+          Indicaciones importantes
         </motion.h2>
 
-        <div className="indications-grid">
-          {indications.map((item, index) => (
-            <motion.div
-              key={index}
-              className="indication-card card-base"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.1 * index }}
-            >
-              <div className="indication-icon">
-                <FontAwesomeIcon icon={item.icon} />
-              </div>
-              <div className="indication-content">
-                <h3 className="indication-title cursive-text">{item.title}</h3>
-                <p className="indication-description cursive-text">
-                  {item.description}
-                </p>
-                {item.additional && (
-                  <p className="indication-additional cursive-text">
-                    {item.additional}
-                  </p>
-                )}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        <motion.div
-          className="special-note card-base"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
-          <motion.h3 className="note-title cursive-text">
-            ¿Desea hacernos un regalo?
-          </motion.h3>
-          <motion.p className="note-description cursive-text">
-            Su presencia es nuestro mayor regalo. Sin embargo, si desea hacernos
-            un presente, agradecemos su contribución para nuestra luna de miel.
-          </motion.p>
-          <div className="bank-details">
-            <p className="cursive-text">Datos bancarios:</p>
-            <p className="cursive-text">Bancolombia: 123456789</p>
-            <p className="cursive-text">Nequi: 300 123 4567</p>
+        <div className="two-columns-grid">
+          <div className="indications-container">
+            <div className="indications-grid">
+              {indications.map((item, index) => (
+                <motion.div
+                  key={index}
+                  className={`indication-card card-base ${
+                    item.isSpecial ? "special-card" : ""
+                  }`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.1 * index }}
+                >
+                  <div className="indication-icon">
+                    <FontAwesomeIcon icon={item.icon} />
+                    {item.isSpecial && (
+                      <motion.div
+                        className="floating-heart"
+                        animate={{
+                          scale: [1, 1.2, 1],
+                          transition: {
+                            duration: 2,
+                            repeat: Infinity,
+                          },
+                        }}
+                      >
+                        <FontAwesomeIcon
+                          icon={faHeart}
+                          className="heart-icon"
+                        />
+                      </motion.div>
+                    )}
+                  </div>
+                  <div className="indication-content">
+                    <h3 className="cursive-text">{item.title}</h3>
+                    {item.description && (
+                      <p className="cursive-text">{item.description}</p>
+                    )}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
-        </motion.div>
+          <div className="dresscode-container">
+            <DressCode />
+          </div>
+        </div>
       </div>
     </section>
   );
