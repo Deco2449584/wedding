@@ -10,19 +10,22 @@ import {
 const Welcome = () => {
   const isMobile = window.innerWidth <= 768;
   const [guestNames, setGuestNames] = useState("");
+  const [greetingGender, setGreetingGender] = useState("os"); // 'os' para "Bienvenidos", 'as' para "Bienvenidas"
 
   useEffect(() => {
-    // Si no hay nombres guardados, buscar en la URL
     const urlParams = new URLSearchParams(window.location.search);
     const namesFromUrl = urlParams.get("invitados");
+    const genderFromUrl = urlParams.get("genero") || "os"; // Si no se especifica, usa "os"
 
     if (namesFromUrl) {
-      // Decodificar y formatear los nombres
       const decodedNames = decodeURIComponent(namesFromUrl);
       setGuestNames(decodedNames);
-      // Guardar en localStorage para futuras visitas
       localStorage.setItem("guestNames", decodedNames);
     }
+
+    // Guardar el género del saludo
+    setGreetingGender(genderFromUrl);
+    localStorage.setItem("greetingGender", genderFromUrl);
   }, []);
 
   const scrollToTimeline = () => {
@@ -77,14 +80,14 @@ const Welcome = () => {
         >
           {guestNames ? (
             <>
-              ¡Bienvenidos {guestNames}!
+              ¡Bienvenid{greetingGender} {guestNames}!
               <br />
               <span style={{ fontSize: "0.8em" }}>
                 Esta es su invitación digital
               </span>
             </>
           ) : (
-            "¡Bienvenidos a nuestra invitación digital!"
+            `¡Bienvenid${greetingGender} a nuestra invitación digital!`
           )}
         </motion.h2>
 
