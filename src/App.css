@@ -827,7 +827,7 @@
   pointer-events: auto;
   backdrop-filter: blur(8px);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  border-radius: var(--border-radius);
+  border-radius: 20px;
   background: rgba(255, 255, 255, 0.85);
   padding: var(--spacing-sm) var(--spacing-md);
   font-family: var(--font-cursive);
@@ -836,6 +836,8 @@
 .countdown {
   display: flex;
   align-items: center;
+  border-radius: 20px;
+  box-shadow: rgb(221, 180, 143) 0px 0px 10px 0px;
 }
 
 .countdown-time {
@@ -867,6 +869,7 @@
   display: flex;
   align-items: center;
   gap: var(--spacing-sm);
+  box-shadow: rgb(221, 180, 143) 0px 0px 10px 0px;
 }
 
 .count-label {
@@ -880,7 +883,7 @@
   background: var(--primary-color);
   color: white;
   padding: 2px var(--spacing-sm);
-  border-radius: var(--border-radius);
+  border-radius: 20px;
   min-width: 25px;
   text-align: center;
   font-weight: 400;
@@ -1130,14 +1133,7 @@
 }
 
 /* Location Section */
-.location-section {
-  padding: var(--spacing-xl) var(--spacing-md);
-  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
-    url('./assets/images/isla.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-}
+
 
 .venue-address {
   margin-bottom: var(--spacing-lg);
@@ -1188,10 +1184,6 @@
 }
 
 @media (max-width: 768px) {
-  .location-section {
-    padding: var(--spacing-lg) var(--spacing-sm);
-  }
-
   .map-container {
     height: 300px;
     margin: var(--spacing-md) 0;
@@ -2070,7 +2062,7 @@ body,
 /* Ajustes responsivos comunes */
 @media (max-width: 768px) {
   .section-title {
-    font-size: var(--fs-large);
+    font-size: var(--fs-xlarge);
   }
 
   .icon-container {
@@ -2106,12 +2098,12 @@ body,
 .section-content {
   background: #faf4e7;
   padding: var(--spacing-xl);
-  border-radius: 8px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 30px rgb(221, 180, 143);
   max-width: 800px;
   margin: 0 var(--spacing-md);
   position: relative;
   text-align: center;
+  border-radius: 20px;
 }
 
 .subtitle-sm {
@@ -2136,6 +2128,7 @@ body,
   color: var(--primary-color);
   font-family: var(--font-cursive);
   font-weight: 600;
+  font-size: var(--fs-large);
 }
 
 .scroll-dot-container {
@@ -2169,7 +2162,7 @@ body,
   }
 
   .scroll-text {
-    font-size: var(--fs-medium);
+    font-size: var(--fs-large);
   }
 
   .scroll-dot-container {
@@ -2481,14 +2474,7 @@ body,
 }
 
 /* Indications section styles */
-.indications-section {
-  padding: var(--spacing-xl) var(--spacing-md);
-  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
-    url('./assets/images/fondo_card.jpg');
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-}
+
 
 .indications-grid {
   display: grid;
