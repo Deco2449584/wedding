@@ -87,7 +87,6 @@ const RsvpForm = ({ onRsvpSubmit }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validación de campos requeridos
     if (!formData.fullName.trim()) {
       showAlert("Por favor, ingresa tu nombre y apellido");
       return;
@@ -116,9 +115,18 @@ const RsvpForm = ({ onRsvpSubmit }) => {
         onRsvpSubmit(formData);
       }
 
-      setShowContinueButtons(true); // Mostrar botones antes del mensaje de éxito
+      setShowContinueButtons(true);
 
-      // No establecer isSubmitted aquí, esperar la decisión del usuario
+      // Esperar a que el estado se actualice y el modal se renderice
+      setTimeout(() => {
+        const rsvpSection = document.getElementById("rsvp");
+        if (rsvpSection) {
+          window.scrollTo({
+            top: rsvpSection.offsetTop - 50,
+            behavior: "smooth",
+          });
+        }
+      }, 100);
     } catch (error) {
       console.error("Error al guardar la confirmación: ", error);
       showAlert(
