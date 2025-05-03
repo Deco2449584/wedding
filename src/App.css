@@ -2483,6 +2483,18 @@ body,
   margin: var(--spacing-xl) 0;
 }
 
+@media (max-width: 768px) {
+  .two-columns-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .dresscode-container {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
 @media (min-width: 1024px) {
   .two-columns-grid {
     align-items: flex-start;
