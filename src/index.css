@@ -127,7 +127,6 @@ section {
 /* Clases de utilidad */
 .cursive-text {
   font-family: var(--font-cursive);
-  font-size: var(--fs-large);
 }
 
 .cursive-subtitle {
@@ -174,9 +173,7 @@ section {
     padding: 3rem 1rem;
   }
 
-  .cursive-text {
-    font-size: 1.5rem !important;
-  }
+
 
   .cursive-title {
     font-size: 2.5rem;

@@ -1715,15 +1715,7 @@
   text-transform: none !important;
 }
 
-@media (max-width: 768px) {
-  .cursive-placeholder::placeholder {
-    font-size: 1.1rem;
-  }
 
-  .cursive-text {
-    font-size: 1.5rem !important;
-  }
-}
 
 .confirmation-video {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -2217,6 +2209,7 @@ body,
 .color-section {
   width: 100%;
   margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
 }
 
 .section-subtitle {
@@ -2607,7 +2600,7 @@ body,
   }
 
   .indication-content p {
-    font-size: var(--fs-small);
+    font-size: var(--fs-xsmall);
   }
 
   .floating-heart {

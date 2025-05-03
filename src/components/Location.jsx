@@ -7,8 +7,9 @@ import {
 
 const Location = () => {
   const venueLocation = {
-    place: "Restaurante Campestre",
-    address: "Via Tenjo La Punta - Tenjo, Cundinamarca",
+    place: "Le Papillon Eventos",
+    address:
+      "Finca el Manantial, Vereda el Meusa, Sopó, Cundinamarca, Colombia",
     coordinates: {
       lat: 4.856539,
       lng: -74.939485,
