@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import dressImage from "../assets/images/dress.png";
 
 const DressCode = () => {
-  // Colores para mostrar visualmente
   const colorChips = {
     avoid: [
       { name: "Blanco", color: "#FFFFFF", border: true },
@@ -35,122 +34,48 @@ const DressCode = () => {
 
   return (
     <motion.div
+      className="dress-code-section card-base"
       initial={{ opacity: 0, x: 20 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8, delay: 0.2 }}
-      style={{
-        background: "rgba(255, 255, 255, 0.85)",
-        padding: "1.5rem",
-        borderRadius: "15px",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "1rem",
-        boxShadow: "0 5px 15px rgba(208, 136, 12, 0.3)",
-        width: "100%",
-        maxWidth: "400px",
-        aspectRatio: "1 / 1.2", // Más cuadrado
-      }}
     >
-      <h3 className="cursive-title" style={{ marginBottom: "0.5rem" }}>
-        Código de Vestimenta
-      </h3>
-      <div
-        className="cursive-title"
-        style={{ marginBottom: "0.5rem", fontSize: "1.8rem" }}
-      >
-        Elegante Campestre
-      </div>
+      <h3 className="section-title">Código de Vestimenta</h3>
+      <p className="dress-code-subtitle cursive-text">Elegante Campestre</p>
 
       <img
         src={dressImage || "/placeholder.svg"}
         alt="Código de vestimenta vintage"
-        style={{
-          width: "150px",
-          height: "auto",
-          objectFit: "contain",
-        }}
+        className="dress-code-image"
       />
 
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: "1rem",
-          fontSize: "0.9rem",
-          color: "#666",
-          textAlign: "left",
-          width: "100%",
-        }}
-      >
-        <div>
-          <h4 className="cursive-subtitle" style={{ marginBottom: "0.8rem" }}>
-            Caballeros
-          </h4>
-          <ul
-            className="cursive-text"
-            style={{
-              paddingLeft: "1rem",
-              margin: 0,
-              fontSize: "0.85rem",
-              lineHeight: "1.5",
-            }}
-          >
+      <div className="dress-code-details">
+        <div className="dress-code-group">
+          <h4 className="group-title cursive-text">Caballeros</h4>
+          <ul className="dress-code-list cursive-text">
             <li>Pantalón y saco formal</li>
             <li>Zapatos elegantes o tipo mocasín</li>
           </ul>
         </div>
-        <div>
-          <h4 className="cursive-subtitle" style={{ marginBottom: "0.8rem" }}>
-            Damas
-          </h4>
-          <ul
-            className="cursive-text"
-            style={{
-              paddingLeft: "1rem",
-              margin: 0,
-              fontSize: "0.85rem",
-              lineHeight: "1.5",
-            }}
-          >
+        <div className="dress-code-group">
+          <h4 className="group-title cursive-text">Damas</h4>
+          <ul className="dress-code-list cursive-text">
             <li>Vestimenta formal</li>
             <li>Zapatos cómodos para campo</li>
           </ul>
         </div>
       </div>
 
-      {/* Visualización de colores */}
-      <div style={{ width: "100%", marginTop: "0.5rem" }}>
-        <p
-          className="cursive-subtitle"
-          style={{
-            textAlign: "center",
-            margin: "0 0 0.5rem 0",
-            fontSize: "1.5rem",
-          }}
-        >
-          Evitar estos colores:
-        </p>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: "0.5rem",
-            flexWrap: "wrap",
-          }}
-        >
+      <div className="color-section">
+        <p className="section-subtitle cursive-text">Evitar estos colores:</p>
+        <div className="color-chips">
           {colorChips.avoid.map((chip, index) => (
             <div
               key={`avoid-${index}`}
+              className="color-chip"
               style={{
-                width: "25px",
-                height: "25px",
-                borderRadius: "50%",
                 backgroundColor: chip.color,
                 border: chip.border ? "1px solid #ccc" : "none",
-                position: "relative",
-                display: "inline-block",
               }}
               title={chip.name}
             />
@@ -158,75 +83,27 @@ const DressCode = () => {
         </div>
       </div>
 
-      {/* Sección de accesorios vintage */}
       <motion.div
+        className="vintage-accessories card-base"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.5 }}
-        style={{
-          width: "100%",
-          marginTop: "0.8rem",
-          padding: "0.8rem",
-          borderRadius: "8px",
-          backgroundColor: "rgba(229, 178, 137, 0.15)",
-          border: "1px dashed var(--primary-color)",
-        }}
       >
-        <p
-          className="cursive-subtitle"
-          style={{
-            textAlign: "center",
-            margin: "0 0 0.8rem 0",
-            fontSize: "1.5rem",
-          }}
-        >
+        <p className="section-subtitle cursive-text">
           Incluye un accesorio vintage
         </p>
 
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: "0.8rem",
-            flexWrap: "wrap",
-          }}
-        >
+        <div className="accessories-grid">
           {vintageAccessories.map((accessory, index) => (
             <motion.div
               key={`accessory-${index}`}
+              className="accessory-item"
               whileHover={{ scale: 1.1, rotate: 5 }}
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                gap: "0.3rem",
-              }}
             >
-              <div
-                style={{
-                  width: "40px",
-                  height: "40px",
-                  borderRadius: "50%",
-                  backgroundColor: "var(--primary-color)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  padding: "8px",
-                }}
-              >
-                <img
-                  src={accessory.icon}
-                  alt={accessory.name}
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "contain",
-                  }}
-                />
+              <div className="accessory-icon">
+                <img src={accessory.icon} alt={accessory.name} />
               </div>
-              <span style={{ fontSize: "0.7rem", textAlign: "center" }}>
-                {accessory.name}
-              </span>
+              <span className="accessory-name">{accessory.name}</span>
             </motion.div>
           ))}
         </div>

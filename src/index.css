@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap');
 
 :root {
+  /* Colores */
   --primary-color: rgb(229, 178, 137);
   --secondary-color: rgb(88, 95, 69);
   --tertiary-color: rgb(206, 176, 78);
@@ -8,8 +9,32 @@
   --text-color: #3a3a3a;
   --background-color: #fff9f0;
   --overlay-color: rgba(0, 0, 0, 0.7);
-  --font-primary: 'Playfair Display', serif;
-  --font-secondary: 'Montserrat', sans-serif;
+
+  /* Fuentes */
+  --font-primary: 'Charm', cursive;
+  --font-secondary: 'Charm', cursive;
+  --font-cursive: 'Charm', cursive;
+
+  /* Tamaños de fuente responsivos */
+  --fs-small: clamp(0.8rem, 2vw, 1rem);
+  --fs-medium: clamp(1rem, 2.5vw, 1.2rem);
+  --fs-large: clamp(1.2rem, 3vw, 1.8rem);
+  --fs-xlarge: clamp(1.8rem, 4vw, 2.5rem);
+  --fs-xxlarge: clamp(2.2rem, 5vw, 3.5rem);
+
+  /* Espaciados responsivos */
+  --spacing-xs: clamp(0.25rem, 1vw, 0.5rem);
+  --spacing-sm: clamp(0.5rem, 1.5vw, 1rem);
+  --spacing-md: clamp(1rem, 2vw, 1.5rem);
+  --spacing-lg: clamp(1.5rem, 3vw, 2rem);
+  --spacing-xl: clamp(2rem, 4vw, 3rem);
+
+  /* Breakpoints */
+  --mobile-sm: 320px;
+  --mobile: 480px;
+  --tablet: 768px;
+  --desktop: 1024px;
+  --desktop-lg: 1200px;
 
   /* Prevenir modo oscuro */
   color-scheme: light only;
@@ -17,6 +42,7 @@
   forced-color-adjust: none;
 }
 
+/* Reset y estilos base */
 * {
   margin: 0;
   padding: 0;
@@ -34,6 +60,8 @@ body {
 
 html {
   scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -42,8 +70,11 @@ body {
   color: var(--text-color);
   line-height: 1.6;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+/* Tipografía responsiva */
 h1,
 h2,
 h3,
@@ -51,26 +82,26 @@ h4,
 h5,
 h6 {
   font-family: var(--font-primary);
-  font-weight: 700;
   color: var(--secondary-color);
-  margin-bottom: 1rem;
+  line-height: 1.2;
+  margin-bottom: var(--spacing-md);
 }
 
 h1 {
-  font-size: 3.5rem;
+  font-size: var(--fs-xxlarge);
 }
 
 h2 {
-  font-size: 2.5rem;
+  font-size: var(--fs-xlarge);
 }
 
 h3 {
-  font-size: 2rem;
+  font-size: var(--fs-large);
 }
 
 p {
-  margin-bottom: 1rem;
-  font-size: 1.1rem;
+  font-size: var(--fs-medium);
+  margin-bottom: var(--spacing-md);
 }
 
 button {
@@ -93,21 +124,37 @@ section {
   padding: 0 1rem;
 }
 
-/* Estilos globales para texto cursivo */
+/* Clases de utilidad */
 .cursive-text {
-  font-family: "charm" !important;
-  font-size: 1.8rem !important;
-  text-transform: none !important;
+  font-family: var(--font-cursive);
+  font-size: var(--fs-large);
 }
 
-
 .cursive-subtitle {
-  font-family: 'Charm';
-  font-size: 2.2rem;
+  font-family: var(--font-cursive);
+  font-size: var(--fs-xlarge);
   color: var(--secondary-color);
-  margin-bottom: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Media queries base */
+@media screen and (max-width: 320px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  html {
+    font-size: 18px;
+  }
+}
+
+/* Soporte para Safari iOS */
+@supports (-webkit-touch-callout: none) {
+  body {
+    min-height: -webkit-fill-available;
+  }
 }
 
 @media (max-width: 768px) {

@@ -133,41 +133,24 @@ const VideoMessage = () => {
   };
 
   return (
-    <section style={{ padding: "4rem 1rem" }}>
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1 }}
-        style={{
-          maxWidth: "800px",
-          margin: "0 auto",
-          textAlign: "center",
-          position: "relative",
-        }}
-      >
-        {/* Decoración de corazones flotantes */}
+    <section className="video-message-section">
+      <div className="container">
+        {/* Decoraciones de corazones */}
         <motion.div
+          className="floating-heart heart-1"
           animate={{
-            y: [-10, 10],
+            y: [0, -10],
             transition: {
               duration: 2,
               repeat: Infinity,
               repeatType: "reverse",
             },
           }}
-          style={{
-            position: "absolute",
-            top: -20,
-            left: "10%",
-            color: "var(--primary-color)",
-            opacity: 0.6,
-            fontSize: "2rem",
-          }}
         >
           <FontAwesomeIcon icon={faHeart} />
         </motion.div>
         <motion.div
+          className="floating-heart heart-2"
           animate={{
             y: [10, -10],
             transition: {
@@ -176,76 +159,31 @@ const VideoMessage = () => {
               repeatType: "reverse",
             },
           }}
-          style={{
-            position: "absolute",
-            top: 20,
-            right: "15%",
-            color: "var(--primary-color)",
-            opacity: 0.6,
-            fontSize: "1.5rem",
-          }}
         >
           <FontAwesomeIcon icon={faHeart} />
         </motion.div>
 
         {/* Contenido principal */}
         <motion.div
+          className="video-content card-base"
           initial={{ y: 50, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          style={{
-            background: "rgba(255, 255, 255, 0.95)",
-            padding: "3rem",
-            borderRadius: "20px",
-            boxShadow: "0 10px 30px rgba(0, 0, 0, 0.1)",
-            border: "1px solid rgba(229, 178, 137, 0.3)",
-            backdropFilter: "blur(10px)",
-          }}
         >
           <motion.div
+            className="icon-container"
             initial={{ scale: 0 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.3 }}
-            style={{
-              width: "80px",
-              height: "80px",
-              borderRadius: "50%",
-              background: "var(--primary-color)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              margin: "0 auto 2rem",
-            }}
           >
-            <FontAwesomeIcon
-              icon={faVideo}
-              style={{ fontSize: "2rem", color: "white" }}
-            />
+            <FontAwesomeIcon icon={faVideo} />
           </motion.div>
 
-          <h2
-            style={{
-              fontFamily: "Charm",
-              fontSize: "3rem",
-              color: "var(--secondary-color)",
-              marginBottom: "1.5rem",
-              lineHeight: 1.2,
-            }}
-          >
-            Comparte tus Bendiciones
-          </h2>
+          <h2 className="section-title">Comparte tus Bendiciones</h2>
 
-          <p
-            style={{
-              fontSize: "1.8rem",
-              color: "var(--secondary-color)",
-              marginBottom: "2rem",
-              fontFamily: "Charm",
-              lineHeight: 1.6,
-            }}
-          >
+          <p className="cursive-text">
             Nos encantaría recibir un mensaje tuyo para nuestro día especial
           </p>
 
@@ -445,7 +383,7 @@ const VideoMessage = () => {
             nuestra celebración.
           </p>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 };

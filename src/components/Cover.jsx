@@ -31,20 +31,10 @@ const Cover = ({ onOpen }) => {
   return (
     <div className={`cover ${isButtonClicked ? "clicked" : ""}`}>
       <motion.div
-        className="cover-content"
+        className="cover-content flex-center"
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1 }}
-        style={{
-          height: "100%",
-          minHeight: "100vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          padding: "0.5rem",
-          boxSizing: "border-box",
-          position: "relative",
-        }}
       >
         <motion.div
           className="cover-circles"
@@ -58,63 +48,16 @@ const Cover = ({ onOpen }) => {
         </motion.div>
 
         <motion.div
-          className="invitation-border"
+          className="invitation-border flex-column"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.8 }}
-          style={{
-            padding: "1rem",
-            width: "95%",
-            maxWidth: "500px",
-            margin: "0 auto",
-            maxHeight: "90vh",
-            overflowY: "auto",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: "0.5rem",
-            boxSizing: "border-box",
-            // Estilos específicos para diferentes tamaños
-            "@media screen and (maxHeight: 667px)": {
-              // iPhone SE, 6, 7, 8
-              padding: "0.8rem",
-              gap: "0.3rem",
-              maxHeight: "95vh",
-            },
-            "@media screen and (minHeight: 668px) and (maxHeight: 896px)": {
-              // iPhone X, 11, 12, 13
-              padding: "1rem",
-              gap: "0.4rem",
-              maxHeight: "92vh",
-            },
-            "@media screen and (minHeight: 897px)": {
-              // iPhone Pro Max y más grandes
-              padding: "1.2rem",
-              gap: "0.5rem",
-              maxHeight: "90vh",
-            },
-            "@media screen and (minWidth: 768px)": {
-              padding: "2rem",
-              maxWidth: "600px",
-              gap: "1rem",
-            },
-          }}
         >
           <motion.div
-            className="invitation-icon"
+            className="icon-container"
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ delay: 0.5, duration: 0.8, type: "spring" }}
-            style={{
-              borderRadius: "50%",
-              width: "50px",
-              height: "50px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              marginBottom: "1.2rem",
-              border: "1px solid rgba(255, 255, 255, 0.7)",
-            }}
           >
             <FontAwesomeIcon
               icon={faEnvelope}
@@ -127,20 +70,6 @@ const Cover = ({ onOpen }) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-            style={{
-              fontFamily: "Charm",
-              fontSize: "2.2rem",
-              fontWeight: "600",
-              marginBottom: "0.3rem",
-              marginTop: "0.3rem",
-              letterSpacing: "1px",
-              textShadow: "2px 2px 4px rgba(165, 102, 7, 0.3)",
-              "@media (minWidth: 768px)": {
-                fontSize: "2.8rem",
-                marginBottom: "1rem",
-                marginTop: "1rem",
-              },
-            }}
           >
             ¡Te Invitamos a Nuestra Boda!
           </motion.h2>
@@ -179,17 +108,11 @@ const Cover = ({ onOpen }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 1 }}
-            style={{
-              margin: "0.5rem 0",
-              "@media screen and (maxHeight: 667px)": {
-                margin: "0.3rem 0",
-              },
-            }}
           >
             <img
               src="./assets/images/timeline-wedding.jpg"
               alt="Daniel & Laura"
-              className="couple-photo"
+              className="photo-frame"
               style={{
                 border: "4px solid rgb(229, 178, 137)",
                 boxShadow: "0 0 20px rgba(0, 0, 0, 0.3)",

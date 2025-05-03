@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const Timeline = () => {
   const timelineEvents = [
     {
-      year: "2019",
+      year: "2018",
       title: "Nos conocimos",
       description:
         "Un encuentro casual que cambió nuestras vidas para siempre.",
@@ -11,23 +11,22 @@ const Timeline = () => {
       photo: "./assets/images/timeline-meet.jpg",
     },
     {
-      year: "2020",
-      title: "Nuestra primera cita",
-      description:
-        "Compartimos risas, historias y supimos que era el comienzo de algo especial.",
+      year: "2019",
+      title: "Primera cita",
+      description: "Comenzamos a escribir nuestra historia de amor.",
       icon: "./assets/icons/icon2.png",
       photo: "./assets/images/timeline-date.jpg",
     },
     {
       year: "2020",
-      title: "Nos hicimos novios",
-      description: "Oficialmente comenzamos nuestro camino juntos.",
+      title: "Noviazgo",
+      description: "Decidimos compartir nuestras vidas juntos.",
       icon: "./assets/icons/icon3.png",
       photo: "./assets/images/timeline-couple.jpg",
     },
     {
-      year: "2025",
-      title: "La propuesta",
+      year: "2024",
+      title: "Compromiso",
       description:
         "Con un anillo y mucha felicidad, dijimos sí a compartir el resto de nuestras vidas.",
       icon: "./assets/icons/icon4.png",
@@ -47,7 +46,7 @@ const Timeline = () => {
     <section className="timeline-section" id="timeline">
       <div className="container">
         <motion.h2
-          className="text-center timeline-title"
+          className="section-title"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -66,18 +65,12 @@ const Timeline = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
             >
-              <div className="timeline-dot"></div>
-              <div className="timeline-content">
+              <div className="timeline-dot" />
+              <div className="timeline-content card-base">
                 <img
                   src={event.icon}
                   alt={event.title}
                   className="timeline-icon"
-                  style={{
-                    width: "64px",
-                    height: "64px",
-                    filter:
-                      "invert(86%) sepia(38%) saturate(463%) hue-rotate(355deg) brightness(89%) contrast(90%)",
-                  }}
                 />
                 <img
                   src={event.photo}
@@ -85,8 +78,10 @@ const Timeline = () => {
                   className="timeline-photo"
                 />
                 <div className="timeline-year">{event.year}</div>
-                <h3 className="timeline-title">{event.title}</h3>
-                <p className="timeline-description">{event.description}</p>
+                <h3 className="timeline-title cursive-text">{event.title}</h3>
+                <p className="timeline-description cursive-text">
+                  {event.description}
+                </p>
               </div>
             </motion.div>
           ))}
