@@ -255,6 +255,7 @@
   border-radius: 8px;
   box-shadow: 0 4px 20px rgba(138, 109, 59, 0.1);
   overflow: hidden;
+  margin-top: var(--spacing-lg);
   /* Para contener el pseudo-elemento */
 }
 
@@ -1047,7 +1048,7 @@
   width: 60px;
   height: 60px;
   margin-bottom: 1rem;
-  color: var(--primary-color);
+  color: var(--tertiary-color);
 }
 
 .timeline-photo {
@@ -2175,7 +2176,7 @@ body,
 }
 
 .dress-code-image {
-  width: 150px;
+  width: 200px;
   height: auto;
   object-fit: contain;
   margin: var(--spacing-md) 0;
@@ -2184,15 +2185,16 @@ body,
 .dress-code-details {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-md);
-  font-size: 0.9rem;
+  gap: var(--spacing-lg);
   color: #666;
-  text-align: left;
+  text-align: start;
   width: 100%;
+  padding: 10px;
 }
 
 .dress-code-group {
   margin-bottom: var(--spacing-md);
+  font-size: var(--fs-xlarge);
 }
 
 .group-title {
@@ -2202,7 +2204,7 @@ body,
 .dress-code-list {
   padding-left: var(--spacing-md);
   margin: 0;
-  font-size: 0.85rem;
+  font-size: var(--fs-medium);
   line-height: 1.5;
 }
 
@@ -2466,9 +2468,6 @@ body,
 }
 
 /* Indications section styles */
-.indications-section {
-  padding: var(--spacing-xl) 0;
-}
 
 .two-columns-grid {
   display: flex;
@@ -2542,6 +2541,8 @@ body,
 
 .indication-content {
   flex: 1;
+  text-align: start;
+  margin-top: 10px;
 }
 
 .indication-content h3 {
@@ -2646,6 +2647,8 @@ body,
 
 .indication-content {
   flex: 1;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .indication-title {

@@ -154,7 +154,6 @@ const RsvpForm = ({ onRsvpSubmit }) => {
             </motion.p>
           </>
         )}
-
         <motion.div
           className="form-container"
           initial={{ opacity: 0, y: 20 }}

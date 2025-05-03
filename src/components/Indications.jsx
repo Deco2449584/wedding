@@ -55,7 +55,7 @@ const Indications = () => {
   ];
 
   return (
-    <section className="indications-section" id="indications">
+    <section className="timeline-content card-base" id="indications">
       <div className="container">
         <motion.h2
           className="section-title"
