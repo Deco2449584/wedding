@@ -11,8 +11,8 @@ const Location = () => {
     address:
       "Finca el Manantial, Vereda el Meusa, Sopó, Cundinamarca, Colombia",
     coordinates: {
-      lat: 4.856539,
-      lng: -74.939485,
+      lat: 4.856021824123811,
+      lng: -73.9391762888429,
     },
   };
 
