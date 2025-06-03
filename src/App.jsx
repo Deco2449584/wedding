@@ -17,6 +17,7 @@ import Indications from "./components/Indications";
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 import VideoMessage from "./components/VideoMessage";
+import SeatingArrangement from "./components/SeatingArrangement";
 
 // Configuración de Firebase
 const firebaseConfig = {
@@ -154,6 +155,7 @@ function App() {
           path="/daniel-laura-wedding-guests-H8x7P2mK9nQ4"
           element={<DetailedGuestTable />}
         />
+        <Route path="/mesa-interactiva" element={<SeatingArrangement />} />
       </Routes>
     </Router>
   );

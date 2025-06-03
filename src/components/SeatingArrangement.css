@@ -1,0 +1,222 @@
+/* Estilos para la mesa interactiva de boda */
+
+/* Puedes personalizar estos estilos para mejorar la visualización */
+
+.seating-table-container {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.seating-guest-list {
+    width: 300px;
+    min-height: 500px;
+    background: #fff8e1;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    padding: 16px;
+    font-family: Charm;
+    margin-right: 32px;
+}
+
+.seating-guest-list h3 {
+    text-align: center;
+    color: #b77b3b;
+}
+
+.seating-guest-item {
+    user-select: none;
+    padding: 8px 10px;
+    background: #fff;
+    border: 1px solid #b77b3b;
+    border-radius: 8px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 1px 4px rgba(183, 123, 59, 0.07);
+}
+
+.seating-guest-item.dragging {
+    background: #ffe0b2;
+}
+
+.seating-table-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.seating-table-title {
+    font-family: Charm;
+    color: #b77b3b;
+    margin-bottom: 24px;
+}
+
+.seating-table-row {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.left-row {
+    margin-right: 32px;
+}
+
+.right-row {
+    margin-left: 32px;
+}
+
+.seating-seat {
+    width: 70px;
+    height: 60px;
+    background: #fff;
+    border: 2px solid #b77b3b;
+    border-radius: 16px;
+    margin: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Charm;
+    font-size: 15px;
+    min-height: 40px;
+    transition: background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(183, 123, 59, 0.10);
+    cursor: pointer;
+    background-image: linear-gradient(135deg, #fffbe8 60%, #f7e1c6 100%);
+}
+
+.head-seat {
+    width: 80px;
+    height: 80px;
+    background: #f7e1c6;
+    border: 3px solid #b77b3b;
+    border-radius: 50%;
+    font-weight: bold;
+    margin: 0 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    box-shadow: 0 4px 16px rgba(183, 123, 59, 0.12);
+    cursor: pointer;
+    position: relative;
+}
+
+.head-seat::after {
+    content: '';
+    position: absolute;
+    bottom: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 36px;
+    height: 36px;
+    background: url('../assets/icons/icon5.png') center/contain no-repeat;
+    opacity: 0.7;
+}
+
+.seating-seat-placeholder {
+    color: #b77b3b;
+    opacity: 0.4;
+    font-size: 14px;
+}
+
+.seating-seat.drag-over {
+    background: #ffe0b2;
+}
+
+.head-seat.drag-over {
+    background: #ffe0b2;
+}
+
+.wedding-table-visual {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 350px;
+}
+
+.wedding-table-centerpiece {
+    width: 900px;
+    height: 60px;
+    background: linear-gradient(90deg, #fffbe8 80%, #f7e1c6 100%);
+    border: 8px solid #b77b3b;
+    border-radius: 40px;
+    box-shadow: 0 8px 32px rgba(183, 123, 59, 0.18);
+    margin-bottom: 24px;
+    margin-top: -24px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: visible;
+}
+
+.wedding-table-centerpiece::before,
+.wedding-table-centerpiece::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 60px;
+    height: 60px;
+    background: url('../assets/icons/petal-1.png') center/contain no-repeat;
+    opacity: 0.5;
+    transform: translateY(-50%) rotate(-10deg);
+}
+
+.wedding-table-centerpiece::before {
+    left: -70px;
+}
+
+.wedding-table-centerpiece::after {
+    right: -70px;
+    transform: translateY(-50%) rotate(10deg);
+}
+
+/* Modal selector */
+.seating-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.seating-modal-content {
+    background: #fffbe8;
+    border-radius: 16px;
+    padding: 32px;
+    min-width: 320px;
+    box-shadow: 0 4px 32px #b77b3b55;
+}
+
+.seating-modal-content h3 {
+    font-family: Charm;
+    color: #b77b3b;
+    margin-bottom: 16px;
+}
+
+.seating-modal-content button {
+    margin-top: 16px;
+    background: #b77b3b;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.seating-modal-content button:hover {
+    background: #a06a2b;
+}

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const Timeline = () => {
   const timelineEvents = [
     {
-      year: "2018",
+      year: "2019",
       title: "Nos conocimos",
       description:
         "Un encuentro casual que cambió nuestras vidas para siempre.",
@@ -11,7 +11,7 @@ const Timeline = () => {
       photo: "./assets/images/timeline-meet.jpg",
     },
     {
-      year: "2019",
+      year: "2020",
       title: "Primera cita",
       description: "Comenzamos a escribir nuestra historia de amor.",
       icon: "./assets/icons/icon2.png",
@@ -25,7 +25,7 @@ const Timeline = () => {
       photo: "./assets/images/timeline-couple.jpg",
     },
     {
-      year: "2024",
+      year: "2025",
       title: "Compromiso",
       description:
         "Con un anillo y mucha felicidad, dijimos sí a compartir el resto de nuestras vidas.",
