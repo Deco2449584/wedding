@@ -90,7 +90,7 @@ const DetailedGuestTable = () => {
         />
       </div>
 
-      <div style={{ overflowX: "auto" }}>
+      <div style={{ overflowX: "auto", maxHeight: "500px", overflowY: "auto" }}>
         <table
           style={{
             width: "100%",
