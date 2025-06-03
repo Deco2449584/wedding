@@ -1,64 +1,55 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFemale, faMale } from "@fortawesome/free-solid-svg-icons";
 import weddingBg from "../assets/images/cover-bg.png";
 import "../App.css";
 import "./SeatingArrangement.css";
-
-// Agrega género a los invitados (puedes ajustar según corresponda)
-const initialGuests = [
-  { name: "Sara Muñoz", gender: "female" },
-  { name: "Cindy dahiana arboleda criollo", gender: "female" },
-  { name: "Jaqueline Alvarez", gender: "female" },
-  { name: "Meide Arcila", gender: "female" },
-  { name: "Michelle Fuentes", gender: "female" },
-  { name: "Felipe Franco", gender: "male" },
-  { name: "Juvenal criollo moreno", gender: "male" },
-  { name: "Jorge Luis Sánchez Abella", gender: "male" },
-  { name: "Juan Carlos criollo", gender: "male" },
-  { name: "Daniela Martín", gender: "female" },
-  { name: "María Amanda Vázquez", gender: "female" },
-  { name: "Edna Gálvez", gender: "female" },
-  { name: "Gerardo fuentes", gender: "male" },
-  { name: "Germán Ramírez", gender: "male" },
-  { name: "Gustavo Caro", gender: "male" },
-  { name: "Eder pinzon", gender: "male" },
-  { name: "Ana Cristina Arevalo Quevedo", gender: "female" },
-  { name: "Ruth Elena riobo", gender: "female" },
-  { name: "María Mujica", gender: "female" },
-  { name: "Consuelo Janeth Ortiz Pinzón", gender: "female" },
-  { name: "Esteban Albornoz", gender: "male" },
-  { name: "Eliana Sastoque", gender: "female" },
-  { name: "Leslie Albornoz", gender: "female" },
-  { name: "DANNA CASTRO", gender: "female" },
-  { name: "Sara Isabel Caicedo hurtado", gender: "female" },
-  { name: "Nohora Celeny Galvez Hincapie", gender: "female" },
-  { name: "Sara criollo", gender: "female" },
-  { name: "Martha cañon", gender: "female" },
-  { name: "Alejandra Jiménez", gender: "female" },
-  { name: "Rodrigo Ramos", gender: "male" },
-  { name: "Rodrigo Baquero", gender: "male" },
-  { name: "José David Criollo Moreno", gender: "male" },
-  { name: "Diana escobar", gender: "female" },
-  { name: "Ingrid Sánchez", gender: "female" },
-  // Invitados adicionales
-  { name: "Daniel Caro", gender: "male" },
-  { name: "Laura Criollo", gender: "female" },
-  { name: "Alex Reyes", gender: "male" },
-  { name: "Adriana Reyes", gender: "female" },
-];
+import { getFirestore, doc, getDoc, setDoc, collection, getDocs } from "firebase/firestore";
 
 const totalSeats = 40;
-const leftSeats = 19;
-const rightSeats = 19;
-const headSeats = 2;
 
 const SeatingArrangement = () => {
-  const [guests, setGuests] = useState(initialGuests);
-  const [seats, setSeats] = useState(Array(totalSeats).fill(null));
-  const [selectingSeat, setSelectingSeat] = useState(null); // Nuevo estado para saber si se está seleccionando un invitado para un puesto
+  const [guests, setGuests] = useState([]); // Invitados confirmados desde Firebase
+  const [seats, setSeats] = useState(Array(totalSeats).fill(null)); // Puestos desde Firebase
+  const [selectingSeat, setSelectingSeat] = useState(null);
+  const [search, setSearch] = useState("");
+  const db = getFirestore();
 
-  // Cuando se hace click en un asiento vacío, abre el selector
+  // Cargar invitados confirmados y puestos desde Firebase
+  useEffect(() => {
+    const fetchGuestsAndSeats = async () => {
+      // Invitados confirmados
+      const guestsSnapshot = await getDocs(collection(db, "confirmaciones"));
+      const guestList = [];
+      guestsSnapshot.forEach((doc) => {
+        const data = doc.data();
+        guestList.push({
+          id: doc.id,
+          name: data.fullName,
+          gender: data.gender || "male",
+          ...data,
+        });
+      });
+      // Cargar puestos (siempre del doc main-table)
+      const seatsDoc = await getDoc(doc(db, "puestos", "main-table"));
+      let seatsArr = Array(totalSeats).fill(null);
+      if (seatsDoc.exists() && Array.isArray(seatsDoc.data().seats)) {
+        seatsArr = seatsDoc.data().seats;
+      }
+      // Quitar de la lista de invitados los que ya están sentados
+      const assignedIds = seatsArr.filter(Boolean).map((g) => g && g.id);
+      setGuests(guestList.filter((g) => !assignedIds.includes(g.id)));
+      setSeats(seatsArr);
+    };
+    fetchGuestsAndSeats();
+  }, []);
+
+  // Guardar puestos en Firebase
+  const saveSeatsToFirebase = async (newSeats) => {
+    await setDoc(doc(db, "puestos", "main-table"), { seats: newSeats });
+  };
+
+  // Cuando se hace click en un asiento vacio, abre el selector
   const handleSeatClick = (idx) => {
     if (!seats[idx]) setSelectingSeat(idx);
   };
@@ -66,15 +57,32 @@ const SeatingArrangement = () => {
   // Cuando se selecciona un invitado de la lista para un asiento
   const handleSelectGuestForSeat = (guestIdx) => {
     if (selectingSeat === null) return;
-    const guest = guests[guestIdx];
-    const newGuests = guests.filter((_, i) => i !== guestIdx);
+    const guest = filteredGuests[guestIdx];
+    const newGuests = guests.filter((g) => g.id !== guest.id);
     const newSeats = [...seats];
     newSeats[selectingSeat] = guest;
     setGuests(newGuests);
     setSeats(newSeats);
     setSelectingSeat(null);
+    saveSeatsToFirebase(newSeats);
   };
 
+  // Función para quitar invitado de un puesto
+  const handleRemoveSeat = (idx) => {
+    const newSeats = [...seats];
+    const removed = newSeats[idx];
+    newSeats[idx] = null;
+    setSeats(newSeats);
+    if (removed) setGuests((prev) => [...prev, removed]);
+    saveSeatsToFirebase(newSeats);
+  };
+
+  // Filtro de invitados para el modal
+  const filteredGuests = guests.filter((g) =>
+    g.name.toLowerCase().includes(search.toLowerCase())
+  );
+
+  // Diseño de la mesa: ovalada, solo cabecera 1 y 2 (antes 1 y 3)
   return (
     <div
       className="seating-table-container"
@@ -100,16 +108,18 @@ const SeatingArrangement = () => {
             minHeight: 350,
           }}
         >
-          {/* Fila superior: 2 puestos en la cabecera izquierda, 19 puestos, cabecera derecha vacía */}
+          {/* Fila superior: cabecera 1, 19 puestos centrales */}
           <div
             style={{
               display: "flex",
               flexDirection: "row",
               gap: 12,
               marginBottom: 24,
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
-            {/* Cabecera izquierda: 2 puestos */}
+            {/* Cabecera 1 */}
             <div
               className="seating-seat head-seat"
               style={{ cursor: !seats[0] ? "pointer" : "default" }}
@@ -119,93 +129,85 @@ const SeatingArrangement = () => {
                 <div className="seating-guest-item">
                   <FontAwesomeIcon
                     icon={seats[0].gender === "female" ? faFemale : faMale}
-                    style={{
-                      marginRight: 8,
-                      color:
-                        seats[0].gender === "female" ? "#e75480" : "#3b7bb7",
-                    }}
+                    style={{ marginRight: 8, color: seats[0].gender === "female" ? "#e75480" : "#3b7bb7" }}
                   />
                   {seats[0].name}
+                  <button
+                    style={{ marginLeft: 8, fontSize: 12 }}
+                    onClick={e => { e.stopPropagation(); handleRemoveSeat(0); }}
+                    title="Quitar invitado"
+                  >✖</button>
                 </div>
               ) : (
-                <span className="seating-seat-placeholder">Cabecera 1</span>
+                <span className="seating-seat-placeholder">1</span>
               )}
             </div>
-            <div
-              className="seating-seat head-seat"
-              style={{ cursor: !seats[1] ? "pointer" : "default" }}
-              onClick={() => handleSeatClick(1)}
-            >
-              {seats[1] ? (
-                <div className="seating-guest-item">
-                  <FontAwesomeIcon
-                    icon={seats[1].gender === "female" ? faFemale : faMale}
-                    style={{
-                      marginRight: 8,
-                      color:
-                        seats[1].gender === "female" ? "#e75480" : "#3b7bb7",
-                    }}
-                  />
-                  {seats[1].name}
-                </div>
-              ) : (
-                <span className="seating-seat-placeholder">Cabecera 2</span>
-              )}
-            </div>
-            {/* 19 puestos centrales */}
+            {/* 19 puestos centrales (superior) */}
             {Array.from({ length: 19 }).map((_, idx) => (
               <div
                 className="seating-seat"
-                key={idx + 2}
-                style={{ cursor: !seats[idx + 2] ? "pointer" : "default" }}
-                onClick={() => handleSeatClick(idx + 2)}
+                key={idx + 1}
+                style={{ cursor: !seats[idx + 1] ? "pointer" : "default" }}
+                onClick={() => handleSeatClick(idx + 1)}
               >
-                {seats[idx + 2] ? (
+                {seats[idx + 1] ? (
                   <div className="seating-guest-item">
                     <FontAwesomeIcon
-                      icon={
-                        seats[idx + 2].gender === "female" ? faFemale : faMale
-                      }
-                      style={{
-                        marginRight: 8,
-                        color:
-                          seats[idx + 2].gender === "female"
-                            ? "#e75480"
-                            : "#3b7bb7",
-                      }}
+                      icon={seats[idx + 1].gender === "female" ? faFemale : faMale}
+                      style={{ marginRight: 8, color: seats[idx + 1].gender === "female" ? "#e75480" : "#3b7bb7" }}
                     />
-                    {seats[idx + 2].name}
+                    {seats[idx + 1].name}
+                    <button
+                      style={{ marginLeft: 8, fontSize: 12 }}
+                      onClick={e => { e.stopPropagation(); handleRemoveSeat(idx + 1); }}
+                      title="Quitar invitado"
+                    >✖</button>
                   </div>
                 ) : (
-                  <span className="seating-seat-placeholder">{idx + 3}</span>
+                  <span className="seating-seat-placeholder">{idx + 2}</span>
                 )}
               </div>
             ))}
-            {/* Cabecera derecha vacía visualmente */}
-            <div
-              style={{
-                width: 80,
-                height: 80,
-                marginLeft: 12,
-                marginRight: 0,
-                background: "transparent",
-              }}
-            />
           </div>
-          {/* Mesa visual mejorada */}
-          <div className="wedding-table-centerpiece" />
-          {/* Fila inferior: 19 puestos alineados con los de arriba */}
+          {/* Centro de mesa decorativo */}
+          <div className="wedding-table-centerpiece" style={{ width: 320, height: 80, borderRadius: 40, background: "#fffbe8", boxShadow: "0 4px 32px #b77b3b55", display: "flex", alignItems: "center", justifyContent: "center", margin: "0.5rem 0" }}>
+            <span style={{ fontFamily: "Charm", fontSize: 32, color: "#b77b3b" }}>💐 Mesa de Honor 💐</span>
+          </div>
+          {/* Fila inferior: cabecera 21, 19 puestos centrales */}
           <div
             style={{
               display: "flex",
               flexDirection: "row",
               gap: 12,
               marginTop: 0,
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
-            {/* Espacio para alinear con cabecera izquierda */}
-            <div style={{ width: 80, height: 80, visibility: "hidden" }} />
-            <div style={{ width: 80, height: 80, visibility: "hidden" }} />
+            {/* Cabecera 21 */}
+            <div
+              className="seating-seat head-seat"
+              style={{ cursor: !seats[20] ? "pointer" : "default" }}
+              onClick={() => handleSeatClick(20)}
+            >
+              {seats[20] ? (
+                <div className="seating-guest-item">
+                  <FontAwesomeIcon
+                    icon={seats[20].gender === "female" ? faFemale : faMale}
+                    style={{ marginRight: 8, color: seats[20].gender === "female" ? "#e75480" : "#3b7bb7" }}
+                  />
+                  {seats[20].name}
+                  <button
+                    style={{ marginLeft: 8, fontSize: 12 }}
+                    onClick={e => { e.stopPropagation(); handleRemoveSeat(20); }}
+                    title="Quitar invitado"
+                  >✖</button>
+                </div>
+              ) : (
+                <span className="seating-seat-placeholder">21</span>
+              )}
+            </div>
+            {/* 19 puestos centrales (inferior) */}
             {Array.from({ length: 19 }).map((_, idx) => (
               <div
                 className="seating-seat"
@@ -216,26 +218,21 @@ const SeatingArrangement = () => {
                 {seats[21 + idx] ? (
                   <div className="seating-guest-item">
                     <FontAwesomeIcon
-                      icon={
-                        seats[21 + idx].gender === "female" ? faFemale : faMale
-                      }
-                      style={{
-                        marginRight: 8,
-                        color:
-                          seats[21 + idx].gender === "female"
-                            ? "#e75480"
-                            : "#3b7bb7",
-                      }}
+                      icon={seats[21 + idx].gender === "female" ? faFemale : faMale}
+                      style={{ marginRight: 8, color: seats[21 + idx].gender === "female" ? "#e75480" : "#3b7bb7" }}
                     />
                     {seats[21 + idx].name}
+                    <button
+                      style={{ marginLeft: 8, fontSize: 12 }}
+                      onClick={e => { e.stopPropagation(); handleRemoveSeat(21 + idx); }}
+                      title="Quitar invitado"
+                    >✖</button>
                   </div>
                 ) : (
-                  <span className="seating-seat-placeholder">{21 + idx}</span>
+                  <span className="seating-seat-placeholder">{21 + idx + 1}</span>
                 )}
               </div>
             ))}
-            {/* Espacio para alinear con cabecera derecha */}
-            <div style={{ width: 80, height: 80, visibility: "hidden" }} />
           </div>
         </div>
         {/* Selector modal para elegir invitado */}
@@ -246,28 +243,39 @@ const SeatingArrangement = () => {
               style={{ minWidth: 420, maxWidth: 600 }}
             >
               <h3>Selecciona un invitado</h3>
+              <input
+                type="text"
+                placeholder="Buscar invitado..."
+                value={search}
+                onChange={e => setSearch(e.target.value)}
+                style={{
+                  width: "100%",
+                  padding: "0.7rem 1rem",
+                  fontSize: "1.2rem",
+                  border: "2px solid var(--primary-color)",
+                  borderRadius: "10px",
+                  fontFamily: "Charm",
+                  marginBottom: 12,
+                }}
+              />
               <div style={{ maxHeight: 420, overflowY: "auto" }}>
-                {guests.length === 0 && <div>No hay invitados disponibles</div>}
-                {guests.map((guest, idx) => (
+                {filteredGuests.length === 0 && <div>No hay invitados disponibles</div>}
+                {filteredGuests.map((guest, idx) => (
                   <div
-                    key={guest.name}
+                    key={guest.id}
                     className="seating-guest-item"
                     style={{ cursor: "pointer", marginBottom: 8 }}
                     onClick={() => handleSelectGuestForSeat(idx)}
                   >
                     <FontAwesomeIcon
                       icon={guest.gender === "female" ? faFemale : faMale}
-                      style={{
-                        marginRight: 8,
-                        color:
-                          guest.gender === "female" ? "#e75480" : "#3b7bb7",
-                      }}
+                      style={{ marginRight: 8, color: guest.gender === "female" ? "#e75480" : "#3b7bb7" }}
                     />
                     {guest.name}
                   </div>
                 ))}
               </div>
-              <button onClick={() => setSelectingSeat(null)}>Cancelar</button>
+              <button onClick={() => setSelectingSeat(null)} style={{marginTop: 16}}>Cancelar</button>
             </div>
           </div>
         )}
