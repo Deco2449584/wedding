@@ -18,6 +18,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore, collection, getDocs } from "firebase/firestore";
 import VideoMessage from "./components/VideoMessage";
 import SeatingArrangement from "./components/SeatingArrangement";
+import TimelineScreen from "./components/TimelineScreen";
 
 // Configuración de Firebase
 const firebaseConfig = {
@@ -156,6 +157,7 @@ function App() {
           element={<DetailedGuestTable />}
         />
         <Route path="/puestos" element={<SeatingArrangement />} />
+        <Route path="/cronograma" element={<TimelineScreen />} />
       </Routes>
     </Router>
   );
