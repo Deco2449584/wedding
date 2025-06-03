@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Cover from "./components/Cover";
 import StickyHeader from "./components/StickyHeader";
@@ -152,10 +152,10 @@ function App() {
           }
         />
         <Route
-          path="/daniel-laura-wedding-guests-H8x7P2mK9nQ4"
+          path="/invitados"
           element={<DetailedGuestTable />}
         />
-        <Route path="/mesa-interactiva" element={<SeatingArrangement />} />
+        <Route path="/puestos" element={<SeatingArrangement />} />
       </Routes>
     </Router>
   );

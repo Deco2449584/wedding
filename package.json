@@ -19,7 +19,6 @@
     "firebase": "^11.6.1",
     "framer-motion": "^12.7.2",
     "react": "^19.0.0",
-    "react-beautiful-dnd": "^13.1.1",
     "react-dom": "^19.0.0",
     "react-responsive": "^10.0.1",
     "react-router-dom": "^7.5.0",
