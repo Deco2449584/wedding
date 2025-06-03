@@ -131,7 +131,7 @@ const SeatingArrangement = () => {
                     icon={seats[0].gender === "female" ? faFemale : faMale}
                     style={{ marginRight: 8, color: seats[0].gender === "female" ? "#e75480" : "#3b7bb7" }}
                   />
-                  {seats[0].name}
+                  {seats[0].name?.split(" ").slice(0,2).join(" ")}
                   <button
                     style={{ marginLeft: 8, fontSize: 12 }}
                     onClick={e => { e.stopPropagation(); handleRemoveSeat(0); }}
@@ -156,7 +156,7 @@ const SeatingArrangement = () => {
                       icon={seats[idx + 1].gender === "female" ? faFemale : faMale}
                       style={{ marginRight: 8, color: seats[idx + 1].gender === "female" ? "#e75480" : "#3b7bb7" }}
                     />
-                    {seats[idx + 1].name}
+                    {seats[idx + 1].name?.split(" ").slice(0,2).join(" ")}
                     <button
                       style={{ marginLeft: 8, fontSize: 12 }}
                       onClick={e => { e.stopPropagation(); handleRemoveSeat(idx + 1); }}
@@ -196,7 +196,7 @@ const SeatingArrangement = () => {
                     icon={seats[20].gender === "female" ? faFemale : faMale}
                     style={{ marginRight: 8, color: seats[20].gender === "female" ? "#e75480" : "#3b7bb7" }}
                   />
-                  {seats[20].name}
+                  {seats[20].name?.split(" ").slice(0,2).join(" ")}
                   <button
                     style={{ marginLeft: 8, fontSize: 12 }}
                     onClick={e => { e.stopPropagation(); handleRemoveSeat(20); }}
@@ -221,7 +221,7 @@ const SeatingArrangement = () => {
                       icon={seats[21 + idx].gender === "female" ? faFemale : faMale}
                       style={{ marginRight: 8, color: seats[21 + idx].gender === "female" ? "#e75480" : "#3b7bb7" }}
                     />
-                    {seats[21 + idx].name}
+                    {seats[21 + idx].name?.split(" ").slice(0,2).join(" ")}
                     <button
                       style={{ marginLeft: 8, fontSize: 12 }}
                       onClick={e => { e.stopPropagation(); handleRemoveSeat(21 + idx); }}
