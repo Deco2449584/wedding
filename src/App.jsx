@@ -60,6 +60,9 @@ function MainContent({
           <RsvpForm onRsvpSubmit={handleRsvpSubmit} />
           <VideoMessage />
           <GuestStats />
+          <TimelineScreen />
+
+          
           {showEffects && (
             <>
               <FallingPetals />

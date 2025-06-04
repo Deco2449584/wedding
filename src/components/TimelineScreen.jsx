@@ -166,8 +166,7 @@ const CronogramaBoda = () => {
     <div className="section timeline-section">
       <div className="container">
         <div className="timeline-header-card">
-          <h1 className="section-title">Cronograma Musical</h1>
-          <h2 className="timeline-subtitle">Boda de Daniel y Laura</h2>
+          <h1 className="section-title">Cronograma del Evento</h1>
           <p className="timeline-date">📅 15 de junio de 2025 • ⏰ 12:00 p.m. - 7:30 p.m.</p>
         </div>
 
@@ -221,7 +220,7 @@ const CronogramaBoda = () => {
         </div>
 
         <div className="timeline-footer-card">
-          <p className="timeline-footer-text">💝 Haz clic en cada momento para ver los detalles musicales</p>
+          <p className="timeline-footer-text">💝 Haz clic en cada momento para ver los detalles</p>
         </div>
       </div>
     </div>
