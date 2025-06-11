@@ -67,6 +67,42 @@ const Welcome = () => {
         >
           Estamos muy emocionados de compartir este día especial con ustedes
         </motion.p>
+         <div style={{ marginTop: '2px', textAlign: 'center' }}>
+          <span
+            onClick={() => {
+              const liveSection = document.getElementById('live');
+              if (liveSection) {
+                liveSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }}
+            role="button"
+            tabIndex={0}
+            onKeyPress={e => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                const liveSection = document.getElementById('live');
+                if (liveSection) {
+                  liveSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }
+            }}
+            style={{
+              color: '#d4a574',
+              fontWeight: 500,
+              fontFamily: "'Dancing Script', cursive",
+              fontSize: '0.95rem',
+              textDecoration: 'underline',
+              cursor: 'pointer',
+              transition: 'color 0.2s',
+              display: 'inline-block',
+              marginTop: '2px',
+              letterSpacing: '0.5px',
+              animation: 'bounce 2s infinite',
+              outline: 'none'
+            }}
+          >
+            👉 Click aquí para ver la transmisión en vivo
+          </span>
+        </div>
       </div>
 
       <motion.div

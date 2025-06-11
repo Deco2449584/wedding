@@ -55,7 +55,6 @@ function MainContent({
         >
           <StickyHeader rsvpCount={rsvpCount} />
           <Welcome />
-          <LiveStream />
           <Timeline />
           <Location />
           <Indications />
@@ -63,6 +62,8 @@ function MainContent({
           <VideoMessage />
           <GuestStats />
           <TimelineScreen />
+           <LiveStream />
+
 
           
           {showEffects && (
