@@ -2,9 +2,9 @@ import React from "react";
 
 function LiveStream() {
   // Cambia a true el día del evento para mostrar el video
-  const isLive = false;
+  const isLive = true;
   const coupleName = "Daniel & Laura";
-  const twitchUrl = "https://www.twitch.tv/deco2449584/v/2483374739?sr=a";
+  const twitchUrl = "https://www.twitch.tv/Deco2449584?sr=a";
 
   // Paleta elegante: dorado y tonos cálidos
   const mainColor = "#d4a574";
