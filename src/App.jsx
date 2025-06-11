@@ -19,6 +19,7 @@ import { getFirestore, collection, getDocs } from "firebase/firestore";
 import VideoMessage from "./components/VideoMessage";
 import SeatingArrangement from "./components/SeatingArrangement";
 import TimelineScreen from "./components/TimelineScreen";
+import LiveStream from "./components/LiveStream";
 
 // Configuración de Firebase
 const firebaseConfig = {
@@ -54,6 +55,7 @@ function MainContent({
         >
           <StickyHeader rsvpCount={rsvpCount} />
           <Welcome />
+          <LiveStream />
           <Timeline />
           <Location />
           <Indications />
