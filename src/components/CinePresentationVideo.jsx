@@ -56,7 +56,7 @@ const CinePresentationVideo = () => {
         overflow: "hidden",
       }}
     >
-      {/* Cortinas rojas */}
+      {/* Cortinas laterales y superiores en tonos neutros */}
       <div
         style={{
           position: "absolute",
@@ -65,7 +65,7 @@ const CinePresentationVideo = () => {
           width: "50%",
           height: 180,
           background:
-            "repeating-linear-gradient(90deg, #b71c1c 0 20px, #a31515 20px 40px)",
+            "repeating-linear-gradient(90deg, var(--primary-color, #c7b299) 0 20px, var(--secondary-color, #e5b289) 20px 40px)",
           borderTopLeftRadius: 32,
           zIndex: 2,
           boxShadow: "8px 0 32px #0007",
@@ -79,7 +79,7 @@ const CinePresentationVideo = () => {
           width: "50%",
           height: 180,
           background:
-            "repeating-linear-gradient(90deg, #b71c1c 0 20px, #a31515 20px 40px)",
+            "repeating-linear-gradient(90deg, var(--primary-color, #c7b299) 0 20px, var(--secondary-color, #e5b289) 20px 40px)",
           borderTopRightRadius: 32,
           zIndex: 2,
           boxShadow: "-8px 0 32px #0007",
@@ -143,7 +143,14 @@ const CinePresentationVideo = () => {
           </div>
         )}
         {error && (
-          <div style={{ color: "#f44336", fontSize: "1.2rem" }}>{error}</div>
+          <div
+            style={{
+              color: "var(--primary-color, #c7b299)",
+              fontSize: "1.2rem",
+            }}
+          >
+            {error}
+          </div>
         )}
         {videoUrl && (
           <div
@@ -192,7 +199,8 @@ const CinePresentationVideo = () => {
                 top: 0,
                 width: 32,
                 height: "100%",
-                background: "linear-gradient(90deg, #b71c1c 60%, transparent)",
+                background:
+                  "linear-gradient(90deg, var(--primary-color, #c7b299) 60%, transparent)",
                 borderRadius: "24px 0 0 24px",
               }}
             />
@@ -203,7 +211,8 @@ const CinePresentationVideo = () => {
                 top: 0,
                 width: 32,
                 height: "100%",
-                background: "linear-gradient(270deg, #b71c1c 60%, transparent)",
+                background:
+                  "linear-gradient(270deg, var(--primary-color, #c7b299) 60%, transparent)",
                 borderRadius: "0 24px 24px 0",
               }}
             />
@@ -221,7 +230,7 @@ const CinePresentationVideo = () => {
                 boxShadow: "0 2px 8px #000",
               }}
             />
-            {/* Butacas */}
+            {/* Butacas en tonos neutros */}
             <div
               style={{
                 position: "absolute",
@@ -238,7 +247,7 @@ const CinePresentationVideo = () => {
                   style={{
                     width: 28,
                     height: 18,
-                    background: "#a31515",
+                    background: "var(--secondary-color, #e5b289)",
                     borderRadius: "0 0 12px 12px",
                     boxShadow: "0 2px 8px #0007",
                   }}

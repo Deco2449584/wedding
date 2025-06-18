@@ -20,10 +20,9 @@ import VideoMessage from "./components/VideoMessage";
 import SeatingArrangement from "./components/SeatingArrangement";
 import TimelineScreen from "./components/TimelineScreen";
 import LiveStream from "./components/LiveStream";
-import EventPhotoUploader from "./components/EventPhotoUploader";
 import EventPhotoCarousel from "./components/EventPhotoCarousel";
 import CinePresentationVideo from "./components/CinePresentationVideo";
-
+import EventPhotoUpload from "./components/EventPhotoUpload";
 // Configuración de Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyCma1WH-SmDsFbdCH1Jq7E2O_W1mLPg8mM",
@@ -66,7 +65,7 @@ function MainContent({
           <GuestStats />
           <TimelineScreen />
           <LiveStream />
-          <EventPhotoUploader />
+          <EventPhotoUpload />
           <EventPhotoCarousel />
           <CinePresentationVideo />
           {showEffects && (
