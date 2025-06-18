@@ -21,6 +21,7 @@ import SeatingArrangement from "./components/SeatingArrangement";
 import TimelineScreen from "./components/TimelineScreen";
 import LiveStream from "./components/LiveStream";
 import EventPhotoUploader from "./components/EventPhotoUploader";
+import EventPhotoCarousel from "./components/EventPhotoCarousel";
 
 // Configuración de Firebase
 const firebaseConfig = {
@@ -65,7 +66,7 @@ function MainContent({
           <TimelineScreen />
           <LiveStream />
           <EventPhotoUploader />
-
+          <EventPhotoCarousel />
           {showEffects && (
             <>
               <FallingPetals />
