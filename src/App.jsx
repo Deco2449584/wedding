@@ -20,6 +20,7 @@ import VideoMessage from "./components/VideoMessage";
 import SeatingArrangement from "./components/SeatingArrangement";
 import TimelineScreen from "./components/TimelineScreen";
 import LiveStream from "./components/LiveStream";
+import EventPhotoUploader from "./components/EventPhotoUploader";
 
 // Configuración de Firebase
 const firebaseConfig = {
@@ -62,10 +63,9 @@ function MainContent({
           <VideoMessage />
           <GuestStats />
           <TimelineScreen />
-           <LiveStream />
+          <LiveStream />
+          <EventPhotoUploader />
 
-
-          
           {showEffects && (
             <>
               <FallingPetals />
@@ -158,10 +158,7 @@ function App() {
             />
           }
         />
-        <Route
-          path="/invitados"
-          element={<DetailedGuestTable />}
-        />
+        <Route path="/invitados" element={<DetailedGuestTable />} />
         <Route path="/puestos" element={<SeatingArrangement />} />
         <Route path="/cronograma" element={<TimelineScreen />} />
       </Routes>
